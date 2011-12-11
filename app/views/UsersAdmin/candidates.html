@@ -1,0 +1,7 @@
+#{extends 'template/template.html' /}
+
+<ul>
+    #{list items: candidates, as: 'candidate'}
+    <li>${candidate.idBooster} - ${candidate.fullName}</li>
+    #{/list}
+</ul>

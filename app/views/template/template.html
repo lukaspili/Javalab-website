@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>${application_name} - ${page_title}</title>
+    <meta charset="${_response_encoding}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    #{get 'moreScripts' /}
+</head>
+<body>
+
+<p>
+    #{if !auth.isLogged()}
+    #{a @Users.login()}Login#{/a}
+    #{/if}
+
+    #{else}
+    #{if auth.isGlm()}
+    #{a @UsersAdmin.candidates('paris')}Candidats de Paris#{/a}
+    #{/if}
+
+    #{elseif auth.isClm()}
+    #{a @UsersAdmin.candidates()}Candidats de votre campus#{/a}
+    #{/elseif}
+
+    #{a @Users.logout()}Logout#{/a}
+    #{/else}
+
+</p>
+#{doLayout /}
+</body>
+</html>
