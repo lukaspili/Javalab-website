@@ -1,0 +1,164 @@
+
+
+
+
+/* Générale */
+
+
+body{
+	background-color: #eeeeee;
+	background: url('/public/images/noise.png') repeat;
+	width:100%;
+	height:100%;
+	margin: 0 auto 0 auto;
+	font: 12px Adrien;
+	background-position: fixed;
+}
+#ul-menu{
+	text-align: center;
+}
+#ul-menu li{
+	list-style-type: none;
+	display: inline;
+}
+
+/* Titre et syntaxe  */
+h1{
+	font-weight:none;
+}
+h2{
+	font-weight: 100;
+}
+h1.titre{
+/* 	font-style:italic; */
+	font-size: 48px;
+	color: #333333;
+	text-align: center;
+	text-shadow: 1px 1px white;
+	margin:30px 0 0 0;
+	font-weight: 500;
+}
+h2.titre{
+	font-size: 12px;
+	text-align: center;
+	margin:0;
+}
+h3{
+
+	font-size: px;
+	color: #181818;
+	font-weight: 500;
+	text-shadow: 0px 1px 0px white;
+	font-weight: none;
+}
+h4{
+	text-decoration: underline;
+}
+.titre a{
+	text-decoration: none;
+	color: #333333;
+}
+
+
+/* class */
+
+.menu{
+	height: 88px;
+	min-height: 88px;
+	max-height: 88px;
+	width: 100%;
+	background: url('/public/images/menu/menu-repeat.png');
+	min-width: 840px;
+	margin: 30px 0 30px 0;
+}
+.menu a{
+	margin-top: 6px;
+}
+.footer{
+	background: url('/public/images/footer/footer.png')repeat-x;
+	min-height: 336px;
+	max-height: 336px;
+	padding-top: 30px;
+	min-width: 940px;
+}
+.footer h3{
+	font-family: Adrien;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-shadow: none;
+	margin: 20px 0 10px 0;
+}
+.footer p{
+	font-size: 14px;
+	color: white;
+}
+.tweeter a{
+color: #9ad2f3;
+font-size: 14px;
+text-decoration: none;
+}
+.tweeter-nav{
+	font-size: 18px;
+}
+.tweeter-nav a{
+	font-size: 18px;
+	text-decoration: none;
+	color:white;
+}
+.information a{
+	color: white;
+	font-size: 14px;
+}
+/* ID */
+#button-menu{
+	font-weight: bold;
+	font-size: 18px;
+/* 	width: 200px; */
+	color: #272727;
+	text-shadow: 0px 1px 1px white;
+	text-decoration: none;
+	position: relative;
+	
+	display: inline-block;
+	line-height: 75px;
+	padding-left: 5px;
+	padding-right: 3px;
+	margin-right: 60px;
+
+}
+#button-menu:hover, #button-menu.selected{
+background: url('/public/images/menu/button.png')center top no-repeat;
+height: 92px;
+}
+#button-menu:hover:after, #button-menu.selected:after{
+	content: '';
+	background: url('/public/images/menu/button.png')right top no-repeat;
+	right:-20px;
+	width: 20px;
+	position: absolute;
+	height: 92px;
+	
+}
+#button-menu:hover:before, #button-menu.selected:before{
+	content: '';
+	background: url('/public/images/menu/button.png')left top no-repeat;
+	left:-20px;
+	width: 20px;
+	position: absolute;
+	height: 75px;
+}
+/*
+#button-menu:before{
+	content: '';
+	background: url('/public/images/menu/button-select.png')left top no-repeat;
+	background-position: center;
+	text-align: center;
+	top:65px;
+	width: 40px;
+	position: absolute;
+	height: 26px;
+	
+}
+*/
+
