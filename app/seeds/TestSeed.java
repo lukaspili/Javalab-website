@@ -39,7 +39,7 @@ public class TestSeed {
         user2.save();
 
         User user3 = new User();
-        user3.idBooster = "7777";
+        user3.idBooster = "92755";
         user3.firstName = "Kevin";
         user3.lastName = "Valfin";
         user3.campus = Campus.PARIS;
@@ -64,7 +64,89 @@ public class TestSeed {
         user5.promotion = Promotion.B1;
         user5.profile = Profile.CANDIDATE;
         user5.save();
+        
+        User user51 = new User();
+        user51.idBooster = "456";
+        user51.firstName = "Candidate 2";
+        user51.lastName = "Bar";
+        user51.campus = Campus.PARIS;
+        user51.promotion = Promotion.B1;
+        user51.profile = Profile.CANDIDATE;
+        user51.save();
+        
+        User user511 = new User();
+        user511.idBooster = "45624";
+        user511.firstName = "Candidate 3";
+        user511.lastName = "Bar";
+        user511.campus = Campus.PARIS;
+        user511.promotion = Promotion.B1;
+        user511.profile = Profile.CANDIDATE;
+        user511.save();
+        
+        User user5111 = new User();
+        user5111.idBooster = "456565";
+        user5111.firstName = "Candidate 4";
+        user5111.lastName = "Bar";
+        user5111.campus = Campus.PARIS;
+        user5111.promotion = Promotion.B1;
+        user5111.profile = Profile.CANDIDATE;
+        user5111.save();
+        
+        User user51111 = new User();
+        user51111.idBooster = "45645";
+        user51111.firstName = "Candidate 5";
+        user51111.lastName = "Bar";
+        user51111.campus = Campus.PARIS;
+        user51111.promotion = Promotion.B1;
+        user51111.profile = Profile.CANDIDATE;
+        user51111.save();
+        
+        User user511111 = new User();
+        user511111.idBooster = "45612";
+        user511111.firstName = "Candidate 6";
+        user511111.lastName = "Bar";
+        user511111.campus = Campus.PARIS;
+        user511111.promotion = Promotion.B1;
+        user511111.profile = Profile.CANDIDATE;
+        user511111.save();
+        
+        User user5111111 = new User();
+        user5111111.idBooster = "45634";
+        user5111111.firstName = "Candidate 7";
+        user5111111.lastName = "Bar";
+        user5111111.campus = Campus.PARIS;
+        user5111111.promotion = Promotion.B1;
+        user5111111.profile = Profile.CANDIDATE;
+        user5111111.save();
+        
+        User user51111111 = new User();
+        user51111111.idBooster = "45667";
+        user51111111.firstName = "Candidate 8";
+        user51111111.lastName = "Bar";
+        user51111111.campus = Campus.PARIS;
+        user51111111.promotion = Promotion.B1;
+        user51111111.profile = Profile.CANDIDATE;
+        user51111111.save();
+        
+        User user511111111 = new User();
+        user511111111.idBooster = "45609";
+        user511111111.firstName = "Candidate 9";
+        user511111111.lastName = "Bar";
+        user511111111.campus = Campus.CLERMONTFERRAND;
+        user511111111.promotion = Promotion.B1;
+        user511111111.profile = Profile.CANDIDATE;
+        user511111111.save();
+        
+        User user5111111111 = new User();
+        user5111111111.idBooster = "45697";
+        user5111111111.firstName = "Candidate 10";
+        user5111111111.lastName = "Bar";
+        user5111111111.campus = Campus.NANTES;
+        user5111111111.promotion = Promotion.B1;
+        user5111111111.profile = Profile.CANDIDATE;
+        user5111111111.save();
 
+        
         Set<User> users = new HashSet<User>();
         users.add(user1);
         users.add(user2);

@@ -3,7 +3,12 @@
 # ~~~~
 
 # Home page
-GET     /                                       Dashboard.index
+GET     /		                                Dashboard.index
+GET     /profile		                        Users.profile
+GET     /inscription	                        Users.inscription
+GET     /nouveau		                        Users.nouveau
+GET     /modify		                        	Users.modify
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

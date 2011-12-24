@@ -48,4 +48,93 @@ public class User extends Model {
     public String getFullName() {
         return firstName + " " + lastName;
     }
+
+	public String getIdBooster() {
+		return idBooster;
+	}
+
+	public void setIdBooster(String idBooster) {
+		this.idBooster = idBooster;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Promotion getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(Promotion promotion) {
+		this.promotion = promotion;
+	}
+
+	public Profile getProfile() {
+		return profile;
+	}
+
+	public void setProfile(Profile profile) {
+		this.profile = profile;
+	}
+
+	public Campus getCampus() {
+		return campus;
+	}
+
+	public void setCampus(Campus campus) {
+		this.campus = campus;
+	}
+
+	public Set<Talk> getTalks() {
+		return talks;
+	}
+
+	public void setTalks(Set<Talk> talks) {
+		this.talks = talks;
+	}
+
+	public Set<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
+	}
+
+	public Set<News> getNews() {
+		return news;
+	}
+
+	public void setNews(Set<News> news) {
+		this.news = news;
+	}
+
+	public User(String idBooster, String firstName, String lastName,
+			Promotion promotion, Profile profile, Campus campus,
+			Set<Talk> talks, Set<Project> projects, Set<News> news) {
+		super();
+		this.idBooster = idBooster;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.promotion = promotion;
+		this.profile = profile;
+		this.campus = campus;
+		this.talks = talks;
+		this.projects = projects;
+		this.news = news;
+	}
+    
+    
 }

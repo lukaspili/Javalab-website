@@ -9,26 +9,29 @@
     <link rel="stylesheet/less" href="/public/stylesheets/bootstrap.less">
     <link rel="stylesheet/less" href="/public/stylesheets/main.less">
 	<script src="/public/stylesheets/less.js"></script>
-    
     #{get 'moreStyles' /}
     <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
     #{get 'moreScripts' /}
 </head>
-<body onload="prettyPrint()">
+<body>
 <div class="container-fluid" style="padding: 0px;">
+    
     #{if !auth.isLogged()}
     
     #{/if}
 
     #{else}
     <div class="topbar">
+    	
     	<div class="fill">
     		<div class="container">
 		<p>
-		<a class="brand">Mon profile</a>
+    		
+		<a href="#{a @{Users.profile()}" class="brand">Mon profile</a>
+    	
     	#{if auth.isGlm()}
-    		#{a @UsersAdmin.candidates('paris')}Candidats de Paris#{/a}
+    		#{a @UsersAdmin.candidates('PARIS')}Candidats de Paris#{/a}
     	#{/if}
 
     	#{elseif auth.isClm()}
@@ -42,7 +45,6 @@
 	</div>
 	<span style="margin-top:60px;width:100%;height:10px;float:left;"></span>
     #{/else}
-
 
 	<h1 class="titre"><a href="#">Laboratoires java</a></h1>
 	<h2 class="titre"><a href="#">Développement Java & Android</a></h2>
@@ -88,7 +90,9 @@
 					
 				</div>
 			</div>
-			 
+			 #{if !auth.isLogged()}
+    			#{a @Users.login()}Login#{/a}
+ 			#{/if}
  		</div>
 	</div>
 </body>
