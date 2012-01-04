@@ -1,0 +1,60 @@
+#{extends 'template/template.html' /} 
+
+#{form @Users.create(), method:'POST', id:'register'}
+<p style="color: #c00">${flash.error}</p>
+<h1>Inscription</h1>
+<hr />
+<fieldset>
+	<table>
+
+		<tr>
+			#{field 'user.idBooster'}
+			<td>&{field.name}
+			<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" />
+			#{if field.error}<span>${field.error}</span>#{/}
+			#{/}
+			</td>
+		</tr>
+		<tr>
+			#{field 'user.firstName'}
+			<td>&{field.name}
+			<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" />
+			#{if field.error}<span>${field.error}</span>#{/}
+			#{/}
+			</td>
+		</tr>
+		<tr>
+			#{field 'user.lastName'}
+			<td>&{field.name}
+			<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" />
+			#{if field.error}<span>${field.error}</span>#{/}
+			#{/}
+			</td>
+		</tr>
+		<tr>
+			#{field 'user.promotion'}
+			<td>&{field.name}
+			<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" />
+			#{if field.error}<span>${field.error}</span>#{/}
+			#{/}
+			</td>
+		</tr>
+		<tr>
+			#{field 'user.campus'}
+			<td>&{field.name}
+			<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" />
+			#{if field.error}<span>${field.error}</span>#{/}
+			#{/}
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" class="btn primary large"></br> </br>
+			<a class="btn primary large"
+				onClick="window.location = '@{Dashboard.index()}'">Retour
+					&raquo;</a>
+			</td>
+		</tr>
+
+	</table>
+</fieldset>
+#{/form}

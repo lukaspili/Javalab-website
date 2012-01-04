@@ -1,0 +1,30 @@
+#{extends 'template/template.html' /}
+
+<form action="@{Users.modify()}" method="GET">
+<p style="color: #c00">${flash.error}</p>	
+<h1>Votre Profile</h1>
+
+		<fieldset>
+				<table>
+					<tr>
+						<td>Id Booster:<input type=text name="idBooster" disabled="disabled" value="${user.idBooster}"></br>
+						</td>
+					</tr>
+					<tr>
+						<td>Nom:<input type=text name="firstName" disabled="disabled" value="${user.firstName}"></br>
+					</tr>
+					<tr>
+						<td>Prenom:<input type=text name="lastName" disabled="disabled" value="${user.lastName}"></br>
+					</tr>
+					<tr>
+						<td>Promotion:<input type=text name="promotion" value="${user.promotion}"></br>
+					</tr>
+					<tr>
+						<td>Campus:<input type=text name="campus" value="${user.campus}"></br>
+					</tr>
+					<tr>
+						<td><input type="submit" class="btn primary large"></br> </br><a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour &raquo;</a></td>
+					</tr>
+				</table>
+			</fieldset>
+		</form>

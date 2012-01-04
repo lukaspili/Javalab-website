@@ -22,4 +22,14 @@ public class UserService {
 
         return query.getResultList();
     }
+    
+    public User create(User user) {
+    	
+    	User userToCreate = new User();
+    	userToCreate.firstName = user.firstName;
+    	
+    	userToCreate.save();
+    	
+    	return userToCreate;
+    }
 }

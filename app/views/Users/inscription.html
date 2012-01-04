@@ -1,0 +1,31 @@
+#{extends 'template/template.html' /}
+
+<form action="@{Users.nouveau()}" method="GET">
+	<p style="color: #c00">${flash.error}</p>
+		<h1>Inscription</h1>
+		<hr />
+			<fieldset>
+					<table>
+
+						<tr>
+							<td>Id Booster:<input type="text" name="idBooster" /></td>
+						</tr>
+						<tr>
+							<td>Prenom:<input type="text" name="firstName" /></td>
+						</tr>
+						<tr>
+							<td>Nom:<input type="text" name="lastName" /></td>
+						</tr>
+						<tr>
+							<td>Promotion:<input type="text" name="promotion" /></td>
+						</tr>
+						<tr>
+							<td>Campus:<input type="text" name="campus" /></td>
+						</tr>
+						<tr>
+							<td><input type="submit" class="btn primary large"></br> </br><a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour &raquo;</a></td>
+						</tr>
+						
+					</table>
+			</fieldset>
+		</form>

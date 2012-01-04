@@ -1,17 +1,17 @@
 package seeds;
 
-import models.events.News;
+import java.util.HashSet;
+import java.util.Set;
+
+import models.events.Article;
 import models.events.Project;
 import models.events.Talk;
 import models.users.Campus;
 import models.users.Profile;
 import models.users.Promotion;
 import models.users.User;
-import org.joda.time.LocalDate;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import org.joda.time.LocalDate;
 
 /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
@@ -152,11 +152,7 @@ public class TestSeed {
         users.add(user2);
         users.add(user3);
 
-        News news1 = new News();
-        news1.title = "Foo";
-        news1.content = "Bar";
-        news1.authors = users;
-        news1.save();
+        
 
         Talk talk1 = new Talk();
         talk1.title = "Google map with Android";
@@ -170,5 +166,13 @@ public class TestSeed {
         project1.description = "The new website for the lab";
         project1.members = users;
         project1.save();
+        
+        Article article2 = new Article();
+        article2.title = "Foo";
+        article2.content = "Bar";
+        article2.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
+        article2.authors = users;
+        article2.save();
+        
     }
 }

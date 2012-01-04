@@ -1,0 +1,8 @@
+# User
+user.idBooster=ID Booster
+user.firstName=Prénom
+user.lastName=Nom
+
+# Validation
+validation.required=Ce champs est requis
+validation.numeric=Ce champs ne doit comporter que des caractères numériques
