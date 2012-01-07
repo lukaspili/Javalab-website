@@ -28,7 +28,7 @@
     		<div class="container">
 		<p>
     		
-		<a href="#{a @{Users.profile()}" class="brand">Mon profile</a>
+		#{a @Users.profile(), class:'brand'} Mon profile#{/a}
     	
     	#{if auth.isGlm()}
     		#{a @UsersAdmin.candidates('PARIS')}Candidats de Paris#{/a}
