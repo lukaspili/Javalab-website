@@ -1,0 +1,9 @@
+#{extends 'template/template.html' /}
+
+	
+<h1>Utilisateur : ${user.getFullName()}</h1>
+	<label for="idBooster">Id Booster : </label>&nbsp;&nbsp;<input type=text name="idBooster" disabled="disabled" value="${user.idBooster}"><br /><br />
+	<label for="lastName">Nom : </label>&nbsp;&nbsp;<input type=text name="lastName" disabled="disabled" value="${user.lastName}"><br /><br />
+	<label for="firstName">Prénom : </label>&nbsp;&nbsp;<input type=text name="firstName" disabled="disabled" value="${user.firstName}"><br /><br />
+	<label for="promotion">Promotion : </label>&nbsp;&nbsp;<input type="text" name="promotion" disabled="disabled" value="${user.promotion}" /><br /><br />
+	<label for="campus">Campus : </label>&nbsp;&nbsp;<input type="text" disabled="disabled" value="${user.campus}" name="campus" /><br /><br />

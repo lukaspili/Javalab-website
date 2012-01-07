@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import models.users.Campus;
@@ -66,10 +69,16 @@ public class Users extends LogicController {
 
 	@LoggedAccess
 	public static void profile() {
-
 		User user = AuthFilter.getCurrentUser();
-
-		render(user);
+		List<Promotion> promotionList = new ArrayList<Promotion>();
+		for(Promotion promotion : Promotion.values()) {
+			promotionList.add(promotion);
+		}
+		List<Campus> campusList = new ArrayList<Campus>();
+		for(Campus campus : Campus.values()) {
+			campusList.add(campus);
+		}
+		render(user, promotionList, campusList);
 	}
 
 	@PublicAccess(only = true)
@@ -95,21 +104,24 @@ public class Users extends LogicController {
 	
 
 	@LoggedAccess
-	public static void modify(User user, String idBooster, Promotion promotion,
-			Campus campus) {
-
-		User userModify = User.find("byIdBooster", user.idBooster).first();
-		System.out.println(userModify);
-
-		userModify.promotion = promotion;
-		userModify.campus = campus;
-		userModify.save();
+	public static void modify(String firstName, String lastName, String campus) {
+		System.out.println(firstName);
+		System.out.println(lastName);
+		User user = AuthFilter.getCurrentUser();
+		user.firstName = firstName;
+		user.lastName = lastName;
+		user.campus = Campus.valueOf(campus);
+		user.save();
 		flash.success("Votre profile a été modifié !");
-
 		profile();
-
 	}
-
+	
+	@LoggedAccess
+	public static void details(String idBooster) {
+		User user = User.find("byIdBooster", idBooster).first();
+		render(user);
+	}
+	
 	/**
 	 * Members list
 	 */

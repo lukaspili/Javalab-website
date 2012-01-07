@@ -14,7 +14,7 @@
 	<tr>    
 		<td>${candidate.idBooster}</td>
 		<td>${candidate.fullName}</td>
-		<td>#{a @Users.profile()}Détails #{/a}</td>
+		<td>#{a @Users.details(candidate.idBooster)}Détails #{/a}</td>
 		
 		#{form @UsersAdmin.validate(candidate.idBooster), method:'POST'}
 			<td>#{select 'validation'}

@@ -35,7 +35,8 @@
     	#{/if}
 
     	#{elseif auth.isClm()}
-    		#{a @UsersAdmin.candidates()}Candidats de votre campus#{/a}
+    		#{a @UsersAdmin.candidates()}Candidats de votre campus#{/a} |
+    		#{a @UsersAdmin.members()}Membres de votre campus#{/a} |
     	#{/elseif}
 
    		#{a @Users.logout()}Logout#{/a}
