@@ -1,0 +1,11 @@
+#{extends 'template/template.html' /}
+
+<p style="color: #c00">${flash.error}</p>	
+<h1>Blog</h1>
+
+		<fieldset>
+		 	#{list items:listArticle, as:'article'}
+    			<li>${article.title} - ${article.c} - ${article.creationDate} - ${article.authors}</li>
+    		#{/list}
+		
+		</fieldset>

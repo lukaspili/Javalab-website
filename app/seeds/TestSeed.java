@@ -174,5 +174,26 @@ public class TestSeed {
         article2.authors = users;
         article2.save();
         
+        Article article21 = new Article();
+        article21.title = "Foo";
+        article21.content = "Bar";
+        article21.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
+        article21.authors = users;
+        article21.save();
+        
+        Article article211 = new Article();
+        article211.title = "Foo";
+        article211.content = "Bar";
+        article211.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
+        article211.authors = users;
+        article211.save();
+        
+        Article article2111 = new Article();
+        article2111.title = "Foo";
+        article2111.content = "Bar";
+        article2111.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
+        article2111.authors = users;
+        article2111.save();
+        
     }
 }
