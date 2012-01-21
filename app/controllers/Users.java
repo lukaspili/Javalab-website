@@ -70,43 +70,32 @@ public class Users extends LogicController {
 	@LoggedAccess
 	public static void profile() {
 		User user = AuthFilter.getCurrentUser();
-		List<Promotion> promotionList = new ArrayList<Promotion>();
-		for(Promotion promotion : Promotion.values()) {
-			promotionList.add(promotion);
-		}
-		List<Campus> campusList = new ArrayList<Campus>();
-		for(Campus campus : Campus.values()) {
-			campusList.add(campus);
-		}
-		render(user, promotionList, campusList);
+		List<Promotion> promotionList = getPromotionAsList();
+		render(user, promotionList);
 	}
 
 	@PublicAccess(only = true)
-	public static void newUser() {
-		render();
+	public static void inscription() {
+		List<Promotion> promotionList = getPromotionAsList();
+		List<Campus> campusList = getCampusAsList();
+		render(promotionList, campusList);
 	}
 	
 	@PublicAccess(only = true)
 	public static void create(User user) {
-		
 		EnhancedValidator validator = validator();
 		validator.validate(user).require("idBooster", "firstName", "lastName", "promotion", "campus");
-		
 		if(validator.hasErrors()) {
-			render("Users/newUser.html", user);
+			render("Users/inscription.html", user);
 		}
-		
 		User createdUser = userService.create(user);
-		
-		flash.success("Merci " + createdUser.firstName + createdUser.lastName + " vous êtes bien enregistré");
+		flash.success("Merci " + createdUser.firstName + createdUser.lastName + ", vous êtes bien enregistré");
 		Dashboard.index();
 	}
 	
 
 	@LoggedAccess
 	public static void modify(String firstName, String lastName, String campus) {
-		System.out.println(firstName);
-		System.out.println(lastName);
 		User user = AuthFilter.getCurrentUser();
 		user.firstName = firstName;
 		user.lastName = lastName;
@@ -122,14 +111,19 @@ public class Users extends LogicController {
 		render(user);
 	}
 	
-	/**
-	 * Members list
-	 */
-	public static void list() {
-
+	private static List<Campus> getCampusAsList() {
+		List<Campus> campusList = new ArrayList<Campus>();
+		for(Campus campus : Campus.values()) {
+			campusList.add(campus);
+		}
+		return campusList;
 	}
-
-	public static void list(Campus campus) {
-
+	
+	private static List<Promotion> getPromotionAsList() {
+		List<Promotion> promotionList = new ArrayList<Promotion>();
+		for(Promotion promotion : Promotion.values()) {
+			promotionList.add(promotion);
+		}
+		return promotionList;
 	}
 }
