@@ -8,7 +8,8 @@ import javax.inject.Inject;
 import models.users.Campus;
 import models.users.Promotion;
 import models.users.User;
-import play.Logger;
+import play.Play;
+import play.libs.OpenID;
 import play.mvc.Before;
 import service.UserService;
 import validation.EnhancedValidator;
@@ -23,90 +24,67 @@ import controllers.logicals.LogicController;
  */
 
 public class Users extends LogicController {
-	
-	@Inject
-	private static UserService userService;
 
-	private static PageHelper pageHelper;
+    private static final String SUPINFO_OPEN_ID = "https://id.supinfo.com/me/";
 
-	@Before
-	public static void before() {
-		pageHelper = new PageHelper("users", renderArgs);
-	}
+    @Inject
+    private static UserService userService;
 
-	@PublicAccess(only = true)
-	public static void login() {
-		render();
-	}
+    private static PageHelper pageHelper;
 
-	@PublicAccess(only = true)
-	public static void authenticate(User user) {
+    @Before
+    public static void before() {
+        pageHelper = new PageHelper("users", renderArgs);
+    }
 
-		EnhancedValidator validator = validator();
+    @PublicAccess(only = true)
+    public static void login() {
+        render();
+    }
 
-		if (validator.validate(user).require("idBooster").hasErrors()) {
-			render("Users/login.html", user);
-		}
+    @PublicAccess(only = true)
+    public static void authenticate(User user) {
 
-		User userFromDb = User.find("byIdBooster", user.idBooster).first();
+        if (OpenID.isAuthenticationResponse()) {
 
-		if (null == userFromDb) {
-			flashErrorSamePage("users.login.authentication.failure");
-			render("Users/login.html", user);
-		}
+            OpenID.UserInfo openIdUser = OpenID.getVerifiedID();
+            if (null == openIdUser) {
+                login();
+            }
 
-		AuthFilter.loginUser(userFromDb);
+        } else {
+            if (!OpenID.id(SUPINFO_OPEN_ID + user.idBooster).verify()) {
+                login();
+            }
+        }
+    }
 
-		Dashboard.index();
-	}
+    @PublicAccess(only = true)
+    public static void authenticateDev(String idBooster) {
 
-	@LoggedAccess
-	public static void logout() {
-		Logger.debug("foobar");
-		AuthFilter.logoutUser();
-		Dashboard.index();
-	}
+        if (Play.mode != Play.Mode.DEV) {
+            login();
+        }
+        User userFromDb = User.find("byIdBooster", idBooster).first();
 
-	@LoggedAccess
-	public static void profile() {
-		User user = AuthFilter.getCurrentUser();
-		List<Promotion> promotionList = new ArrayList<Promotion>();
-		for(Promotion promotion : Promotion.values()) {
-			promotionList.add(promotion);
-		}
-		List<Campus> campusList = new ArrayList<Campus>();
-		for(Campus campus : Campus.values()) {
-			campusList.add(campus);
-		}
-		render(user, promotionList, campusList);
-	}
+        if (null == userFromDb) {
+            flashError("users.login.authentication.failure");
+        } else {
+            AuthFilter.loginUser(userFromDb);
+        }
 
-	@PublicAccess(only = true)
-	public static void newUser() {
-		render();
-	}
-	
-	@PublicAccess(only = true)
-	public static void create(User user) {
-		
-		EnhancedValidator validator = validator();
-		validator.validate(user).require("idBooster", "firstName", "lastName", "promotion", "campus");
-		
-		if(validator.hasErrors()) {
-			render("Users/newUser.html", user);
-		}
-		
-		User createdUser = userService.create(user);
-		
-		flash.success("Merci " + createdUser.firstName + createdUser.lastName + " vous êtes bien enregistré");
-		Dashboard.index();
-	}
-	
+        Dashboard.index();
+    }
+
+    @LoggedAccess
+    public static void logout() {
+        AuthFilter.logoutUser();
+        Dashboard.index();
+    }
+
 
 	@LoggedAccess
 	public static void modify(String firstName, String lastName, String campus) {
-		System.out.println(firstName);
-		System.out.println(lastName);
 		User user = AuthFilter.getCurrentUser();
 		user.firstName = firstName;
 		user.lastName = lastName;
@@ -121,15 +99,66 @@ public class Users extends LogicController {
 		User user = User.find("byIdBooster", idBooster).first();
 		render(user);
 	}
+
 	
-	/**
-	 * Members list
-	 */
-	public static void list() {
-
+	private static List<Campus> getCampusAsList() {
+		List<Campus> campusList = new ArrayList<Campus>();
+		for(Campus campus : Campus.values()) {
+			campusList.add(campus);
+		}
+		return campusList;
+	}
+	
+	private static List<Promotion> getPromotionAsList() {
+		List<Promotion> promotionList = new ArrayList<Promotion>();
+		for(Promotion promotion : Promotion.values()) {
+			promotionList.add(promotion);
+		}
+		return promotionList;
 	}
 
-	public static void list(Campus campus) {
 
+    @LoggedAccess
+    public static void modify(User user, String idBooster, Promotion promotion,
+                              Campus campus) {
+
+        User userModify = User.find("byIdBooster", user.idBooster).first();
+        System.out.println(userModify);
+
+        userModify.promotion = promotion;
+        userModify.campus = campus;
+        userModify.save();
+        flash.success("Votre profile a été modifié !");
+
+        profile();
+
+    }
+
+    @LoggedAccess
+    public static void profile() {
+    	User user = AuthFilter.getCurrentUser();
+		List<Promotion> promotionList = getPromotionAsList();
+		render(user, promotionList);
+    }
+    
+
+	@PublicAccess(only = true)
+	public static void inscription() {
+		List<Promotion> promotionList = getPromotionAsList();
+		List<Campus> campusList = getCampusAsList();
+		render(promotionList, campusList);
 	}
+	
+	@PublicAccess(only = true)
+	public static void create(User user) {
+		EnhancedValidator validator = validator();
+		validator.validate(user).require("idBooster", "firstName", "lastName", "promotion", "campus");
+		if(validator.hasErrors()) {
+			render("Users/inscription.html", user);
+		}
+		User createdUser = userService.create(user);
+		flash.success("Merci " + createdUser.firstName + createdUser.lastName + ", vous êtes bien enregistré");
+		Dashboard.index();
+	}
+	
 }
