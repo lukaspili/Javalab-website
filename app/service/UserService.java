@@ -32,4 +32,16 @@ public class UserService {
     	
     	return userToCreate;
     }
+    
+    public List<User> getMembersByCampus(Campus campus) {
+
+        Query query = User.em().createQuery("select u from User u " +
+                "where u.profile = :profile and u.campus = :campus");
+
+        query.setParameter("profile", Profile.MEMBER);
+        query.setParameter("campus", campus);
+
+        return query.getResultList();
+    }
+    
 }

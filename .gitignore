@@ -5,9 +5,13 @@ bin/
 target/
 gen/
 
+# idea
 *.iml
-.idea
+*.idea
+*.iws
+*.ipr
 
+# eclipse
 eclipse/
 
 test-result/

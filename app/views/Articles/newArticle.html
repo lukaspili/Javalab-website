@@ -1,0 +1,32 @@
+#{extends 'template/template.html' /}
+
+#{include 'helpers/form_validation.html' /}
+
+#{form @Articles.create(), method:'GET'}
+	<p style="color: #c00">${flash.error}</p>
+	<center>
+	<h1>Nouvelle Article</h1>
+	<hr />
+	<div class="span6 offset1">
+   		<div class="page-header">
+		<table>
+			<tr>
+				<td>Titre :</td>
+				<td><input type="text" name="title" /></td>
+			</tr>
+			<tr>
+				<td>Contenu :</td>
+				<td><input type="text" name="content" /></td>
+			</tr>
+			<tr>
+				<td>Date : </td>
+				<td><input type="text" name="creationDate" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" class="btn primary large"><br /> <br /><a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour &raquo;</a></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	</center>		
+#{/form}

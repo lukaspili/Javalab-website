@@ -1,11 +1,29 @@
 #{extends 'template/template.html' /}
 
-<p style="color: #c00">${flash.error}</p>	
-<h1>Blog</h1>
+<p style="color: #c00">${flash.error}</p>
+<p style="color: #c00">${flash.success}</p>
 
-		<fieldset>
-		 	#{list items:listArticle, as:'article'}
-    			<li>${article.title} - ${article.c} - ${article.creationDate} - ${article.authors}</li>
-    		#{/list}
-		
-		</fieldset>
+#{form @Articles.newArticle(), method:'GET'}
+		<center>
+		<h1>Blog</h1>
+		 <div class="span6 offset1">
+    		<div class="page-header">
+			<table>
+			 	#{list items:listArticle, as:'article'}
+				<tr>
+					<th>${article.title} - ${article.creationDate}</th>
+				</tr>
+				<tr>    
+					<td>${article.content}</td>
+				<tr>  
+					<td>${article.authors.firstName}</td>
+				</tr>	
+				#{/list}	
+				<tr> 
+				<td><input type="submit" class="btn primary large"></br> </br><a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour &raquo;</a></td>
+				</tr>
+			</table>
+			</div>
+		</div>	
+		</center>		
+#{/form}
