@@ -87,18 +87,18 @@ public class TestSeed {
         user5111.idBooster = "456565";
         user5111.firstName = "Candidate 4";
         user5111.lastName = "Bar";
-        user5111.campus = Campus.PARIS;
+        user5111.campus = Campus.MONTPELLIER;
         user5111.promotion = Promotion.B1;
-        user5111.profile = Profile.CANDIDATE;
+        user5111.profile = Profile.MEMBER;
         user5111.save();
         
         User user51111 = new User();
         user51111.idBooster = "45645";
         user51111.firstName = "Candidate 5";
         user51111.lastName = "Bar";
-        user51111.campus = Campus.PARIS;
+        user51111.campus = Campus.GRENOBLE;
         user51111.promotion = Promotion.B1;
-        user51111.profile = Profile.CANDIDATE;
+        user51111.profile = Profile.MEMBER;
         user51111.save();
         
         User user511111 = new User();
@@ -107,16 +107,16 @@ public class TestSeed {
         user511111.lastName = "Bar";
         user511111.campus = Campus.PARIS;
         user511111.promotion = Promotion.B1;
-        user511111.profile = Profile.CANDIDATE;
+        user511111.profile = Profile.MEMBER;
         user511111.save();
         
         User user5111111 = new User();
         user5111111.idBooster = "45634";
         user5111111.firstName = "Candidate 7";
         user5111111.lastName = "Bar";
-        user5111111.campus = Campus.PARIS;
+        user5111111.campus = Campus.TOULOUSE;
         user5111111.promotion = Promotion.B1;
-        user5111111.profile = Profile.CANDIDATE;
+        user5111111.profile = Profile.MEMBER;
         user5111111.save();
         
         User user51111111 = new User();
@@ -169,7 +169,7 @@ public class TestSeed {
         
         Article article2 = new Article();
         article2.title = "Foo";
-        article2.content = "Bar";
+        article2.content = "BarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBar	";
         article2.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article2.authors = users;
         article2.save();
