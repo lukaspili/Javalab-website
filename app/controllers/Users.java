@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import models.users.Campus;
+import models.users.Profile;
 import models.users.Promotion;
 import models.users.User;
 import play.Play;
@@ -159,6 +160,14 @@ public class Users extends LogicController {
 		User createdUser = userService.create(user);
 		flash.success("Merci " + createdUser.firstName + createdUser.lastName + ", vous êtes bien enregistré");
 		Dashboard.index();
+	}
+	
+	@LoggedAccess
+	public static void candidate() {
+		User user = AuthFilter.getCurrentUser();
+		user.profile = Profile.CANDIDATE;
+		user.save();
+		render(user);
 	}
 	
 }
