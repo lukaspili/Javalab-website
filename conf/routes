@@ -14,6 +14,10 @@ GET		/blog									Articles.allArticles
 GET     /blog/article/nouveau	                Articles.newArticle
 POST    /blog/article/nouveau	                Articles.create
 
+
+# Project page
+GET		/projets								Projects.projects
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

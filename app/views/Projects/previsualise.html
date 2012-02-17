@@ -1,0 +1,17 @@
+#{extends 'template/template.html' /}
+
+<p style="color: #c00">${flash.error}</p>
+<p style="color: #c00">${flash.success}</p>
+	
+#{if clearProject}
+	<h1>clearProject "${clearProject.name}"</h1>
+
+	<p>${clearProject.presentation}</p>
+	
+	<p>${clearProject.technologies}</p>
+	
+	<p>${clearProject.description}</p>
+
+#{/if}
+
+#{a @clearProjects.projects()} Retour{/a}

@@ -1,0 +1,18 @@
+#{extends 'template/template.html' /}
+
+<p style="color: #c00">${flash.error}</p>
+<p style="color: #c00">${flash.success}</p>
+	
+#{if project}
+	<h1>Project "${project.name}"</h1>
+	
+	<h3>Présentation :</h3>
+	<p>${project.presentation}</p>
+	
+	<h3>Technologies :</h3>
+	<p>${project.technologies}</p>
+	
+	<h3>Description :</h3>
+	<p>${project.description}</p>
+
+#{/if}
