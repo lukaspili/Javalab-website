@@ -1,23 +1,20 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.inject.Inject;
-
+import controllers.abstracts.AppController;
+import controllers.security.LoggedAccess;
+import controllers.security.PublicAccess;
+import models.events.Article;
 import service.ArticleService;
-import service.UserService;
 import validation.EnhancedValidator;
 
-import controllers.filters.security.LoggedAccess;
-import controllers.filters.security.PublicAccess;
-import controllers.logicals.LogicController;
-import models.events.*;
+import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Kevin Valfin
  */
-public class Articles extends LogicController {
+public class Articles extends AppController {
 	
 	@Inject
 	private static ArticleService articleService;

@@ -6,7 +6,7 @@
 
 #{form @Users.authenticate(), id:'login-form', enctype:'multipart/form-data' }
 
-#{field 'user.idBooster'}
+#{field 'idBooster'}
 <label for="${field.id}"><strong>&{field.name}</strong></label>
 <input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
 #{if field.error}<span>${field.error}</span>#{/}

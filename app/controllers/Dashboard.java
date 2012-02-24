@@ -1,13 +1,13 @@
  package controllers;
 
-import controllers.filters.security.PublicAccess;
-import controllers.logicals.LogicController;
+ import controllers.abstracts.AppController;
+ import controllers.security.PublicAccess;
 
-/**
+ /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
  */
 @PublicAccess
-public class Dashboard extends LogicController {
+public class Dashboard extends AppController {
 
     public static void index() {
         render();

@@ -1,6 +1,6 @@
 package controllers.helpers.view;
 
-import controllers.filters.AuthFilter;
+import controllers.security.Auth;
 import models.users.Profile;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -10,31 +10,31 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
  */
-public class AuthViewHelper extends Controller {
+public class AuthHelper extends Controller {
 
     public static final String HELPER_NAME = "auth";
 
     private Profile profile;
 
-    private AuthViewHelper() {
+    private AuthHelper() {
 
     }
 
     @Before
     public static void before() {
 
-        AuthViewHelper helper;
+        AuthHelper helper;
 
-        if (AuthFilter.isLogged()) {
-            helper = new AuthViewHelper(AuthFilter.getCurrentUser().profile);
+        if (Auth.isLogged()) {
+            helper = new AuthHelper(Auth.getCurrentUser().profile);
         } else {
-            helper = new GuestAuthViewHelper();
+            helper = new GuestAuthHelper();
         }
 
         renderArgs.put(HELPER_NAME, helper);
     }
 
-    private AuthViewHelper(Profile profile) {
+    private AuthHelper(Profile profile) {
         this.profile = checkNotNull(profile);
     }
 
@@ -54,7 +54,7 @@ public class AuthViewHelper extends Controller {
         return profile.equals(Profile.MEMBER);
     }
 
-    public static class GuestAuthViewHelper extends AuthViewHelper {
+    public static class GuestAuthHelper extends AuthHelper {
 
         @Override
         public boolean isLogged() {

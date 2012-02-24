@@ -1,4 +1,4 @@
-package controllers.functionnals;
+package controllers.abstracts;
 
 import controllers.helpers.controller.CollectionHelper;
 import controllers.helpers.controller.PageHelper;
@@ -10,16 +10,12 @@ import validation.EnhancedValidator;
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
  */
 
-public abstract class FunctionnalController extends Controller {
+public abstract class UtilController extends Controller {
 
     protected static CollectionHelper collectionHelper = new CollectionHelper();
 
     protected static EnhancedValidator validator() {
         return new EnhancedValidator(validation, params);
-    }
-
-    protected static PageHelper pageHelper(String page) {
-        return new PageHelper(page, renderArgs);
     }
 
     protected static void flashInfo(String message, Object... args) {
@@ -74,5 +70,9 @@ public abstract class FunctionnalController extends Controller {
 
     protected static void flashSuccess(String message, Object... args) {
         flash.put("success_box", Messages.get(message, args));
+    }
+
+    protected static PageHelper pageHelper() {
+        return new PageHelper();
     }
 }

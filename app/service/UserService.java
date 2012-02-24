@@ -22,17 +22,17 @@ public class UserService {
 
         return query.getResultList();
     }
-    
+
     public User create(User user) {
-    	
-    	User userToCreate = new User();
-    	userToCreate.firstName = user.firstName;
-    	
-    	userToCreate.save();
-    	
-    	return userToCreate;
+
+        User userToCreate = new User();
+        userToCreate.firstName = user.firstName;
+
+        userToCreate.save();
+
+        return userToCreate;
     }
-    
+
     public List<User> getMembersByCampus(Campus campus) {
 
         Query query = User.em().createQuery("select u from User u " +
@@ -43,5 +43,17 @@ public class UserService {
 
         return query.getResultList();
     }
-    
+
+    public User login(String idBooster) {
+
+        User user = User.find("byIdBooster", idBooster).first();
+
+        if (null == user) {
+            user.idBooster = idBooster;
+            user.profile = Profile.CANDIDATE;
+            user.save();
+        }
+
+        return user;
+    }
 }

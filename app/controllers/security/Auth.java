@@ -1,14 +1,12 @@
-package controllers.filters;
+package controllers.security;
 
 import controllers.Dashboard;
 import controllers.Users;
-import controllers.filters.security.LoggedAccess;
-import controllers.filters.security.PublicAccess;
-import controllers.functionnals.FunctionnalController;
-import controllers.helpers.view.AuthViewHelper;
+import controllers.abstracts.UtilController;
+import controllers.helpers.view.AuthHelper;
+import helper.Logger;
 import models.users.Profile;
 import models.users.User;
-import play.Logger;
 import play.i18n.Messages;
 import play.mvc.Before;
 import play.mvc.Util;
@@ -17,18 +15,20 @@ import play.mvc.With;
 /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
  */
-@With(AuthViewHelper.class)
-public class AuthFilter extends FunctionnalController {
+@With(AuthHelper.class)
+public class Auth extends UtilController {
+
+    private static final Logger logger = Logger.getLoggerFor(Auth.class);
 
     private static final String CURRENT_USER = "currentUser";
 
     @Before(priority = 0)
     public static void checkUser() {
 
-        Logger.debug("Check if user is logged");
+        logger.debug("Check if user is logged");
 
         if (!isLogged()) {
-            Logger.debug("User is not logged");
+            logger.debug("User is not logged");
             return;
         }
 
@@ -37,7 +37,7 @@ public class AuthFilter extends FunctionnalController {
         try {
             id = Long.valueOf(session.get(CURRENT_USER));
         } catch (NumberFormatException e) {
-            Logger.error("Invalid session id : %s", session.get(CURRENT_USER));
+            logger.error("Invalid session id : %s", session.get(CURRENT_USER));
             logoutUser();
             return;
         }
@@ -45,22 +45,22 @@ public class AuthFilter extends FunctionnalController {
         User user = User.findById(id);
 
         if (null == user) {
-            Logger.error("User don't exists with session id : %s ", id);
+            logger.error("User don't exists with session id : %s ", id);
             logoutUser();
         }
 
-        Logger.debug("Logged user : %s", user);
+        logger.debug("Logged user : %s", user);
         renderArgs.put(CURRENT_USER, user);
     }
 
     @Before(priority = 1)
     public static void checkAccess() {
 
-        Logger.debug("Check access");
+        logger.debug("Check access");
 
         // check public access first
 
-        Logger.debug("Check public access");
+        logger.debug("Check public access");
         boolean isPublic = false;
 
         PublicAccess publicAccess = getActionAnnotation(PublicAccess.class);
@@ -76,21 +76,21 @@ public class AuthFilter extends FunctionnalController {
         }
 
         if (isPublic) {
-            Logger.debug("Access allowed for both guest and logged users");
+            logger.debug("Access allowed for both guest and logged users");
             return;
         }
 
         // check logged access next
 
-        Logger.debug("Check logged access");
+        logger.debug("Check logged access");
         boolean isAccessDefined = false;
 
         if (!isLogged()) {
-            Logger.debug("Access denied for guest users");
+            logger.debug("Access denied for guest users");
             Users.login();
         }
 
-        Logger.debug("Check profile access");
+        logger.debug("Check profile access");
 
         LoggedAccess loggedAccess = getActionAnnotation(LoggedAccess.class);
         if (loggedAccess != null) {
@@ -114,7 +114,7 @@ public class AuthFilter extends FunctionnalController {
     public static void checkAccess(PublicAccess publicAccess) {
 
         if (publicAccess.only() && isLogged()) {
-            Logger.debug("Public access allowed only, redirect to dashboard");
+            logger.debug("Public access allowed only, redirect to dashboard");
             Dashboard.index();
         }
     }
@@ -124,7 +124,7 @@ public class AuthFilter extends FunctionnalController {
 
         Profile profile = getCurrentUser().profile;
 
-        Logger.debug("Check access for current user with profile %s", profile);
+        logger.debug("Check access for current user with profile %s", profile);
 
         if (loggedAccess.only() && loggedAccess.value() == profile) {
             return;
@@ -138,7 +138,7 @@ public class AuthFilter extends FunctionnalController {
     @Util
     public static void denyAccess() {
 
-        Logger.debug("Access denied");
+        logger.debug("Access denied");
 
         String profile = (isLogged() ? getCurrentUser().profile.getLabel() : Messages.get("profile.guest"));
         flashError("auth.logged.denied_for_profile", profile);
@@ -148,7 +148,7 @@ public class AuthFilter extends FunctionnalController {
 
     @Util
     public static User getCurrentUser() {
-        return renderArgs.get(AuthFilter.CURRENT_USER, User.class);
+        return renderArgs.get(Auth.CURRENT_USER, User.class);
     }
 
     @Util
@@ -159,7 +159,7 @@ public class AuthFilter extends FunctionnalController {
     @Util
     public static void logoutUser() {
 
-        Logger.debug("Logout current user : %s", getCurrentUser());
+        logger.debug("Logout current user : %s", getCurrentUser());
 
         session.remove(CURRENT_USER);
         renderArgs.put(CURRENT_USER, null);
@@ -167,6 +167,7 @@ public class AuthFilter extends FunctionnalController {
 
     @Util
     public static void loginUser(User user) {
+        logger.debug("Login user : %s", user);
         session.put(CURRENT_USER, user.id);
     }
 }

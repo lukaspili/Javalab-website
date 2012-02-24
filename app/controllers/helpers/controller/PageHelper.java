@@ -6,23 +6,27 @@ import play.mvc.Scope;
 /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
  */
-public class PageHelper {
+public class PageHelper extends AbstractHelper {
 
-    private String pageName;
-    private Scope.RenderArgs renderArgs;
+    private static final String TAG = "page_title";
 
-    public PageHelper(String pageName, Scope.RenderArgs renderArgs) {
-        this.pageName = pageName;
-        this.renderArgs = renderArgs;
-
-        renderArgs.put("page_title", Messages.get(pageName));
+    public void addActionTitle(String... args) {
+        title(request().controller.toLowerCase() + "." + request().actionMethod, args);
     }
 
-    public void title(String title) {
-        renderArgs.put("page_title", Messages.get(pageName + "." + title));
+    public void addControllerTitle() {
+        title(request().controller.toLowerCase());
     }
 
-    public void uniqueTitle(String title) {
-        renderArgs.put("page_title", Messages.get(title));
+    public void addTitleWithController(String title, String... args) {
+        title(request().controller.toLowerCase() + "." + title, args);
+    }
+
+    public void title(String title, String... args) {
+        renderArgs().put(TAG, Messages.get(title, args));
+    }
+
+    public void directTitle(String title) {
+        renderArgs().put(TAG, title);
     }
 }
