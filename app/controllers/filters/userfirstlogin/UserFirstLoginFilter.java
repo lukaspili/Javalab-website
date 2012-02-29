@@ -23,7 +23,7 @@ public class UserFirstLoginFilter extends Controller {
         UserFirstLogin firstLoginAnnotation = getActionAnnotation(UserFirstLogin.class);
 
         // user is not active and action is not for first logged users
-        if (null == firstLoginAnnotation && !Auth.getCurrentUser().isTheFirstLogin()) {
+        if (null == firstLoginAnnotation && Auth.getCurrentUser().isTheFirstLogin()) {
             Users.firstLogin();
         }
 

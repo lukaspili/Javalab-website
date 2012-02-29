@@ -1,14 +1,12 @@
-# User
 user.idBooster=ID Booster
 user.firstName=Prénom
 user.lastName=Nom
 
-# Article
 article.title=Titre
 article.authors=Auteur
-article.creationDate=Date 
-article.authors=Contenu
+article.creationDate=Date
 
-# Validation
+
+
 validation.required=Ce champs est requis
 validation.numeric=Ce champs ne doit comporter que des caractères numériques

@@ -32,3 +32,5 @@ conf/host.cert
 
 local/
 pdf/
+
+*.DS_Store

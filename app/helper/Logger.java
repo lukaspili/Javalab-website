@@ -35,6 +35,14 @@ public class Logger {
         play.Logger.debug(e, tag + messsage, args);
     }
 
+    public void warn(String messsage, Object... args) {
+        play.Logger.warn(tag + messsage, args);
+    }
+
+    public void warn(Throwable e, String messsage, Object... args) {
+        play.Logger.warn(e, tag + messsage, args);
+    }
+
     public void error(String messsage, Object... args) {
         play.Logger.error(tag + messsage, args);
     }

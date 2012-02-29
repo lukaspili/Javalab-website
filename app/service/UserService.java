@@ -23,10 +23,31 @@ public class UserService {
         return query.getResultList();
     }
 
-    public User create(User user) {
+//    public User create(User user) {
+//
+//        User userToCreate = new User();
+//        userToCreate.firstName = user.firstName;
+//
+//        userToCreate.save();
+//
+//        return userToCreate;
+//    }
+
+    public User save(User user) {
+
+        if (null != User.find("byIdBooster", user.idBooster).first()) {
+            return null;
+        }
 
         User userToCreate = new User();
+
+        userToCreate.idBooster = user.idBooster;
         userToCreate.firstName = user.firstName;
+        userToCreate.lastName = user.lastName;
+        userToCreate.campus = user.campus;
+        userToCreate.promotion = user.promotion;
+
+        userToCreate.profile = Profile.CANDIDATE;
 
         userToCreate.save();
 
@@ -45,15 +66,6 @@ public class UserService {
     }
 
     public User login(String idBooster) {
-
-        User user = User.find("byIdBooster", idBooster).first();
-
-        if (null == user) {
-            user.idBooster = idBooster;
-            user.profile = Profile.CANDIDATE;
-            user.save();
-        }
-
-        return user;
+        return User.find("byIdBooster", idBooster).first();
     }
 }

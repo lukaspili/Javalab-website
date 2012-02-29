@@ -1,0 +1,44 @@
+#{extends 'template/template.html' /}
+
+<h1>Login</h1>
+
+<p>Ceci est votre première connexion, renseignez vos informations</p>
+
+#{include 'helpers/form_validation.html' /}
+
+#{form @Users.firstLoginProcess(), id:'firstlogin-form', enctype:'multipart/form-data' }
+
+#{field 'user.firstName'}
+<label for="${field.id}"><strong>&{field.name}</strong></label>
+<input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+#{if field.error}<span>${field.error}</span>#{/}
+#{/} <br/>
+
+#{field 'user.lastName'}
+<label for="${field.id}"><strong>&{field.name}</strong></label>
+<input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
+#{if field.error}<span>${field.error}</span>#{/}
+#{/} <br/>
+
+#{field 'user.campus'}
+<label for="${field.id}">&{field.name}</label>
+<select name="${field.name}">
+	<option value="">Selectionnez un campus</option>
+#{list items:campuses, as:'item'}
+	<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
+#{/list}
+</select>
+#{/} <br/>
+
+#{field 'user.promotion'}
+<label for="${field.id}">&{field.name}</label>
+<select name="${field.name}">
+	<option value="">Selectionnez une promotion</option>
+#{list items:promotions, as:'item'}
+	<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
+#{/list}
+</select>
+#{/}
+
+<input type="submit" value="Login"/>
+#{/form}

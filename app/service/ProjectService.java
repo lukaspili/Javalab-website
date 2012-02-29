@@ -1,19 +1,12 @@
 package service;
 
-import java.util.List;
-
-import javax.jws.soap.SOAPBinding.Use;
-import javax.persistence.Query;
-
-import org.joda.time.LocalDate;
-
-import controllers.filters.AuthFilter;
-
 import models.events.Project;
 import models.events.ProjectState;
 import models.users.Campus;
-import models.users.Profile;
-import models.users.User;
+import org.joda.time.LocalDate;
+
+import javax.persistence.Query;
+import java.util.List;
 
 public class ProjectService {
 	

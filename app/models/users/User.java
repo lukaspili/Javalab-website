@@ -22,25 +22,19 @@ import validation.check.NumericCheck;
 @Entity
 public class User extends Model {
 
-    @Required
     @CheckWith(NumericCheck.class)
     public String idBooster;
 
-    @Required
     public String firstName;
 
-    @Required
     public String lastName;
 
-    @Required
     @Enumerated(EnumType.STRING)
     public Promotion promotion;
 
-    @Required
     @Enumerated(EnumType.STRING)
     public Profile profile;
 
-    @Required
     @Enumerated(EnumType.STRING)
     public Campus campus;
 
@@ -62,7 +56,7 @@ public class User extends Model {
     }
 
     public boolean isTheFirstLogin() {
-        return StringUtils.isEmpty(firstName);
+        return null == id;
     }
 
 
