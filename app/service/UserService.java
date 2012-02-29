@@ -46,6 +46,7 @@ public class UserService {
         userToCreate.lastName = user.lastName;
         userToCreate.campus = user.campus;
         userToCreate.promotion = user.promotion;
+        userToCreate.firstLogin = true;
 
         userToCreate.profile = Profile.CANDIDATE;
 
@@ -67,5 +68,19 @@ public class UserService {
 
     public User login(String idBooster) {
         return User.find("byIdBooster", idBooster).first();
+    }
+
+    public User completeFirstLogin(User existingUser, User dataUser) {
+
+        existingUser.firstName = dataUser.firstName;
+        existingUser.lastName = dataUser.lastName;
+        existingUser.campus = dataUser.campus;
+        existingUser.promotion = dataUser.promotion;
+
+        existingUser.firstLogin = false;
+
+        existingUser.save();
+
+        return existingUser;
     }
 }

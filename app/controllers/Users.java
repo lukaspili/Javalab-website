@@ -10,16 +10,13 @@ import models.users.Campus;
 import models.users.Profile;
 import models.users.Promotion;
 import models.users.User;
-import org.apache.commons.lang3.StringUtils;
 import play.Play;
 import play.data.validation.Required;
-import play.data.validation.Valid;
 import play.libs.OpenID;
 import play.mvc.Http;
 import play.mvc.Router;
 import service.UserService;
 import util.OpenIDUtils;
-import validation.EnhancedValidator;
 
 import javax.inject.Inject;
 import java.util.*;
@@ -89,12 +86,17 @@ public class Users extends AppController {
                 } catch (Exception e) {
                     logger.warn("Invalid promotion level : %s", promotion);
                 }
+
+                user = userService.save(user);
+
+                if (null == user) {
+                    Dashboard.index();
+                }
             }
 
             Auth.loginUser(user);
 
-            if (user.isTheFirstLogin()) {
-                logger.debug("Its the first login with id %s", user.id);
+            if (user.firstLogin) {
                 firstLogin();
             }
 
@@ -120,6 +122,7 @@ public class Users extends AppController {
         }
     }
 
+    @LoggedAccess
     @UserFirstLogin(only = true)
     public static void firstLogin() {
 
@@ -132,6 +135,7 @@ public class Users extends AppController {
         render(user, campuses, promotions);
     }
 
+    @LoggedAccess
     @UserFirstLogin(only = true)
     public static void firstLoginProcess(User user) {
 
@@ -143,14 +147,9 @@ public class Users extends AppController {
             render("Users/firstLogin.html", user, campuses, promotions);
         }
 
-        user.idBooster = Auth.getCurrentUser().idBooster;
-        User result = userService.save(user);
+        userService.completeFirstLogin(Auth.getCurrentUser(), user);
 
-        if (null == result) {
-            flashError("user.firstLoginProcess.error.save");
-        } else {
-            flashSuccess("user.firstLoginProcess.success");
-        }
+        flashSuccess("user.firstLoginProcess.success");
 
         Dashboard.index();
     }

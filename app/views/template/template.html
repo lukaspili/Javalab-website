@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>${application_name} - ${page_title}</title>
+    <title>&{'application.name'} - ${page_title}</title>
     <meta charset="${_response_encoding}">
     <link href="/public/stylesheets/prettify.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="/public/stylesheets/prettify.js"></script>
@@ -16,20 +16,20 @@
 </head>
 <body>
 <div class="container-fluid" style="padding: 0px;">
-    
+
     #{if !auth.isLogged()}
-    
+
     #{/if}
 
     #{else}
     <div class="topbar">
-    	
+
     	<div class="fill">
     		<div class="container">
 		<p>
-    		
+
 		#{a @Users.profile(), class:'brand'} Mon profile#{/a}
-    	
+
     	#{if auth.isGlm()}
     		#{a @UsersAdmin.candidates('PARIS')}Candidats de Paris#{/a}
     	#{/if}
@@ -88,7 +88,7 @@
     					#{a @Users.login()}Login#{/a}
  					#{/if}
 					</div>
-					
+
 				</div>
 			</div>
 			 #{if !auth.isLogged()}

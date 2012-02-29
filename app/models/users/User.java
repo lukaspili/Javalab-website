@@ -29,6 +29,8 @@ public class User extends Model {
 
     public String lastName;
 
+    public boolean firstLogin;
+
     @Enumerated(EnumType.STRING)
     public Promotion promotion;
 
@@ -55,9 +57,8 @@ public class User extends Model {
         return firstName + " " + lastName;
     }
 
-    public boolean isTheFirstLogin() {
-        return null == id;
+    @Override
+    public String toString() {
+        return "User " + idBooster + " " + getFullName();
     }
-
-
 }

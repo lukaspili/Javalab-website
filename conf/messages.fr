@@ -1,3 +1,5 @@
+application.name=Laboratoires Java SUPINFO
+
 user.idBooster=ID Booster
 user.firstName=Prénom
 user.lastName=Nom

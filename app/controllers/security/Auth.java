@@ -9,6 +9,7 @@ import models.users.Profile;
 import models.users.User;
 import play.i18n.Messages;
 import play.mvc.Before;
+import play.mvc.Http;
 import play.mvc.Util;
 import play.mvc.With;
 
@@ -24,8 +25,6 @@ public class Auth extends UtilController {
 
     @Before(priority = 0)
     public static void checkUser() {
-
-        logger.debug("Check if user is logged");
 
         if (!isLogged()) {
             logger.debug("User is not logged");
@@ -47,6 +46,7 @@ public class Auth extends UtilController {
         if (null == user) {
             logger.error("User don't exists with session id : %s ", id);
             logoutUser();
+            return;
         }
 
         logger.debug("Logged user : %s", user);
@@ -56,11 +56,8 @@ public class Auth extends UtilController {
     @Before(priority = 1)
     public static void checkAccess() {
 
-        logger.debug("Check access");
+        logger.debug("Check access for %s/%s", Http.Request.current().controller, Http.Request.current().actionMethod);
 
-        // check public access first
-
-        logger.debug("Check public access");
         boolean isPublic = false;
 
         PublicAccess publicAccess = getActionAnnotation(PublicAccess.class);
@@ -76,13 +73,12 @@ public class Auth extends UtilController {
         }
 
         if (isPublic) {
-            logger.debug("Access allowed for both guest and logged users");
+            logger.debug("Access is public");
             return;
         }
 
         // check logged access next
 
-        logger.debug("Check logged access");
         boolean isAccessDefined = false;
 
         if (!isLogged()) {
@@ -106,6 +102,7 @@ public class Auth extends UtilController {
 
         // no access defined on the action
         if (!isAccessDefined) {
+            logger.warn("No access definied on the action");
             denyAccess();
         }
     }
