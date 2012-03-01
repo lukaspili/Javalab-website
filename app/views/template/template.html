@@ -7,6 +7,7 @@
     <link href="/public/stylesheets/prettify.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="/public/stylesheets/prettify.js"></script>
     <link rel="stylesheet/less" href="/public/stylesheets/bootstrap.less">
+    <!-- <link rel="stylesheet/less" href="/public/stylesheets/bootstrap.css"> -->
     <link rel="stylesheet/less" href="/public/stylesheets/main.less">
 	<script src="/public/stylesheets/less.js"></script>
     #{get 'moreStyles' /}
@@ -58,42 +59,38 @@
 	<div class="footer">
 		<div class="container">
 			<div class="row">
-				<div class="span3">
-					<h3>Partenaire</h3>
-					<p>Laboratoires-java.com est en association avec l'école Supinfo, école supérieur de l'information.</p>
+				<div class="span4">
+					<h3>Supinfo</h3>
+					<p><a href="http://laboratoires-java.com">Laboratoires-java.com</a> est en association avec l'école Supinfo, école supérieur de l'information.</p>
 					<img src="/public/images/footer/supinfo.png" alt="supinfo" width="127" height="124" />
 				</div>
-				<div class="span5 offset2">
-					<h3>Prochain rendez-vous!</h3>
-					<ul>
-					<li>choix A</li>
-					<li>choix A</li>
-					<li>choix A</li>
-					<li>choix A</li>
-					</ul>
-					<h3>Tweeter</h3>
-					<p class="tweeter"><a href="#">@laboratoires-java</a> : Trop bien!</p>
-					<div class="tweeter-nav">
-						<p><a href="#"><img src="/public/images/footer/prec.png" alt="prec" width="10" height="12" /> Précédent</a><span style="margin-left:35px;">tweet</span><a href="#" style="float:right;">Suivant <img src="/public/images/footer/next.png" alt="next" width="10" height="12" /></a>
-					</div>
-				</div>
-				<div class="span5 offset1">
-					<h3>Information générale</h3>
-					<div class="information">
-					<a href="#">Condition d'utilisation</a><br />
-					<a href="#">Charte de confidentialitée</a><br />
-					<a href="#">Contact</a><br />
-					<a href="#">Inscription</a><br />
-					#{if !auth.isLogged()}
-    					#{a @Users.login()}Login#{/a}
- 					#{/if}
-					</div>
+				<div class="span4">
+					<h3>Suivez nous partout</h3>
+					<a class="twitter" href="http://twitter.com/labojava">Twitter</a><br />
+					<a class="facebook" href="http://facebook.com/">Facebook</a><br />
+					<a class="googleplus" href="http://google.com/">Google plus</a>
 
 				</div>
+				<div class="span4">
+					<h3>Informations générales</h3>
+					<div class="information">
+					<ul>
+						<li><a href="#">Condition d'utilisation</a></li>
+						<li><a href="#">Charte de confidentialitée</a></li>
+						<li><a href="#">Contact</a></li>	
+					#{if !auth.isLogged()}
+						<li>
+    					#{a @Users.login()}Connection#{/a}
+    					</li>
+ 					#{/if}
+ 						
+ 					</ul>
+					</div>
+				</div>
+				<div class="span4">
+					<h3>Partenaires</h3>
+				</div>
 			</div>
-			 #{if !auth.isLogged()}
-    			#{a @Users.login()}Login#{/a}
- 			#{/if}
  		</div>
 	</div>
 </body>

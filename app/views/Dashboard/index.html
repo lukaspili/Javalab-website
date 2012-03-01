@@ -1,5 +1,5 @@
 #{extends 'template/template.html' /}
-
+<div class="wrapper">
 <div class="menu">
 	<ul id="ul-menu">
 		<li><a href="#" class="selected" id="button-menu">Acceuil</a></li>
@@ -13,13 +13,23 @@
 
 <div class="content">
 	<div class="hero-unit">
-          <h1>Bienvenue sur les laboratoires Java !</h1>
-          <p>
-			  Connectez vous directement avec compte SUPINFO et candidatez pour le campus de
-          </p>
+        <div class="row">
+            <div class="span11">
+                <h1>Connectez vous!</h1>
+                <p>La partie membre du site Laboratoires java est restreinte aux étudiants de Supinfo.</p>
+
+                <p><a class="btn primary large" onClick="window.location = '@{Users.inscription()}'">Connectez vous avec votre ID Booster</a></p>
+            </div>
+            <div class="span5 offset1">
+                <h1>Contact</h1>
+                <p>Vous souhaitez rentrer en contact avec le laboratoire pour</p>
+
+                <p><a class="btn primary" onClick="window.location = '@{Users.inscription()}'">Connectez vous avec votre ID Booster</a></p>
+            </div>
+        </div>
     </div>
     <div class="row">
-    	<div class="span6 offset1">
+    	<div class="span6">
     		<div class="page-header">
     			<h1>Nos projets<small> 2011 - 2012 </small></h1>		
     		</div>
@@ -31,7 +41,7 @@
     		<p>Pour les fan de probabilités, le laboratoire java vous propose de développer une application Android, nom de code <a href="">PP</a>.
     		</p>
     	</div>
-    	<div class="span6 offset1">
+    	<div class="span6">
     		<div class="page-header">
     			<h1>Calendrier<small> Janvier 2012 </small></h1>		
     		</div>
@@ -58,38 +68,15 @@
 			</tbody>
 			</table>
     	</div>
-    	<div class="span4 offset1">
-    		<div class="page-header">
-    			<h1>Sondages<small></small></h1>		
-    		</div>
-    		<p> Quel tutorial désirez-vous le plus?</p>
-    		<div class="clearfix">
-    			<form method="post">
-    				<div class="input"  style="margin-left:0;">
-    					<ul class="inputs-list">
-    						<li>
-    							<label><input type="checkbox" name="vote" id="vote" /> <label for="vote">La persistence aver Play</label></label>
-    						</li>
-    						<li>
-    							<label><input type="checkbox" name="vote2" id="vote2" /> <label for="vote2">Initiation à Android</label></label>
-    						</li>
-    						<li>
-    							<label><input type="checkbox" name="vote3" id="vote3" /> <label for="vote3">Voir Lukas nue</label></label>
-    						</li>
-    					</ul>
-    				</div>
-    				<input type="submit" class="btn primary" value="envoyer" />
-    			</form>
-    		</div>
-    	</div>
+    	
     <!-- </div>
   	<div class="row"> -->
-		<div class="span6 offset1">
+		<div class="span6">
 			<div class="page-header">
 				<h1>github<small> nos ressources</small></h1>
 			</div>
 			<pre class="prettyprint">
-				<ol>
+				<ol>https://github.com/
 					<li>&lt;div class="row"&gt;</li>
 			 <li> &lt;div class="span6"&gt;</li>
 			   <li> ...</li>
@@ -102,4 +89,5 @@
 			</pre>
 		</div>
 	</div>
+</div>
 </div>
