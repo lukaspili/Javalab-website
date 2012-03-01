@@ -66,6 +66,16 @@ public class UserService {
         return query.getResultList();
     }
 
+    public List<User> getUsersByCampusAndProfile(Campus campus, Profile profile) {
+
+        return User.em().createQuery("select u from User u " +
+                "where u.campus = :campus and u.profile = :profile " +
+                "order by u.lastName")
+                .setParameter("campus", campus)
+                .setParameter("profile", profile)
+                .getResultList();
+    }
+
     public User login(String idBooster) {
         return User.find("byIdBooster", idBooster).first();
     }
@@ -82,5 +92,14 @@ public class UserService {
         existingUser.save();
 
         return existingUser;
+    }
+
+    public void acceptCandidate(User user) {
+        user.profile = Profile.MEMBER;
+        user.save();
+    }
+
+    public void refuseCandidate(User user) {
+        user.delete();
     }
 }

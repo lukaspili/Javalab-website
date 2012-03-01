@@ -15,12 +15,16 @@ import play.data.validation.Required;
 import play.libs.OpenID;
 import play.mvc.Http;
 import play.mvc.Router;
+import play.mvc.Util;
 import service.CampusService;
 import service.UserService;
 import util.OpenIDUtils;
 
 import javax.inject.Inject;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
@@ -37,6 +41,19 @@ public class Users extends AppController {
 
     @Inject
     private static CampusService campusService;
+
+    @Util
+    public static User getSafeUser(long userId) {
+
+        User user = User.findById(userId);
+        notFoundIfNull(user);
+
+        if (Auth.getCurrentUser().profile != Profile.GLM && !Auth.getCurrentUser().campus.equals(user.campus)) {
+            forbidden();
+        }
+
+        return user;
+    }
 
     @PublicAccess(only = true)
     public static void login() {
@@ -183,8 +200,11 @@ public class Users extends AppController {
     }
 
     @LoggedAccess
-    public static void details(String idBooster) {
-        User user = User.find("byIdBooster", idBooster).first();
+    public static void details(long userId) {
+
+        User user = User.findById(userId);
+        notFoundIfNull(user);
+
         render(user);
     }
 
@@ -201,7 +221,6 @@ public class Users extends AppController {
         flash.success("Votre profile a été modifié !");
 
         profile();
-
     }
 
     @LoggedAccess
@@ -209,13 +228,5 @@ public class Users extends AppController {
         User user = Auth.getCurrentUser();
         List<Promotion> promotionList = Arrays.asList(Promotion.values());
         render(user, promotionList);
-    }
-
-    @LoggedAccess
-    public static void candidate() {
-        User user = Auth.getCurrentUser();
-        user.profile = Profile.CANDIDATE;
-        user.save();
-        render(user);
     }
 }

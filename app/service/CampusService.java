@@ -1,6 +1,8 @@
 package service;
 
 import models.users.Campus;
+import models.users.Profile;
+import models.users.User;
 
 import java.util.List;
 

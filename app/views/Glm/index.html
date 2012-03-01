@@ -1,9 +1,29 @@
 #{extends 'template/template.html'/}
 
-<h1>Gestion des laboratoires</h1>
+<div class="content">
+	<div class="row">
+		<div class="span12">
+			<div class="page-header">
+				<h1>Laboratoires
+					<small>par campus (${campuses.size()})</small>
+				</h1>
+			</div>
 
-<ul>
-#{list items:campuses, as: 'item'}
-	<li>#{a @CampusesAdmin.admin(item.id)}${item.name.label}#{/a}</li>
-#{/list}
-</ul>
+			<ul>
+			#{list items:campuses, as: 'item'}
+				<li>#{a @CampusesAdmin.admin(item.id)}${item.name.label}#{/a}</li>
+			#{/list}
+			</ul>
+		</div>
+
+		<div class="span12">
+			<div class="page-header">
+				<h1>Activité
+					<small>${campuses.size()}</small>
+				</h1>
+			</div>
+
+
+		</div>
+	</div>
+</div>

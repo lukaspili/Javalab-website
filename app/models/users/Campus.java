@@ -1,5 +1,6 @@
 package models.users;
 
+import models.events.Project;
 import play.db.jpa.Model;
 import play.i18n.Messages;
 
@@ -17,6 +18,9 @@ public class Campus extends Model {
 
     @OneToMany(mappedBy = "campus")
     public List<User> members;
+
+    @OneToMany(mappedBy = "campus")
+    public List<Project> projects;
 
     public enum Name {
         PARIS, CLERMONTFERRAND, NICE, NANTES, TOULOUSE, MONTPELLIER, GRENOBLE;

@@ -6,10 +6,7 @@ import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 import play.db.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.util.Set;
 
 /**
@@ -18,7 +15,6 @@ import java.util.Set;
 @Entity
 public class Project extends Model {
 
-	
     public String name;
 
     public String presentation;
@@ -33,7 +29,7 @@ public class Project extends Model {
     @Enumerated(EnumType.STRING)
     public ProjectState state;
     
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     public Campus campus;
 
     @ManyToMany
