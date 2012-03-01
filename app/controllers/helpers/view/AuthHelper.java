@@ -54,6 +54,10 @@ public class AuthHelper extends Controller {
         return profile.equals(Profile.MEMBER);
     }
 
+    public boolean isCandidate() {
+        return profile.equals(Profile.CANDIDATE);
+    }
+
     public static class GuestAuthHelper extends AuthHelper {
 
         @Override
@@ -73,6 +77,11 @@ public class AuthHelper extends Controller {
 
         @Override
         public boolean isMember() {
+            return false;
+        }
+
+        @Override
+        public boolean isCandidate() {
             return false;
         }
     }

@@ -20,11 +20,31 @@ public class TestSeed {
 
     public static void insert() {
 
+        Campus paris = new Campus();
+        paris.name = Campus.Name.PARIS;
+        paris.save();
+
+        Campus grenoble = new Campus();
+        grenoble.name = Campus.Name.GRENOBLE;
+        grenoble.save();
+
+        Campus toulouse = new Campus();
+        toulouse.name = Campus.Name.TOULOUSE;
+        toulouse.save();
+
+        Campus clermont = new Campus();
+        clermont.name = Campus.Name.CLERMONTFERRAND;
+        clermont.save();
+
+        Campus montpellier = new Campus();
+        montpellier.name = Campus.Name.MONTPELLIER;
+        montpellier.save();
+
         User user1 = new User();
         user1.idBooster = "8080";
         user1.firstName = "John";
         user1.lastName = "Doe";
-        user1.campus = Campus.PARIS;
+        user1.campus = montpellier;
         user1.promotion = Promotion.B3;
         user1.profile = Profile.MEMBER;
         user1.save();
@@ -33,7 +53,7 @@ public class TestSeed {
         user2.idBooster = "75054";
         user2.firstName = "Lukasz";
         user2.lastName = "Piliszczuk";
-        user2.campus = Campus.PARIS;
+        user2.campus = montpellier;
         user2.promotion = Promotion.M1;
         user2.profile = Profile.GLM;
         user2.save();
@@ -42,7 +62,7 @@ public class TestSeed {
         user3.idBooster = "92755";
         user3.firstName = "Kevin";
         user3.lastName = "Valfin";
-        user3.campus = Campus.PARIS;
+        user3.campus = montpellier;
         user3.promotion = Promotion.B3;
         user3.profile = Profile.CLM;
         user3.save();
@@ -51,7 +71,7 @@ public class TestSeed {
         user4.idBooster = "123";
         user4.firstName = "Candidate 1";
         user4.lastName = "Foo";
-        user4.campus = Campus.PARIS;
+        user4.campus = montpellier;
         user4.promotion = Promotion.B2;
         user4.profile = Profile.CANDIDATE;
         user4.save();
@@ -60,99 +80,98 @@ public class TestSeed {
         user5.idBooster = "456";
         user5.firstName = "Candidate 2";
         user5.lastName = "Bar";
-        user5.campus = Campus.PARIS;
+        user5.campus = montpellier;
         user5.promotion = Promotion.B1;
         user5.profile = Profile.CANDIDATE;
         user5.save();
-        
+
         User user51 = new User();
         user51.idBooster = "456";
         user51.firstName = "Candidate 2";
         user51.lastName = "Bar";
-        user51.campus = Campus.PARIS;
+        user51.campus = montpellier;
         user51.promotion = Promotion.B1;
         user51.profile = Profile.CANDIDATE;
         user51.save();
-        
+
         User user511 = new User();
         user511.idBooster = "45624";
         user511.firstName = "Candidate 3";
         user511.lastName = "Bar";
-        user511.campus = Campus.PARIS;
+        user511.campus = montpellier;
         user511.promotion = Promotion.B1;
         user511.profile = Profile.CANDIDATE;
         user511.save();
-        
+
         User user5111 = new User();
         user5111.idBooster = "456565";
         user5111.firstName = "Candidate 4";
         user5111.lastName = "Bar";
-        user5111.campus = Campus.MONTPELLIER;
+        user5111.campus = montpellier;
         user5111.promotion = Promotion.B1;
         user5111.profile = Profile.MEMBER;
         user5111.save();
-        
+
         User user51111 = new User();
         user51111.idBooster = "45645";
         user51111.firstName = "Candidate 5";
         user51111.lastName = "Bar";
-        user51111.campus = Campus.GRENOBLE;
+        user51111.campus = grenoble;
         user51111.promotion = Promotion.B1;
         user51111.profile = Profile.MEMBER;
         user51111.save();
-        
+
         User user511111 = new User();
         user511111.idBooster = "45612";
         user511111.firstName = "Candidate 6";
         user511111.lastName = "Bar";
-        user511111.campus = Campus.PARIS;
+        user511111.campus = montpellier;
         user511111.promotion = Promotion.B1;
         user511111.profile = Profile.MEMBER;
         user511111.save();
-        
+
         User user5111111 = new User();
         user5111111.idBooster = "45634";
         user5111111.firstName = "Candidate 7";
         user5111111.lastName = "Bar";
-        user5111111.campus = Campus.TOULOUSE;
+        user5111111.campus = toulouse;
         user5111111.promotion = Promotion.B1;
         user5111111.profile = Profile.MEMBER;
         user5111111.save();
-        
+
         User user51111111 = new User();
         user51111111.idBooster = "45667";
         user51111111.firstName = "Candidate 8";
         user51111111.lastName = "Bar";
-        user51111111.campus = Campus.PARIS;
+        user51111111.campus = montpellier;
         user51111111.promotion = Promotion.B1;
         user51111111.profile = Profile.CANDIDATE;
         user51111111.save();
-        
+
         User user511111111 = new User();
         user511111111.idBooster = "45609";
         user511111111.firstName = "Candidate 9";
         user511111111.lastName = "Bar";
-        user511111111.campus = Campus.CLERMONTFERRAND;
+        user511111111.campus = clermont;
         user511111111.promotion = Promotion.B1;
         user511111111.profile = Profile.CANDIDATE;
         user511111111.save();
-        
+
         User user5111111111 = new User();
         user5111111111.idBooster = "45697";
         user5111111111.firstName = "Candidate 10";
         user5111111111.lastName = "Bar";
-        user5111111111.campus = Campus.NANTES;
+        user5111111111.campus = clermont;
         user5111111111.promotion = Promotion.B1;
         user5111111111.profile = Profile.CANDIDATE;
         user5111111111.save();
 
-        
+
         Set<User> users = new HashSet<User>();
         users.add(user1);
         users.add(user2);
         users.add(user3);
 
-        
 
         Talk talk1 = new Talk();
         talk1.title = "Google map with Android";
@@ -166,34 +185,34 @@ public class TestSeed {
         project1.description = "The new website for the lab";
         project1.members = users;
         project1.save();
-        
+
         Article article2 = new Article();
         article2.title = "Foo";
         article2.content = "BarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBar	";
         article2.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article2.authors = users;
         article2.save();
-        
+
         Article article21 = new Article();
         article21.title = "Foo";
         article21.content = "Bar";
         article21.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article21.authors = users;
         article21.save();
-        
+
         Article article211 = new Article();
         article211.title = "Foo";
         article211.content = "Bar";
         article211.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article211.authors = users;
         article211.save();
-        
+
         Article article2111 = new Article();
         article2111.title = "Foo";
         article2111.content = "Bar";
         article2111.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article2111.authors = users;
         article2111.save();
-        
+
     }
 }

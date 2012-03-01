@@ -31,7 +31,7 @@ public class UsersAdmin extends AppController {
         Campus campus = null;
         if (Auth.getCurrentUser().profile == Profile.GLM) {
             try {
-                campus = Campus.valueOf(campusName.toUpperCase());
+//                campus = Campus.valueOf(campusName.toUpperCase());
             } catch (IllegalArgumentException e) {
                 notFound();
             }
@@ -69,7 +69,7 @@ public class UsersAdmin extends AppController {
         Campus campus = null;
         if (Auth.getCurrentUser().profile == Profile.GLM) {
             try {
-                campus = Campus.valueOf(campusName.toUpperCase());
+//                campus = Campus.valueOf(campusName.toUpperCase());
             } catch (IllegalArgumentException e) {
                 notFound();
             }

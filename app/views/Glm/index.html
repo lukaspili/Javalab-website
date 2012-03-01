@@ -1,0 +1,9 @@
+#{extends 'template/template.html'/}
+
+<h1>Gestion des laboratoires</h1>
+
+<ul>
+#{list items:campuses, as: 'item'}
+	<li>#{a @CampusesAdmin.admin(item.id)}${item.name.label}#{/a}</li>
+#{/list}
+</ul>

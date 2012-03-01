@@ -2,10 +2,7 @@ package models.users;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 import models.events.Article;
 import models.events.Project;
@@ -37,7 +34,7 @@ public class User extends Model {
     @Enumerated(EnumType.STRING)
     public Profile profile;
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     public Campus campus;
 
     @ManyToMany(mappedBy = "speakers")

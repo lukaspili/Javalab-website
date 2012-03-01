@@ -4,6 +4,14 @@ user.idBooster=ID Booster
 user.firstName=Prénom
 user.lastName=Nom
 
+campus.paris=Paris
+campus.clermontferrand=Clermont Ferrand
+campus.nice=Nice
+campus.nantes=Nantes
+campus.toulouse=Toulouse
+campus.montpellier=Montpellier
+campus.grenoble=Grenoble
+
 article.title=Titre
 article.authors=Auteur
 article.creationDate=Date

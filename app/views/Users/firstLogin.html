@@ -20,12 +20,12 @@
 #{if field.error}<span>${field.error}</span>#{/}
 #{/} <br/>
 
-#{field 'user.campus'}
-<label for="${field.id}">&{field.name}</label>
+#{field 'campusId'}
+<label for="${field.id}">&{'user.campus'}</label>
 <select name="${field.name}">
 	<option value="">Selectionnez un campus</option>
 #{list items:campuses, as:'item'}
-	<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
+	<option value="${item.id}" ${(field.value.equals(item.id)).yesno('selected', '')}>${item.name.label}</option>
 #{/list}
 </select>
 #{/} <br/>

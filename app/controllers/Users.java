@@ -15,6 +15,7 @@ import play.data.validation.Required;
 import play.libs.OpenID;
 import play.mvc.Http;
 import play.mvc.Router;
+import service.CampusService;
 import service.UserService;
 import util.OpenIDUtils;
 
@@ -24,7 +25,6 @@ import java.util.*;
 /**
  * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
  */
-
 public class Users extends AppController {
 
     private static final Logger logger = Logger.getLoggerFor(Users.class);
@@ -34,6 +34,9 @@ public class Users extends AppController {
 
     @Inject
     private static UserService userService;
+
+    @Inject
+    private static CampusService campusService;
 
     @PublicAccess(only = true)
     public static void login() {
@@ -74,7 +77,7 @@ public class Users extends AppController {
                 String promotion = OpenIDUtils.getParamValue(params.get(OPENID_PERSONCURSUS), 2);
 
                 try {
-                    user.campus = Campus.valueOf(campus);
+                    user.campus = campusService.findCampusByName(campus);
                 } catch (Exception e) {
                     logger.warn("Invalid campus value : %s", campus);
                 }
@@ -127,7 +130,7 @@ public class Users extends AppController {
         pageHelper().addActionTitle();
 
         User user = Auth.getCurrentUser();
-        List<Campus> campuses = Arrays.asList(Campus.values());
+        List<Campus> campuses = campusService.getCampuses();
         List<Promotion> promotions = Arrays.asList(Promotion.values());
 
         render(user, campuses, promotions);
@@ -135,15 +138,18 @@ public class Users extends AppController {
 
     @LoggedAccess
     @UserFirstLogin(only = true)
-    public static void firstLoginProcess(User user) {
+    public static void firstLoginProcess(User user, @Required Long campusId) {
 
-        if (validator().validate(user).require("firstName", "lastName", "campus", "promotion").hasErrors()) {
+        if (validator().validate(user).require("firstName", "lastName", "promotion").hasErrors()) {
 
-            List<Campus> campuses = Arrays.asList(Campus.values());
+            List<Campus> campuses = campusService.getCampuses();
             List<Promotion> promotions = Arrays.asList(Promotion.values());
 
-            render("Users/firstLogin.html", user, campuses, promotions);
+            render("Users/firstLogin.html", user, campuses, promotions, campusId);
         }
+
+        user.campus = Campus.findById(campusId);
+        notFoundIfNull(user.campus);
 
         userService.completeFirstLogin(Auth.getCurrentUser(), user);
 
@@ -159,13 +165,18 @@ public class Users extends AppController {
         Dashboard.index();
     }
 
+    @LoggedAccess
+    public static void candidature() {
+
+    }
+
 
     @LoggedAccess
-    public static void modify(String firstName, String lastName, String campus) {
+    public static void modify(String firstName, String lastName, Campus campus) {
         User user = Auth.getCurrentUser();
         user.firstName = firstName;
         user.lastName = lastName;
-        user.campus = Campus.valueOf(campus);
+        user.campus = campus;
         user.save();
         flash.success("Votre profile a été modifié !");
         profile();
