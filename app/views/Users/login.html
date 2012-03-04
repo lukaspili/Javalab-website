@@ -1,16 +1,40 @@
 #{extends 'template/template.html' /}
 
-<h1>Login</h1>
+<div class="login">
+	<div class="row">
+		<div class="span8">
+		<div class="connexion">
+		<h3>Connexion</h3>
+		<p style="font-size:11px;color:#cecece">Espace réservé au membre du laboratoires JAVA.</p>
+			#{include 'helpers/form_validation.html' /}
 
-#{include 'helpers/form_validation.html' /}
-
-#{form @Users.authenticate(), id:'login-form', enctype:'multipart/form-data' }
-
-#{field 'idBooster'}
-<label for="${field.id}"><strong>&{field.name}</strong></label>
-<input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/>
-#{if field.error}<span>${field.error}</span>#{/}
-#{/}
-
-<input type="submit" value="Login"/>
-#{/form}
+			#{form @Users.authenticate(), id:'login-form', enctype:'multipart/form-data' }
+			<table>
+				<tr>
+					#{field 'idBooster'}
+					<td><label for="${field.id}"><strong>&{field.name}</strong></label></td>
+					<td><input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/></td>
+				</tr>
+				<tr>
+					#{if field.error}<td></td><td><span><p class="information_error">${field.error}</p></span></td>#{/}
+					#{/}
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:right;"><input type="submit" value="Login"/></td>
+				</tr>
+			</table>
+			#{/form}
+		</div>
+		</div>
+		<div class="span6">
+			<div class="connexion">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+		</div>
+	</div>
+</div>

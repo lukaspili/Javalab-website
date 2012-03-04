@@ -81,10 +81,10 @@
 	<h2 class="titre"><a href="/">Développement Java & Android</a></h2>
 
 
-#{doLayout /}
 
-
+	#{doLayout /}
 </div>
+
 	<div class="footer">
 		<div class="container">
 			<div class="row">
@@ -109,7 +109,7 @@
 						<li><a href="#">Contact</a></li>	
 					#{if !auth.isLogged()}
 						<li>
-    					#{a @Users.login()}Connection#{/a}
+    					#{a @Users.login()}Connexion#{/a}
     					</li>
  					#{/if}
  						
@@ -118,6 +118,11 @@
 				</div>
 				<div class="span4">
 					<h3>Partenaires</h3>
+					<div class="information">
+					<ul>
+					<li><a href="http://wwww.supinfo.com">SUPINFO</a></li>
+					</ul>
+					</div>
 				</div>
 			</div>
  		</div>

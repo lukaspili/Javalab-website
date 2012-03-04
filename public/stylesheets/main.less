@@ -43,8 +43,6 @@ h2.titre{
 	font-family:"helvetica Neue";
 }
 h3{
-
-	font-size: px;
 	color: #181818;
 	font-weight: 500;
 	text-shadow: 0px 1px 0px white;
@@ -61,7 +59,7 @@ h4{
 
 /* class */
 .wrapper{
-	width:1080px;
+	width:980px;
 	/*position: absolute;*/
 	margin: 0px auto;
 }
@@ -72,7 +70,7 @@ h4{
 	height: 87px;
 	min-height: 87px;
 	max-height: 87px;
-	width: 1080px;
+	width: 980px;
 	margin: 0 auto;
 	background: url('/public/images/menu/menu-repeat.png');
 	min-width: 840px;
@@ -182,24 +180,63 @@ text-decoration: none;
 /*///////////////////////*/
 /* 			HOME		 */
 /*///////////////////////*/
-.hero-unit {
-	padding:30px;
-	-moz-box-shadow:    inset 0 0 10px #b9b9b9;
-	-webkit-box-shadow: inset 0 0 10px #b9b9b9;
-	box-shadow:         inset 0 0 10px #b9b9b9;
-
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px; /* future proofing */
-	-khtml-border-radius: 2px; /* for old Konqueror browsers */
+.home .hero-unit {
+	margin: 0 0 20px 0;
+	padding: 15px 15px 10px 15px;
+	background: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
 }
-.hero-unit h1{
+.home .hero-unit h1{
 	font-weight: none;
 	font-family: sans-serif;
 	font-size: 30px;
 	line-height: 36px;
 }
-
+.home .hero-unit p{
+	font-size:13px;
+	font-family:"Helvetica Neue";
+	line-height:18px;
+	width:auto!important;
+}
+.home .wrapper .row{
+	background: url("/public/images/line.png") no-repeat top;
+	padding-top:20px;
+	padding-left:0px;
+	margin-left:-10px;
+}
+.home .wrapper .hero-unit .row{
+	background: white;
+	padding: 15px 15px 10px 15px;
+}
+.home .wrapper h3{
+	font-size:15px;
+	font-family:sans-serif;
+	color: #414141;
+	font-weight: bold;
+	padding-left:42px;
+	line-height:33px;
+}
+.home .wrapper p{
+	color: #737373;
+	width:200px;
+}
+.home .wrapper .projets{
+	background: url("/public/images/home/icone.png") no-repeat 0px 0px;
+}
+.home .wrapper .evenements{
+	background: url("/public/images/home/icone.png") no-repeat 0px -30px;
+}
+.home .wrapper .sources{
+	background: url("/public/images/home/icone.png") no-repeat 0px -61px;
+}
+.home .wrapper .membres{
+	background: url("/public/images/home/icone.png") no-repeat 0px -91px;
+}
 /*///////////////////////*/
 /* 			FOOTER		 */
 /*///////////////////////*/
@@ -270,4 +307,76 @@ text-decoration: none;
 }
 .footer .information li{
 	list-style: url("/public/images/footer/star.png")
+}
+.footer .row{
+	background: url("/public/images/footer/line.png") no-repeat bottom;
+	padding-bottom:20px;
+}
+/*///////////////////////*/
+/* 			LOGIN		 */
+/*///////////////////////*/
+.login{
+	width:900px;
+	margin:0 auto;
+}
+.login .connexion{
+	margin: 0 0 20px 0;
+	padding: 15px 15px 1px 15px;
+	background: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	display: inline-block;
+}
+.login h3{
+	font-size: 17px;
+	line-height:17px;
+	margin:0;
+	font-family:"helvetica Neue";
+}
+.login .connexion p{
+	font-family:"helvetica neue";
+	font-size:13px;
+}
+.login .connexion .error p{
+	font-size:11px;
+	line-height:11px;
+	color: #ec0000;
+}
+.login .connexion p.information_error{
+	font-size:11px;
+	color: #C2C2C2;
+}
+.login .connexion label{
+	font-family: sans-serif;
+	font-size:13px;
+	width:auto;
+}
+.login .connexion table td {
+	vertical-align: top;
+	border-top: 0px solid #DDD;
+	padding-top:0px;
+	padding-bottom: 5px;
+}
+/*///////////////////////*/
+/* 			Profile		 */
+/*///////////////////////*/
+.profile{
+	width:980px;
+	margin:0 auto;
+}
+.profile .wrapper{
+	margin: 0 0 20px 0;
+	padding: 15px 15px 1px 15px;
+	background: white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.08);
+	display: inline-block;
 }
