@@ -3,27 +3,38 @@
 <p style="color: #c00">${flash.error}</p>
 <p style="color: #c00">${flash.success}</p>
 
-#{form @Articles.newArticle(), method:'GET'}
-		<center>
-		<h1>Blog</h1>
-		 <div class="span6 offset1">
-    		<div class="page-header">
-			<table>
-			 	#{list items:listArticle, as:'article'}
-				<tr>
-					<th>${article.title} - ${article.creationDate}</th>
-				</tr>
-				<tr>    
-					<td>${article.content}</td>
-				<tr>  
-					<td>${article.authors.firstName}</td>
-				</tr>	
-				#{/list}	
-				<tr> 
-				<td><input type="submit" class="btn primary large"></br> </br><a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour &raquo;</a></td>
-				</tr>
-			</table>
-			</div>
-		</div>	
-		</center>		
-#{/form}
+<div class="home">
+    <div class="wrapper">
+        <div class="menu">
+        	<ul id="ul-menu">
+        		<li><a href="/" id="button-menu">Acceuil</a></li>
+        		<li><a href="#" id="button-menu">Tuto</a></li>
+        		<li><a href="#" id="button-menu">Vidéo</a></li>
+        		<li><a href="/blog" class="selected" id="button-menu">Blog</a></li>
+        		<li><a href="#" id="button-menu">Téléchargement</a></li>
+        		<li><a href="/projets" id="button-menu">Projet</a></li>
+        	</ul>
+        </div>
+
+        <div class="content">
+		#{form @Articles.newArticle(), method:'GET'}
+				<h1>Blog</h1>
+				 <div class="span6 offset1">
+		    		<div class="page-header">
+					<table>
+					 	#{list items:listArticle, as:'article'}
+						<tr>
+							<th>${article.title} - ${article.creationDate}</th>
+						</tr>
+						<tr>    
+							<td>${article.content}</td>
+						<tr>  
+							<td>${article.authors.firstName}</td>
+						</tr>	
+						#{/list}	
+						<tr> 
+					</table>
+					</div>
+				</div>		
+		#{/form}
+	</div>

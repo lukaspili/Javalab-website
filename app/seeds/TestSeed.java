@@ -62,7 +62,7 @@ public class TestSeed {
         user3.idBooster = "92755";
         user3.firstName = "Kevin";
         user3.lastName = "Valfin";
-        user3.campus = montpellier;
+        user3.campus = paris	;
         user3.promotion = Promotion.B3;
         user3.profile = Profile.CLM;
         user3.save();
