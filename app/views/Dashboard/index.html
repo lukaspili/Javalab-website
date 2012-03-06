@@ -1,4 +1,31 @@
 #{extends 'template/template.html' /}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script src="/public/javascripts/slides.min.jquery.js"></script>
+    <script>
+        $(function(){
+            // Set starting slide to 1
+            var startSlide = 1;
+            // Get slide number if it exists
+            if (window.location.hash) {
+                startSlide = window.location.hash.replace('#','');
+            }
+            // Initialize Slides
+            $('#slides').slides({
+                preload: true,
+                preloadImage: 'img/loading.gif',
+                generatePagination: false,
+                play: 5000,
+                pause: 2500,
+                hoverPause: true,
+                // Get the starting slide
+                start: startSlide,
+                animationComplete: function(current){
+                    // Set the slide number as a hash
+                    window.location.hash = '#' + current;
+                }
+            });
+        });
+    </script>
 <div class="home">
     <div class="wrapper">
         <div class="menu">
@@ -38,33 +65,90 @@
 
             </div>
             
-            <div class="row">
-                <div class="span4">
-                    <h3 class="projets">Projets</h3>
-                    <p>Cette année nous avons la chance d'avoir un laboratoires actif sur lequel beaucoup de membres participe.<br>
-                    <br>
-                    Trois thèmes de projets ce démarque, ce si sont: <a>Android</a>, <a>Web</a> et <a>Novice</a>.</p>
+            <div class="wrapper2">
+                <div class="row">
+                    <div class="span4">
+                        <h3 class="membres">Membres</h3>
+                        <p>Nos membres sont exclusivement composé d'étudiants de l'école SUPINFO University.<br>
+                        <br>
+                        Si vous êtes étudiants à SUPINFO alors connectez-vous vite!</p>
+                        <div style="float:right;">
+                            #{if !auth.isLogged()}
+                            #{a @Users.login(), class:'btn primary'}Connexion#{/a}
+                            #{/if}
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <h3 class="web">Web</h3>
+                        <p>Cette année nous avons la chance d'avoir un laboratoires actif sur lequel beaucoup de membres participe.<br>
+                        <br>
+                        Trois thèmes de projets ce démarque, ce si sont: <a>Android</a>, <a>Web</a> et <a>Novice</a>.</p>
+                    </div>
+                    <div class="span4">
+                        <h3 class="android">Mobile</h3>
+                        <p>Cette année nous avons la chance d'avoir un laboratoires actif sur lequel beaucoup de membres participe.<br>
+                        <br>
+                        Trois thèmes de projets ce démarque, ce si sont: <a>Android</a>, <a>Web</a> et <a>Novice</a>.</p>
+                    </div>
+                    <div class="span4">
+                        <h3 class="evenements">Evenements</h3>
+                        <p>Les évènement auquel nous seront présent seront présenté <a>ici</a>.<br>
+                        <br>
+                        Les dates sont suceptibles d'être mise à jours régulierement, n'hésité pas à revenir pour être au courant des derniers évènements organisé.</p>
+                    </div>
                 </div>
-                <div class="span4">
-                    <h3 class="evenements">Evenements</h3>
-                    <p>Les évènement auquel nous seront présent seront présenté <a>ici</a>.<br>
-                    <br>
-                    Les dates sont suceptibles d'être mise à jours régulierement, n'hésité pas à revenir pour être au courant des derniers évènements organisé.</p>
+                <div class="row">
+                    <div class="span4">
+                        <h3 class="ressources">Ressources</h3>
+                        <p>Retrouvez en un instant nos projets open source en téléchargement sur notre dépot github.<br>
+                        <br>Tous ne sont pas accessible au grand public il faut faire partie des membres pour certain.</p>
+                    </div>
+                     <div class="span4">
+                        <h3 class="reseaux">Réseau Supinfo</h3>
+                        <p>Retrouvez en un instant nos projets open source en téléchargement sur notre dépot github.<br>
+                        <br>Tous ne sont pas accessible au grand public il faut faire partie des membres pour certain.</p>
+                    </div>
+                     <div class="span8">
+                        <h3 class="partenaires">Partenaires</h3>
+                        <p>Retrouvez en un instant nos projets open source en téléchargement sur notre dépot github.<br>
+                        <br>Tous ne sont pas accessible au grand public il faut faire partie des membres pour certain.</p>
+                    </div>
                 </div>
-                <div class="span4">
-                    <h3 class="sources">Sources</h3>
-                    <p>Retrouvez en un instant nos projets open source en téléchargement sur notre dépot github.<br>
-                    <br>Tous ne sont pas accessible au grand public il faut faire partie des membres pour certain.</p>
-                </div>
-                <div class="span4">
-                    <h3 class="membres">Membres</h3>
-                    <p>Nos membres sont exclusivement composé d'étudiants de l'école SUPINFO University.<br>
-                    <br>
-                    Si vous êtes étudiants à SUPINFO alors connectez-vous vite!</p>
-                    <div style="float:right;">
-                        #{if !auth.isLogged()}
-                        #{a @Users.login(), class:'btn primary'}Connexion#{/a}
-                        #{/if}
+            </div>
+            <div class="wrapper3">
+                <div id="container">
+                    <div id="example" class="row">
+                        <div id="slides">
+                            <a href="#" class="prev span1"><img src="/public/images/home/arrowLeft.png" width="30" name="arrowLeft" onmouseover="arrowLeft.src='/public/images/home/arrowLeftHover.png'" onmouseout="arrowLeft.src='/public/images/home/arrowLeft.png'"  alt="Arrow Prev"></a>
+
+                            <div class="slides_container span10">
+                                <div class="slide">
+                                    <div class="product-image">
+                                        <img src="/public/images/home/s2.png" />
+                                    </div>
+                                    <div class="product-description">
+                                        <h1>Loreum</h1>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </div>
+                                </div>
+                                <div class="slide">
+                                    <h1>Slide</h1>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
+                            </div>
+                            
+                            <a href="#" class="next span1"><img src="/public/images/home/arrowRight.png" width="30" name="arrowRight" onmouseover="arrowRight.src='/public/images/home/arrowRightHover.png'" onmouseout="arrowRight.src='/public/images/home/arrowRight.png'" alt="Arrow Next"></a>
+                        </div>
                     </div>
                 </div>
             </div>
