@@ -212,6 +212,7 @@ public class TestSeed {
         project1.name = "Java lab. website";
         project1.description = "The new website for the lab";
         project1.members = users;
+        project1.campus = paris;
         project1.save();
         
         Project SupinfoMarks = new Project(); 

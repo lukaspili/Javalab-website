@@ -3,17 +3,18 @@ package controllers;
 import controllers.abstracts.AppController;
 import controllers.security.Auth;
 import controllers.security.LoggedAccess;
+import models.events.Project;
 import models.users.Campus;
 import models.users.Profile;
 import models.users.User;
 import play.data.validation.Required;
 import play.mvc.Util;
 import service.CampusService;
+import service.ProjectService;
 import service.UserService;
 
 import javax.inject.Inject;
 import java.util.List;
-
 /**
  * @author Lukasz Piliszczuk <lukasz.pili AT gmail.com>
  */
@@ -25,6 +26,9 @@ public class CampusesAdmin extends AppController {
 
     @Inject
     private static UserService userService;
+    
+    @Inject
+    private static ProjectService projectService;
 
     @Util
     public static Campus getSafeCampus(long campusId) {
@@ -47,8 +51,9 @@ public class CampusesAdmin extends AppController {
 
         List<User> members = userService.getUsersByCampusAndProfile(campus, Profile.MEMBER);
         List<User> candidates = userService.getUsersByCampusAndProfile(campus, Profile.CANDIDATE);
+        List<Project> projects = projectService.getProjectsByCampus(Auth.getCurrentUser().campus);
 
-        render(campus, members, candidates);
+        render(campus, members, candidates, projects);
     }
 
     /**

@@ -2,19 +2,34 @@
 
 <p style="color: #c00">${flash.error}</p>
 <p style="color: #c00">${flash.success}</p>
- <div class="content">
-	<table>
-		<tr>
-			<th>Nom</th>
-			<th>Description</th>
-			<th>S'inscrire au projet</th>
-		</tr>
-	    #{list items: projects, as: 'project'}
-		<tr>    
-			<td>${project.name}</td>
-			<td>#{a @Projects.details(project.id)}Description détaillée#{/a}</td>
-			<td>#{a @Projects.susbscribe(project.id)}Inscription#{/a}</td>
-		</tr>
-	    #{/list}
-	</table>
+
+<div class="home">
+    <div class="wrapper">
+        <div class="menu">
+        	<ul id="ul-menu">
+        		<li><a href="/" id="button-menu">Acceuil</a></li>
+        		<li><a href="#" id="button-menu">Tuto</a></li>
+        		<li><a href="#" id="button-menu">Vidéo</a></li>
+        		<li><a href="/blog" id="button-menu">Blog</a></li>
+        		<li><a href="#" id="button-menu">Téléchargement</a></li>
+        		<li><a href="/projets" class="selected" id="button-menu">Projet</a></li>
+        	</ul>
+        </div>
+
+	 <div class="content">
+		<table>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>S'inscrire au projet</th>
+			</tr>
+		    #{list items: projects, as: 'project'}
+			<tr>    
+				<td>${project.name}</td>
+				<td>#{a @Projects.details(project.id)}Description détaillée#{/a}</td>
+				<td>#{a @Projects.susbscribe(project.id)}Inscription#{/a}</td>
+			</tr>
+		    #{/list}
+		</table>
+	</div>
 </div>

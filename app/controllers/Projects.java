@@ -1,9 +1,5 @@
 package controllers;
 
-/**
- * @author Kevin Valfin
- */
-
 import controllers.abstracts.AppController;
 import controllers.security.Auth;
 import controllers.security.LoggedAccess;
@@ -15,6 +11,10 @@ import validation.EnhancedValidator;
 
 import javax.inject.Inject;
 import java.util.List;
+
+/**
+ * @author Kevin Valfin
+ */
 
 public class Projects extends AppController {
 
