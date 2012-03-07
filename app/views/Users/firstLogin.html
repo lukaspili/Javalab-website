@@ -36,12 +36,12 @@
 					</tr>#{/}
 				#{/}
 					<tr>
-					#{field 'user.campus'}
+					#{field 'campusId'}
 						<td><label for="${field.id}">&{field.name}</label></td>
 						<td><select name="${field.name}">
 							<option value="">Selectionnez un campus</option>
 						#{list items:campuses, as:'item'}
-							<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.name.label}</option>
+							<option value="${item.id}" ${(field.value.equals(item)).yesno('selected', '')}>${item.name.label}</option>
 						#{/list}
 						</select></td>
 					#{/}
