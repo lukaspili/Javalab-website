@@ -8,6 +8,9 @@ import org.joda.time.LocalDate;
 import javax.persistence.Query;
 import java.util.List;
 
+/**
+ * @author Kevin Valfin
+ */
 public class ProjectService {
 	
 	

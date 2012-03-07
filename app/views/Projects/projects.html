@@ -2,18 +2,19 @@
 
 <p style="color: #c00">${flash.error}</p>
 <p style="color: #c00">${flash.success}</p>
-
-<table>
-	<tr>
-		<th>Nom</th>
-		<th>Description</th>
-		<th>S'inscrire au projet</th>
-	</tr>
-    #{list items: projects, as: 'project'}
-	<tr>    
-		<td>${project.name}</td>
-		<td>#{a @Projects.details(project.id)}Description détaillée#{/a}</td>
-		<td>#{a @Projects.subscribe(project.id)}Inscription#{/a}</td>
-	</tr>
-    #{/list}
-</table>
+ <div class="content">
+	<table>
+		<tr>
+			<th>Nom</th>
+			<th>Description</th>
+			<th>S'inscrire au projet</th>
+		</tr>
+	    #{list items: projects, as: 'project'}
+		<tr>    
+			<td>${project.name}</td>
+			<td>#{a @Projects.details(project.id)}Description détaillée#{/a}</td>
+			<td>#{a @Projects.susbscribe(project.id)}Inscription#{/a}</td>
+		</tr>
+	    #{/list}
+	</table>
+</div>

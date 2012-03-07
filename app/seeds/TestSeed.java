@@ -62,7 +62,7 @@ public class TestSeed {
         user3.idBooster = "92755";
         user3.firstName = "Kevin";
         user3.lastName = "Valfin";
-        user3.campus = paris	;
+        user3.campus = paris;
         user3.promotion = Promotion.B3;
         user3.profile = Profile.CLM;
         user3.save();
@@ -180,12 +180,6 @@ public class TestSeed {
         talk1.speakers = users;
         talk1.save();
 
-        Project project1 = new Project();
-        project1.name = "Java lab. website";
-        project1.description = "The new website for the lab";
-        project1.members = users;
-        project1.save();
-
         Article article2 = new Article();
         article2.title = "Foo";
         article2.content = "BarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBar	";
@@ -214,5 +208,17 @@ public class TestSeed {
         article2111.authors = users;
         article2111.save();
 
+        Project project1 = new Project();
+        project1.name = "Java lab. website";
+        project1.description = "The new website for the lab";
+        project1.members = users;
+        project1.save();
+        
+        Project SupinfoMarks = new Project(); 
+        SupinfoMarks.name = "Supinfo Marks";
+        SupinfoMarks.description = "Un projet du Labo java";
+        SupinfoMarks.members = users;
+        SupinfoMarks.campus = paris;
+        SupinfoMarks.save();
     }
 }

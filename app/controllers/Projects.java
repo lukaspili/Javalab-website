@@ -1,5 +1,9 @@
 package controllers;
 
+/**
+ * @author Kevin Valfin
+ */
+
 import controllers.abstracts.AppController;
 import controllers.security.Auth;
 import controllers.security.LoggedAccess;

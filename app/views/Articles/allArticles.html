@@ -17,24 +17,24 @@
         </div>
 
         <div class="content">
-		#{form @Articles.newArticle(), method:'GET'}
-				<h1>Blog</h1>
-				 <div class="span6 offset1">
-		    		<div class="page-header">
-					<table>
-					 	#{list items:listArticle, as:'article'}
-						<tr>
-							<th>${article.title} - ${article.creationDate}</th>
-						</tr>
-						<tr>    
-							<td>${article.content}</td>
-						<tr>  
-							<td>${article.authors.firstName}</td>
-						</tr>	
-						#{/list}	
-						<tr> 
-					</table>
-					</div>
-				</div>		
-		#{/form}
-	</div>
+			#{form @Articles.newArticle(), method:'GET'}
+					<h1>Blog</h1>
+					 <div class="span6 offset1">
+			    		<div class="page-header">
+						<table>
+						 	#{list items:listArticle, as:'article'}
+							<tr>
+								<th>${article.title} - ${article.creationDate}</th>
+							</tr>
+							<tr>    
+								<td>${article.content}</td>
+							<tr>  
+								<td>${article.authors.firstName}</td>
+							</tr>	
+							#{/list}	
+							<tr> 
+						</table>
+						</div>
+					</div>		
+			#{/form}
+		</div>

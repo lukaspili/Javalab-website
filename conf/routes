@@ -17,6 +17,7 @@ POST    /blog/article/nouveau	                Articles.create
 
 # Project page
 GET		/projets								Projects.projects
+GET		/projets/inscription					Projects.susbscribe
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
