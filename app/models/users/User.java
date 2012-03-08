@@ -26,6 +26,8 @@ public class User extends Model {
 
     public String lastName;
 
+    public String presentation;
+
     public boolean firstLogin;
 
     @Enumerated(EnumType.STRING)
