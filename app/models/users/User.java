@@ -35,6 +35,8 @@ public class User extends Model {
 
     @Enumerated(EnumType.STRING)
     public Profile profile;
+    
+    public Picture picture;
 
     @ManyToOne
     public Campus campus;

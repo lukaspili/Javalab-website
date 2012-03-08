@@ -17,10 +17,14 @@ import play.mvc.Http;
 import play.mvc.Router;
 import play.mvc.Util;
 import service.CampusService;
+import service.PictureService;
 import service.UserService;
 import util.OpenIDUtils;
 
 import javax.inject.Inject;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -41,6 +45,9 @@ public class Users extends AppController {
 
     @Inject
     private static CampusService campusService;
+    
+    @Inject
+    private static PictureService pictureService;
 
     @Util
     public static User getSafeUser(long userId) {
@@ -155,7 +162,7 @@ public class Users extends AppController {
 
     @LoggedAccess
     @UserFirstLogin(only = true)
-    public static void firstLoginProcess(User user, @Required Long campusId) {
+    public static void firstLoginProcess(User user, @Required Long campusId, File picture) {
 
         if (validator().validate(user).require("firstName", "lastName", "promotion").hasErrors()) {
 
@@ -165,6 +172,8 @@ public class Users extends AppController {
             render("Users/firstLogin.html", user, campuses, promotions, campusId);
         }
 
+        user.picture = pictureService.createPicture(picture);
+        
         user.campus = Campus.findById(campusId);
         notFoundIfNull(user.campus);
 
@@ -228,5 +237,13 @@ public class Users extends AppController {
         User user = Auth.getCurrentUser();
         List<Promotion> promotionList = Arrays.asList(Promotion.values());
         render(user, promotionList);
+    }
+    
+    @LoggedAccess
+    public static void getPicture(Long id) {
+    	User user = User.findById(id);
+    	notFoundIfNull(user);
+    	response.setContentTypeIfNotSet(user.picture.file.type());
+    	renderBinary(user.picture.file.get());
     }
 }

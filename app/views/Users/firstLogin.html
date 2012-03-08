@@ -32,6 +32,14 @@
 								<span><p class="information_error">${field.error}</p></span>
 							#{/if}
 						#{/}
+						
+						#{field 'user.presentation'}
+							<textarea cols="50" rows="5" id="${field.id}" name="${field.name}"  placeholder="&{field.name}"></textarea>
+							<br />
+							#{if field.error}
+								<span><p class="information_error">${field.error}</p></span>
+							#{/if}
+						#{/}
 					
 						#{field 'campusId'}
 							<!-- <label for="${field.id}">&{field.name}</label> -->
@@ -52,6 +60,8 @@
 								#{/list}
 							</select>
 						#{/}
+						
+						<input type="file" name="picture" />
 						
 						<input class="save" type="image" src="/public/images/login/save_information.png" name="Enregistrer les informations"/>
 						
