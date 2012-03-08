@@ -1,29 +1,33 @@
 #{extends 'template/template.html' /}
 
-<div class="page-header">
-	<h1>Candidatures du laboratoire
-		<small>sur le campus de ${campus.name.label} (${candidates.size()})</small>
-	</h1>
+<div class="clm">
+	<div class="wrapper">
+		
+			<h1>Candidatures du laboratoire
+				<small>sur le campus de ${campus.name.label} (${candidates.size()})</small>
+			</h1>
+		
+
+		<table>
+			<tr>
+				<th>ID Booster</th>
+				<th>Nom</th>
+				<th style="text-align:right;padding-right:94px">Actions</th>
+			</tr>
+
+		#{list items: candidates, as: 'candidate'}
+			<tr>
+				<td>#{a @Users.details(candidate.id)}${candidate.idBooster}#{/a}</td>
+				<td>#{a @Users.details(candidate.id)}${candidate.fullName}#{/a}</td>
+				<td style="text-align:right">
+					#{form @CampusesAdmin.validate(candidate.id), method:'POST'}
+						<input type="hidden" name="id" value="${candidate.id}"/>
+						<input type="submit" value="Accepter" name="accepted"/>
+						<input type="submit" value="Refuser" name="refused"/>
+					#{/form}
+				</td>
+			</tr>
+		#{/list}
+		</table>
+	</div>
 </div>
-
-<table>
-	<tr>
-		<th>ID Booster</th>
-		<th>Nom</th>
-		<th>Actions</th>
-	</tr>
-
-#{list items: candidates, as: 'candidate'}
-	<tr>
-		<td>#{a @Users.details(candidate.id)}${candidate.idBooster}#{/a}</td>
-		<td>#{a @Users.details(candidate.id)}${candidate.fullName}#{/a}</td>
-		<td>
-			#{form @CampusesAdmin.validate(candidate.id), method:'POST'}
-				<input type="hidden" name="id" value="${candidate.id}"/>
-				<input type="submit" value="Accepter" name="accepted"/>
-				<input type="submit" value="Refuser" name="refused"/>
-			#{/form}
-		</td>
-	</tr>
-#{/list}
-</table>

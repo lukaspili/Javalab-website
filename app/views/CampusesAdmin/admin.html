@@ -1,53 +1,35 @@
 #{extends 'template/template.html' /}
 
-<div class="content">
-	<div class="page-header">
-	<h1>Laboratoire de ${campus.name.label}
-	<small>Administration</small></h1>
-	</div>
-	
-	<p>
-		Bienvenue dans l'interface d'administration du laboratoire. <br />
-	</p>
-	
-	
-		<div class="row">
-			<div class="span12">
-				<div class="page-header">
-					<h2>Membres
-						<small>(${members.size() + candidates.size()})</small>
-					</h2>
-				</div>
-	
-				<p>Il y'a actuellement ${members.size()} membres et ${candidates.size()} candidatures en cours.</p>
-	
-				<ul>
-					<li>#{a @CampusesAdmin.candidates(campus.id)}Traiter les candidatures#{/a}</li>
-					<li>#{a @CampusesAdmin.members(campus.id)}Liste des membres#{/a}</li>
-				</ul>
-			</div>
-	
-	
-			<div class="span12">
-				<div class="page-header">
-					<h2>Projets
-						<small>(${campus.projects.size()})</small>
-					</h2>
-				</div>
-				<table>
-				<tr>
-					<th>Nom</th>
-					<th>Description</th>
-					<th>S'inscrire au projet</th>
-				</tr>
-			    #{list items: projects, as: 'project'}
-				<tr>    
-					<td>${project.name}</td>
-					<td>#{a @Projects.details(project.id)}Description détaillée#{/a}</td>
-					<td>#{a @Projects.susbscribe(project.id)}Inscription#{/a}</td>
-				</tr>
-			    #{/list}
-			</table>
-			</div>
+<div class="clm">
+	<div class="wrapper">
+		<div class="page-header">
+			<h1>Laboratoire de ${campus.name.label}
+			<small>Administration</small></h1>
 		</div>
+	
+	<p>Bienvenue dans l'interface d'administration du laboratoire. <br /></p>
+	</div>
+			
+	<div class="wrapper2 first">
+		<div class="page-header">
+			<h2>Membres
+				<small>(${members.size() + candidates.size()})</small>
+			</h2>
+		</div>
+
+		<p>Il y'a actuellement ${members.size()} membres et ${candidates.size()} candidatures en cours.</p>
+		
+		<ul>
+			<li>#{a @CampusesAdmin.candidates(campus.id)}Traiter les candidatures#{/a}</li>
+			<li>#{a @CampusesAdmin.members(campus.id)}Liste des membres#{/a}</li>
+		</ul>
+	</div>
+
+	<div class="wrapper2 last">
+		<div class="page-header">
+			<h2>Projets
+				<small>(${campus.projects.size()})</small>
+			</h2>
+		</div>
+	</div>
 </div>

@@ -1,20 +1,22 @@
 #{extends 'template/template.html' /}
 
-<div class="page-header">
-	<h1>Membres du laboratoire
-		<small>sur le campus de ${campus.name.label} (${members.size()})</small>
-	</h1>
-</div>
+<div class="clm">
+	<div class="wrapper">
+		<h1>Membres du laboratoire
+			<small>sur le campus de ${campus.name.label} (${members.size()})</small>
+		</h1>
 
-<table>
-	<tr>
-		<th>ID Booster</th>
-		<th>Nom</th>
-	</tr>
-#{list items: members, as: 'member'}
-	<tr>
-		<td>#{a @Users.details(member.id)}${member.idBooster}#{/a}</td>
-		<td>#{a @Users.details(member.id)}${member.fullName}#{/a}</td>
-	</tr>
-#{/list}
-</table>
+		<table>
+			<tr>
+				<th>ID Booster</th>
+				<th>Nom</th>
+			</tr>
+			#{list items: members, as: 'member'}
+				<tr>
+					<td>#{a @Users.details(member.id)}${member.idBooster}#{/a}</td>
+					<td>#{a @Users.details(member.id)}${member.fullName}#{/a}</td>
+				</tr>
+			#{/list}
+		</table>
+	</div>
+</div>
