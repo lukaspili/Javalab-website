@@ -1,27 +1,40 @@
 #{extends 'template/template.html' /}
 <div class="profile">
-	<div class="row">
-		<div class="wrapper">
-
-		</div>
-		<div class="wrapper">
-
-		</div>
-	</div>
-</div>
-
-<h1>Votre Profile</h1>
+	<h1>Votre Profile</h1>
 	<form action="@{Users.modify()}" method="GET">
 		<fieldset>
-			<label for="idBooster">Id Booster : </label>&nbsp;&nbsp;<input type=text name="idBooster" disabled="disabled" value="${user.idBooster}"><br /><br />
-			<label for="lastName">Nom : </label>&nbsp;&nbsp;<input type=text name="lastName" value="${user.lastName}"><br /><br />
-			<label for="firstName">Prénom : </label>&nbsp;&nbsp;<input type=text name="firstName"  value="${user.firstName}"><br /><br />
-			<label for="promotion">Promotion : </label>&nbsp;&nbsp;
-				#{select 'promotion', items:promotionList, value:user.promotion}#{/select}
-			<br /><br />
-			<label for="campus">Campus : </label>&nbsp;&nbsp;<input type="text" disabled="disabled" value="${user.campus}" name="campus" />
-			<br /><br />
-			<a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour</a>&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="submit" class="btn primary large">
+			<div class="wrapper2" style="width:20%">
+				<div class="avatar">
+					<img src="http://placekitten.com/g/200/300"/>
+				</div>
+			</div>
+			<div class="wrapper2" style="width:46%">
+				<table>
+					<tr>
+						<td style="float:right"><label for="lastName">Nom : </label></td>
+						<td><input type=text name="lastName" value="${user.lastName}"></td>
+					</tr>
+					<tr>
+						<td style="float:right"><label for="firstName">Prénom : </label></td><td><input type=text name="firstName"  value="${user.firstName}"></td>
+					</tr>
+					<tr><td></td><td></td></tr>
+					<tr><td></td><td></td></tr>
+					<tr>
+						<td style="float:right"><label for="promotion">Promotion : </label></td>
+						<td>#{select 'promotion', items:promotionList, value:user.promotion}#{/select}</td>
+					</tr>
+					<tr>
+						<td style="float:right"><label for="campus">Campus : </label></td>
+						<td><input type="text" disabled="disabled" value="${user.campus}" name="campus" /></td>
+					</tr>
+				</table>
+			</div>
+			<div class="wrapper2">
+				<textarea style="height:200px;max-width:313px;width:323px;">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</textarea>	
+				<input type="submit" class="btn" style="margin-top:20px;float:right;">
+			</div>
 		</fieldset>
 	</form>
+</div>

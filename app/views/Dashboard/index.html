@@ -13,11 +13,10 @@
             // Initialize Slides
             $('#slides').slides({
                 preload: true,
-                preloadImage: 'img/loading.gif',
                 generatePagination: false,
-                play: 5000,
-                pause: 2500,
-                hoverPause: true,
+                play: 0,
+                pause: 0,
+                hoverPause: false,
                 // Get the starting slide
                 start: startSlide,
                 animationComplete: function(current){
@@ -60,8 +59,9 @@
                         <p>Le laboratoire java est votre interlocuteur privilégié pour rentrer directement en contact avec des étudiants de SUPINFO spécialisés dans les technologies Java (JSE, JEE, Android).
                         <br /><br />
                         N'hésitez pas à nous contacter pour toute question relatives aux stages, recrutement, événements, projets et conseil.</p>
-
-                        <p><a class="btn primary">Envoyer un message</a></p>
+                        <div class="incruste">
+                            <a class="bouton" href="#">Envoyer un message</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,9 +73,9 @@
                         <p>Nos membres sont exclusivement composé d'étudiants de l'école SUPINFO University.<br>
                         <br>
                         Si vous êtes étudiants à SUPINFO alors connectez-vous vite!</p>
-                        <div style="float:right;">
+                        <div class="incruste" style="text-align:center">
                             #{if !auth.isLogged()}
-                            #{a @Users.login(), class:'btn primary'}Connexion#{/a}
+                            #{a @Users.login(), class:'bouton'}Connexion#{/a}
                             #{/if}
                         </div>
                     </div>
@@ -150,6 +150,7 @@
                             
                             <a href="#" class="next span1"><img src="/public/images/home/arrowRight.png" width="30" name="arrowRight" onmouseover="arrowRight.src='/public/images/home/arrowRightHover.png'" onmouseout="arrowRight.src='/public/images/home/arrowRight.png'" alt="Arrow Next"></a>
                         </div>
+
                     </div>
 
                 </div>

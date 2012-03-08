@@ -1,79 +1,70 @@
-#{extends 'template/template.html' /}
+#{extends 'template/login_template.html' /}
 <div class="login">
-	<div class="row">
-		<div class="span8">
+	<div class="wrapper">
+		<div class="content">
 			<div class="connexion">
+				<div class="titre">
+        			<h1><a href="/">Laboratoires java</a></h1>
+        		</div>
+				
 				<h3>Information complémentaire</h3>
 
-				<p style="font-size:11px;color:#cecece">Ceci est votre première connexion, renseignez vos informations</p>
+				<div class="input-firstLogin">
+					<p style="font-size:11px;color:#cecece">Ceci est votre première connexion, renseignez vos informations</p>
 
-			#{include 'helpers/form_validation.html' /}
+					#{include 'helpers/form_validation.html' /}
 
-			#{form @Users.firstLoginProcess(), id:'firstlogin-form', enctype:'multipart/form-data' }
-				<table>
-					<tr>
-					#{field 'user.firstName'}
-						<td><label for="${field.id}"><strong>&{field.name}</strong></label></td>
-						<td><input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/></td>
-					</tr>
+					#{form @Users.firstLoginProcess(), id:'firstlogin-form', enctype:'multipart/form-data' }
+				
+						#{field 'user.firstName'}
+							<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" placeholder="&{field.name}"/>
+							<br />
 
-					#{if field.error}
-					<tr>
-					<td></td>
-					<td><span><p class="information_error">${field.error}</p></span></td>
-					</tr>#{/}
-				#{/}
-
-					<tr>
-					#{field 'user.lastName'}
-						<td><label for="${field.id}"><strong>&{field.name}</strong></label></td>
-						<td><input type="text" id="${field.id}" name="${field.name}" value="${field.value}"/></td>
-					</tr>
-					#{if field.error}
-					<tr>
-					<td></td>
-					<td><span><p class="information_error">${field.error}</p></span></td>
-					</tr>#{/}
-				#{/}
-					<tr>
-					#{field 'campusId'}
-						<td><label for="${field.id}">&{field.name}</label></td>
-						<td><select name="${field.name}">
-							<option value="">Selectionnez un campus</option>
-						#{list items:campuses, as:'item'}
-							<option value="${item.id}" ${(field.value.equals(item)).yesno('selected', '')}>${item.name.label}</option>
-						#{/list}
-						</select></td>
-					#{/}
-					</tr>
-					<tr>
-					#{field 'user.promotion'}
-						<td><label for="${field.id}">&{field.name}</label></td>
-						<td><select name="${field.name}">
-							<option value="">Selectionnez une promotion</option>
-						#{list items:promotions, as:'item'}
-							<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
-						#{/list}
-						</select></td>
-					#{/}
-					</tr>
-					<tr>
-						<td colspan="2" style="text-align:center;padding-top:20px;"><input class="btn primary" type="submit" value="Enregistrer les informations"/></td>
-					</tr>
-
-				#{/form}
-				</table>
-			</div>
-		</div>
-		<div class="span6">
-			<div class="connexion">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							#{if field.error}
+								<span><p class="information_error">${field.error}</p></span>
+							#{/if}
+						#{/}
+					
+						#{field 'user.lastName'}
+							<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" placeholder="&{field.name}"/>
+							<br />
+							#{if field.error}
+								<span><p class="information_error">${field.error}</p></span>
+							#{/if}
+						#{/}
+					
+						#{field 'campusId'}
+							<!-- <label for="${field.id}">&{field.name}</label> -->
+							<select name="${field.name}">
+								<option value="">Selectionnez un campus</option>
+								#{list items:campuses, as:'item'}
+									<option value="${item.id}" ${(field.value.equals(item.id)).yesno('selected', '')}>${item.name.label}</option>
+								#{/list}
+							</select>
+						#{/}
+					
+						#{field 'user.promotion'}
+							<!-- <label for="${field.id}">&{field.name}</label> -->
+							<select name="${field.name}">
+								<option value="">Selectionnez une promotion</option>
+								#{list items:promotions, as:'item'}
+									<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
+								#{/list}
+							</select>
+						#{/}
+						
+						<input class="save" type="image" src="/public/images/login/save_information.png" name="Enregistrer les informations"/>
+						
+					#{/form}
+					<p class="first" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-		</div>
-	</div>
-</div>
+
+				</div><!-- input-login -->
+			</div><!-- connexion -->		
+		</div><!-- content -->
+	</div><!-- wrapper -->
+</div><!-- login -->
