@@ -86,8 +86,6 @@ public class UserService {
         existingUser.lastName = dataUser.lastName;
         existingUser.campus = dataUser.campus;
         existingUser.promotion = dataUser.promotion;
-        existingUser.presentation = dataUser.presentation;
-        existingUser.picture = dataUser.picture;
         
         existingUser.firstLogin = false;
 

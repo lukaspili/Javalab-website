@@ -7,11 +7,13 @@ import controllers.security.LoggedAccess;
 import controllers.security.PublicAccess;
 import helper.Logger;
 import models.users.Campus;
+import models.users.Picture;
 import models.users.Profile;
 import models.users.Promotion;
 import models.users.User;
 import play.Play;
 import play.data.validation.Required;
+import play.db.jpa.Blob;
 import play.libs.OpenID;
 import play.mvc.Http;
 import play.mvc.Router;
@@ -162,7 +164,7 @@ public class Users extends AppController {
 
     @LoggedAccess
     @UserFirstLogin(only = true)
-    public static void firstLoginProcess(User user, @Required Long campusId, File picture) {
+    public static void firstLoginProcess(User user, @Required Long campusId, Blob picture) {
 
         if (validator().validate(user).require("firstName", "lastName", "promotion").hasErrors()) {
 
@@ -171,8 +173,6 @@ public class Users extends AppController {
 
             render("Users/firstLogin.html", user, campuses, promotions, campusId);
         }
-
-        user.picture = pictureService.createPicture(picture);
         
         user.campus = Campus.findById(campusId);
         notFoundIfNull(user.campus);
