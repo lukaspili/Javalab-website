@@ -1,0 +1,226 @@
+/* IMPORT */
+
+
+@import 'less/grid.less';
+
+
+
+/* GRID */
+
+
+// Specify the number of columns and set column and gutter widths
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+/* less function */
+
+
+.rounded(@radius:5px){
+	-moz-border-radius:@radius;
+	-webkit-border-radius:@radius;
+	-o-border-radius:@radius;
+	-khtml-border-radius:@radius;
+	-ms-border-radius:@radius;
+	-border-radius:@radius;
+}
+
+.degrade(@from:#CCC,@to:#000,@x:0,@y:0,@x1:100,@y1:100){
+	background: -webkit-gradient(linear, @x @y, @x1 @y1, from(@from), to(@to));
+	background: -moz-linear-gradient(top, @from, @to);
+}
+
+.transition(@property:color,@transition-duration:.1s,@transition-timing-function:linear){
+	-webkit-transition: @property @transition-duration @transition-timing-function;
+    -moz-transition: @property @transition-duration @transition-timing-function;
+    -o-transition: @property @transition-duration @transition-timing-function;
+    transition: @property @transition-duration @transition-timing-function;
+}
+
+.box-shadow(@x:0px,@y:0px,@size:0px,@color:black){
+	-moz-box-shadow: @x @y @size @color;
+	-webkit-box-shadow: @x @y @size @color;
+	-o-box-shadow: @x @y @size @color;
+	box-shadow: @x @y @size @color;
+}
+.box-shadow-inset(@x:0px,@y:0px,@size:0px,@color:black){
+	-moz-box-shadow:inset @x @y @size @color;
+	-webkit-box-shadow:inset @x @y @size @color;
+	-o-box-shadow:inset @x @y @size @color;
+	box-shadow:inset @x @y @size @color;
+}
+
+/* style */
+body{
+	background: url('/public/images/background/noise.png') repeat;
+
+	font-family: sans-serif;
+
+	margin:0px;
+}
+
+a.replace{
+	display: block;
+	overflow: hidden;
+	text-indent: -999em;
+}
+strong{
+	color: #515558;
+	font-weight:500;
+}
+h5{
+	color: #53575a;
+	text-align:right;
+}
+
+table{
+	margin: 0px auto;
+}
+
+.select select{
+	font-size: 13px;
+	font-family:sans-serif;
+	font-weight:500;
+
+	color: #9fa3a8;
+	background: transparent;
+
+	padding: 5px;
+
+	width: 190px;
+	height: 26px;
+
+	border: 1px solid #e2e5e9;
+	.rounded(5px);
+	
+	-webkit-appearance: none;
+
+}
+.select {
+   width: 180px;
+   height: 26px;
+   .rounded(5px)
+   /*overflow: hidden;*/
+   background: url('/public/images/icon/arrowDouble.png') no-repeat right white;
+
+   margin-bottom:20px;
+}
+/* template */
+#logo{
+	width:271px;
+	height:50px;
+	margin: 0 auto;
+	background: url("/public/images/sprite.png") no-repeat;
+}
+div.center {
+	width: 400px;
+
+	margin: 0 auto;
+	/*overflow: hidden;*/
+}
+#main{
+	background:white;
+
+	.rounded(4px);
+	.box-shadow(0px,0px,4px,rgba(0,0,0,0.1));
+
+	border: 1px solid white;
+}
+.login-text{
+	width:100%;
+
+	background:white;
+
+	text-align:center;
+
+	border-bottom:1px solid #f2f4f5;
+}
+.login-text img{
+	margin: 40px 0px 0px 0px;	
+}
+.login-text h3{
+	font-family: sans-serif;
+	font-size:16px;
+	font-weight: 700;
+
+	color: #3a3e42;
+
+	margin:20px 0px;
+}
+.login-text p{
+	font-family: sans-serif;
+	font-size:13px;
+	font-weight:100;
+
+	color:#a4a9ad;
+	margin: 0px 0px 20px 0px;
+}
+.login-form{
+	background: #f8fafb;
+	
+	width: 100%;
+	min-height: 100px;
+
+	padding: 20px 0px 20px 0px;
+
+	text-align:center;
+}
+.login-form input{
+	height:25px;
+
+	border: 1px solid #e8eaed;
+
+	.box-shadow-inset(0px,0px,1px,rgba(232,324,237,0.5));
+	.rounded(3px);
+
+	padding: 0px 5px;
+}
+.login-form input.submit{
+	font-family: "Signika";
+	font-size:13px;
+	font-weight:500;
+
+	width:70px;
+
+	background: rgba(0,0,0,0.1);
+	color: #C2C2C2;
+}
+.login-form input.submit:hover{
+	background: whitesmoke;
+	color: rgba(0,0,0,0.8);
+
+	cursor: pointer;	
+}
+.login-form a.first_connexion{
+	font-family: sans-serif;
+	font-weight:500;
+	font-size:13px;
+
+	color: rgba(0,0,0,0.3);
+
+	text-decoration: none;
+	text-shadow: 0px 1px 0px white;
+
+	display: block;
+
+	position: relative;
+	top:10px;
+	left: -35px;
+
+	.transition(color, 0.1s, linear);
+}
+.login-form a.first_connexion:hover{
+	color: #C51C00;
+}
+.login-form .first{
+	width:250px;
+
+	font-family:sans-serif;
+	font-size:13px;
+	color:rgba(0,0,0,0.6);
+
+	text-shadow: 0px 1px 0px white;
+	text-align:justify;
+
+	margin: 20px auto;
+}

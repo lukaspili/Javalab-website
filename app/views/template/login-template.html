@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>&{'application.name'} - ${page_title}</title>
+
+	<meta charset="${_response_encoding}">
+
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="/public/stylesheets/login.less" type="text/less" media="screen" />
+	#{stylesheet 'special.css'/}
+	
+
+	<!-- Scripts -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	#{script 'less/less.js'/}
+	#{script 'showHide.js'/}
+	<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+	#{get 'moreStyles' /}
+
+	#{script '/template/user_candidature_inprogress.js'/}
+
+	#{get 'moreScripts' /}
+
+	<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+
+</head>
+<body>
+	<div class="center">
+		<header id="top">
+			<h1>
+				<a id="logo" href="/" class="replace">Laboratoires java - développement web et android</a>
+			</h1>
+		</header>
+		<section id="main">
+			#{doLayout /}
+		</section>
+	</div>
+</body>
+</html>

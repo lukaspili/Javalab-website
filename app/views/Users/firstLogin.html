@@ -1,70 +1,91 @@
-#{extends 'template/login_template.html' /}
-<div class="login">
-	<div class="wrapper">
-		<div class="content">
-			<div class="connexion">
-				<div class="titre">
-        			<h1><a href="/">Laboratoires java</a></h1>
-        		</div>
-				
-				<h3>Information complémentaire</h3>
+#{extends 'template/login-template.html' /}
 
-				<div class="input-firstLogin">
-					<p style="font-size:11px;color:#cecece">Ceci est votre première connexion, renseignez vos informations</p>
+	<div class="login-text">
+		<img src="/public/images/icon/secure.png">
+		<h3>Première connexion</h3>
+		<p>Compléter<strong> tout les champs</strong> pour continuer.</p>
+	</div>
 
-					#{include 'helpers/form_validation.html' /}
+	<div class="login-form">
+		<table>
+			#{include 'helpers/form_validation.html' /}
 
-					#{form @Users.firstLoginProcess(), id:'firstlogin-form', enctype:'multipart/form-data' }
-				
-						#{field 'user.firstName'}
+			#{form @Users.firstLoginProcess(), id:'firstlogin-form', enctype:'multipart/form-data' }
+			
+				#{field 'user.firstName'}
+					<tr>
+						<td>
+							<h5>Prénom<h5>
+						</td>
+						<td>
 							<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" placeholder="&{field.name}"/>
-							<br />
+						</td>
+					</tr>
 
+					<tr>
+						<td colspan=2>
 							#{if field.error}
 								<span><p class="information_error">${field.error}</p></span>
 							#{/if}
-						#{/}
-					
-						#{field 'user.lastName'}
+						</td>
+					</tr>
+				#{/}
+
+				#{field 'user.lastName'}
+					<tr>
+						<td>
+							<h5>Nom<h5>
+						</td>
+						<td>
 							<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" placeholder="&{field.name}"/>
-							<br />
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan=2>
 							#{if field.error}
 								<span><p class="information_error">${field.error}</p></span>
 							#{/if}
-						#{/}
-					
+						</td>
+					</tr>
+				#{/}
+				<tr>
+					<td colspan=2>
 						#{field 'campusId'}
 							<!-- <label for="${field.id}">&{field.name}</label> -->
-							<select name="${field.name}">
-								<option value="">Selectionnez un campus</option>
-								#{list items:campuses, as:'item'}
-									<option value="${item.id}" ${(field.value.equals(item.id)).yesno('selected', '')}>${item.name.label}</option>
-								#{/list}
-							</select>
+							<div class="select">
+								<select name="${field.name}">
+									<option value="">Selectionnez un campus</option>
+									#{list items:campuses, as:'item'}
+										<option value="${item.id}" ${(field.value.equals(item.id)).yesno('selected', '')}>${item.name.label}</option>
+									#{/list}
+								</select>
+							</div>
 						#{/}
-					
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>
 						#{field 'user.promotion'}
 							<!-- <label for="${field.id}">&{field.name}</label> -->
-							<select name="${field.name}">
-								<option value="">Selectionnez une promotion</option>
-								#{list items:promotions, as:'item'}
-									<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
-								#{/list}
-							</select>
+							<div class="select">
+								<select name="${field.name}">
+									<option value="">Selectionnez une promotion</option>
+									#{list items:promotions, as:'item'}
+										<option value="${item}" ${(field.value.equals(item)).yesno('selected', '')}>${item.label}</option>
+									#{/list}
+								</select>
+							</div>
 						#{/}
-						
-						<input class="save" type="image" src="/public/images/login/save_information.png" name="Enregistrer les informations"/>
-						
-					#{/form}
-					<p class="first" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</td>
+				</tr>
 
-				</div><!-- input-login -->
-			</div><!-- connexion -->		
-		</div><!-- content -->
-	</div><!-- wrapper -->
-</div><!-- login -->
+				<tr>
+					<td colspan=2>
+						<input class="save" type="image" src="/public/images/login/save_information.png" name="Enregistrer les informations"/>
+					</td>
+				</tr>
+						
+			#{/form}
+		</table>
+	</div>				

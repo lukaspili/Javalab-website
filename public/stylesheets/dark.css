@@ -1,0 +1,92 @@
+html.blacknoise{
+	background: url('/public/images/login/bg-under.png');
+	height:100%;
+}
+body{
+	/*background: none;*/
+	background-color: rgba(65,65,65,1);
+	background-image: url('/public/images/login/bg-top.png')top center;
+	background: url('/public/images/login/bg-top.png') no-repeat center top;
+
+	width:100%;
+	height:100%;
+	margin: 0 auto 0 auto;
+	font: 12px Adrien;
+	background-position: fixed;
+}
+.login{
+	margin:0 auto;
+}
+.login h1,.login .titre h1 a{
+	background-attachment: scroll;
+	background-color: transparent;
+	color: #222;
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 35px;
+	font-weight: 200;
+	height: 45px;
+	letter-spacing: normal;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: #777 0px 1px 0px;
+	padding:15px 0 0 0;
+}
+.login h3{
+	color: #111;
+	font-family: 'Helvetica Neue', 'Yanone Kaffeesatz', Calibri, Helvetica, Geneva, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	height: 35px;
+	letter-spacing: 3px;
+	line-height: 35px;
+	text-align: center;
+	text-shadow: #777 0px 1px 0px;
+}
+.login #login-form{
+	margin:0;
+}
+.login .input-login,.login .input-firstLogin{
+	width:258px;
+	margin: 0 auto;
+}
+.login input{
+	border: 1px solid transparent;
+	/*background: url('/public/images/noise.png') repeat;*/
+	background-color: rgba(60,60,60,0.9);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0px 1.5px 4px 0px rgba(20, 20, 20, 0.7);
+	-moz-box-shadow: inset 0px 1.5px 4px 0px rgba(20, 20, 20, 0.7);
+	box-shadow: inset 0px 1.5px 4px 0px rgba(20, 20, 20, 0.7);
+	height:25px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-top:1px solid rgba(125,125,25,0.1);
+	vertical-align:top;
+	color:white;
+}
+.login .input-firstLogin input{
+	width:248px;
+	border: 1px solid transparent;
+	/*background: url('/public/images/noise.png') repeat;*/
+	background-color: rgba(60,60,60,0.9);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0px 1.5px 4px 0px rgba(20, 20, 20, 0.7);
+	-moz-box-shadow: inset 0px 1.5px 4px 0px rgba(20, 20, 20, 0.7);
+	box-shadow: inset 0px 1.5px 4px 0px rgba(20, 20, 20, 0.7);
+	height:25px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-top:1px solid rgba(125,125,25,0.1);
+	vertical-align:top;
+	color:white;
+	margin-top:15px;
+}
+.login .input-firstLogin select{
+	width:258px;
+	margin-top:15px;
+}
+.login .input-firstLogin .bouton{
+	/*width:258px;*/
+}
