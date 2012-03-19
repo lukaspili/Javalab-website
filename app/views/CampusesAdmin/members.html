@@ -1,22 +1,23 @@
 #{extends 'template/template.html' /}
-
-<div class="clm">
-	<div class="wrapper">
+<div id="content">
+	<section class="admin-header">
 		<h1>Membres du laboratoire
 			<small>sur le campus de ${campus.name.label} (${members.size()})</small>
 		</h1>
+	</section>
 
-		<table>
+	<section class="candidacy">
+		<table cellspacing="25px">
 			<tr>
 				<th>ID Booster</th>
 				<th>Nom</th>
 			</tr>
 			#{list items: members, as: 'member'}
 				<tr>
-					<td>#{a @Users.details(member.id)}${member.idBooster}#{/a}</td>
+					<td class="idBooster">#{a @Users.details(member.id)}${member.idBooster}#{/a}</td>
 					<td>#{a @Users.details(member.id)}${member.fullName}#{/a}</td>
 				</tr>
 			#{/list}
 		</table>
-	</div>
+	</section>
 </div>

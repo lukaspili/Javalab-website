@@ -1,35 +1,21 @@
 #{extends 'template/template.html' /}
-
-<div class="clm">
-	<div class="wrapper">
-		<div class="page-header">
-			<h1>Laboratoire de ${campus.name.label}
-			<small>Administration</small></h1>
-		</div>
+<div id="content">
+	<section class="admin-header">
+		<h1>Administration du laboratoire de ${campus.name.label}</h1>
+		<p>Bienvenue dans l'interface d'administration du laboratoire.</p>
+	</section>
 	
-	<p>Bienvenue dans l'interface d'administration du laboratoire. <br /></p>
-	</div>
-			
-	<div class="wrapper2 first">
-		<div class="page-header">
-			<h2>Membres
-				<small>(${members.size() + candidates.size()})</small>
-			</h2>
-		</div>
-
-		<p>Il y'a actuellement ${members.size()} membres et ${candidates.size()} candidatures en cours.</p>
+	<section class="admin-feature">	
+		<h2>Membres <small>(${members.size() + candidates.size()})</small></h2>
+			<p>Il y'a actuellement ${members.size()} membres et ${candidates.size()} candidatures en cours.</p>
 		
 		<ul>
 			<li>#{a @CampusesAdmin.candidates(campus.id)}Traiter les candidatures#{/a}</li>
 			<li>#{a @CampusesAdmin.members(campus.id)}Liste des membres#{/a}</li>
 		</ul>
-	</div>
+	</section>
 
-	<div class="wrapper2 last">
-		<div class="page-header">
-			<h2>Projets
-				<small>(${campus.projects.size()})</small>
-			</h2>
-		</div>
-	</div>
+	<section class="admin-activity">
+		<h2>Projets <small>(${campus.projects.size()})</small></h2>
+	</section>
 </div>

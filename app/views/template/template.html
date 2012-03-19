@@ -13,13 +13,14 @@
 	
 
 	<!-- Scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 	#{script 'less/less.js'/}
 	<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 
 	#{get 'moreStyles' /}
 
-	#{script '/template/user_candidature_inprogress.js'/}
+	<!-- #{script '/template/user_candidature_inprogress.js'/} -->
 
 	#{get 'moreScripts' /}
 
@@ -105,9 +106,9 @@
 				<div id="navigation">
 					<ul>
 						<li><a href="/" class="nav-support-select">Accueil</a></li>
+						<li><a href="/projets" class="nav-support">Projets</a></li>
 						<li><a href="/blog" class="nav-support">Blog</a></li>
-						<li><a href="#" class="nav-support">Téléchargement</a></li>
-						<li><a href="/projets" class="nav-support">Projet</a></li>
+						<li><a href="#" class="nav-support">Téléchargements</a></li>
 					</ul>
 				</div>
 			</nav>

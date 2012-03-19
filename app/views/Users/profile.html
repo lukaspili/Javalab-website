@@ -1,40 +1,50 @@
 #{extends 'template/template.html' /}
-<div class="profile">
-	<h1>Votre Profile</h1>
-	<form action="@{Users.modify()}" method="GET">
-		<fieldset>
-			<div class="wrapper2" style="width:25%">
-				<div class="avatar">
-					<img src="http://placekitten.com/g/200/300"/>
-				</div>
+<div id="content">
+	<section class="profile-header">
+		<h1>Votre Profile</h1>
+	</section>
+	
+	<article class="profile">
+		<form action="@{Users.modify()}" method="GET">
+			
+			<div class="profile-image">
+				<img src="http://placekitten.com/g/200/300"/>
 			</div>
-			<div class="wrapper2" style="width:41%">
-				<table>
-					<tr>
-						<td style="float:right"><label for="lastName">Nom : </label></td>
-						<td><input type=text name="lastName" value="${user.lastName}"></td>
-					</tr>
-					<tr>
-						<td style="float:right"><label for="firstName">Prénom : </label></td><td><input type=text name="firstName"  value="${user.firstName}"></td>
-					</tr>
-					<tr><td></td><td></td></tr>
-					<tr><td></td><td></td></tr>
-					<tr>
-						<td style="float:right"><label for="promotion">Promotion : </label></td>
-						<td>#{select 'promotion', items:promotionList, value:user.promotion}#{/select}</td>
-					</tr>
-					<tr>
-						<td style="float:right"><label for="campus">Campus : </label></td>
-						<td><input type="text" disabled="disabled" value="${user.campus}" name="campus" /></td>
-					</tr>
-				</table>
+					
+			<div class="profile-form">	
+					<table>
+						<tr>
+							<td style="text-align:right"><label for="lastName"><h5>Nom</h5></label></td>
+							<td><input type=text name="lastName" value="${user.lastName}"></td>
+						</tr>
+						<tr>
+							<td style="text-align:right"><label for="firstName"><h5>Prénom</h5></label></td><td><input type=text name="firstName"  value="${user.firstName}"></td>
+						</tr>
+						<tr><td></td><td></td></tr>
+						<tr><td></td><td></td></tr>
+						<tr>
+							<td style="text-align:right"><label for="promotion"><h5>Promotion</h5></label></td>
+							<td>
+								<div class="select">
+									#{select 'promotion', items:promotionList, value:user.promotion}#{/select}
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td style="text-align:right"><label for="campus"><h5>Campus</h5></label></td>
+							<td><input type="text" disabled="disabled" value="${user.campus}" name="campus" /></td>
+						</tr>
+					</table>
 			</div>
-			<div class="wrapper2">
-				<textarea style="height:200px;max-width:313px;width:323px;">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</textarea>	
-				<input type="submit" class="btn" style="margin-top:20px;float:right;">
+			
+			<div class="profile-textarea">	
+				<textarea >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</textarea>
 			</div>
-		</fieldset>
-	</form>
+			<div class="profile-submit">
+				<input type="submit" class="submit" value="Enregister">
+			</div>
+				
+		</form>
+	</article>
 </div>
