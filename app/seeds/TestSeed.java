@@ -182,7 +182,7 @@ public class TestSeed {
 
         Article article2 = new Article();
         article2.title = "Foo";
-        article2.content = "BarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBarBar	";
+        article2.content = "Article de test et de defence contre les animaux.";
         article2.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article2.authors = users;
         article2.save();
