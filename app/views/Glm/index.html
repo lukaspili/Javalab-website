@@ -1,25 +1,17 @@
 #{extends 'template/template.html'/}
-
-<div class="profile">
-	<div class="wrapper3">
-		<div class="page-header">
-			<h1>Laboratoires
-				<small>par campus (${campuses.size()})</small>
-			</h1>
-		</div>
-	
-	
+<div id="content">
+	<section class="admin-header">
+		<h1>Administration du laboratoire</h1>
+	</section>
+	<section class="admin-feature">
+		<h1>Laboratoires par campus (${campuses.size()})</h1>
 		<ul>
 			#{list items:campuses, as: 'item'}
 				<li>#{a @CampusesAdmin.admin(item.id)}${item.name.label}#{/a}</li>
 			#{/list}
 		</ul>
-	</div>
-	<div class="wrapper3">	
-		<div class="page-header">
-			<h1>Activité
-				<small>${campuses.size()}</small>
-			</h1>
-		</div>
-	</div>
+	</section>
+	<section class="admin-activity">
+		<h1>Activité ${campuses.size()}</h1>
+	</section>
 </div>

@@ -1,14 +1,13 @@
 #{extends 'template/template.html' /}
 
-<div class="clm">
-	<div class="wrapper">
-		
-			<h1>Candidatures du laboratoire
-				<small>sur le campus de ${campus.name.label} (${candidates.size()})</small>
-			</h1>
-		
+<div id="content">
 
-		<table>
+	<section class="admin-header">
+		<h1>Candidatures du laboratoire sur le campus de ${campus.name.label} (${candidates.size()}) </h1>
+	</section>
+
+	<section class="candidacy">
+		<table cellspacing="25px">
 			<tr>
 				<th>ID Booster</th>
 				<th>Nom</th>
@@ -17,17 +16,18 @@
 
 		#{list items: candidates, as: 'candidate'}
 			<tr>
-				<td>#{a @Users.details(candidate.id)}${candidate.idBooster}#{/a}</td>
+				<td class="idBooster">#{a @Users.details(candidate.id)}${candidate.idBooster}#{/a}</td>
 				<td>#{a @Users.details(candidate.id)}${candidate.fullName}#{/a}</td>
-				<td style="text-align:right">
+				<td>
 					#{form @CampusesAdmin.validate(candidate.id), method:'POST'}
 						<input type="hidden" name="id" value="${candidate.id}"/>
-						<input type="submit" value="Accepter" name="accepted"/>
-						<input type="submit" value="Refuser" name="refused"/>
+						<input type="submit" value="Accepter" name="accepted" class="accepted"/>
+						<input type="submit" value="Refuser" name="refused" class="refused"/>
 					#{/form}
 				</td>
 			</tr>
 		#{/list}
 		</table>
-	</div>
+	</section>
+
 </div>

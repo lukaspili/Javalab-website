@@ -1,40 +1,42 @@
 #{extends 'template/template.html' /}
+<p>${flash.error}</p>
+<p>${flash.success}</p>
 
-<p style="color: #c00">${flash.error}</p>
-<p style="color: #c00">${flash.success}</p>
+<div id="blog">
+	<section class="blog-header">
+		<h1>Blog</h1>
+	</section>
 
-<div class="home">
-    <div class="wrapper">
-        <div class="menu">
-        	<ul id="ul-menu">
-        		<li><a href="/" id="button-menu">Acceuil</a></li>
-        		<li><a href="#" id="button-menu">Tuto</a></li>
-        		<li><a href="#" id="button-menu">Vidéo</a></li>
-        		<li><a href="/blog" class="selected" id="button-menu">Blog</a></li>
-        		<li><a href="#" id="button-menu">Téléchargement</a></li>
-        		<li><a href="/projets" id="button-menu">Projet</a></li>
-        	</ul>
-        </div>
+	<article class="article">
+		#{form @Articles.newArticle(), method:'GET'}
+			#{list items:listArticle, as:'article'}
+				
+					<section class="article-titre">
+						<h2>${article.title}</h2>
+					</section>
+					<section class="article-presentation">
+						<img class="auteur-image" src="http://www.placekitten.com/40/40">
+						<p class="auteur-text"> Par <a>Adrien Moretti</a><br />${article.creationDate}</p>
+					</section>
+					<section class="article-text">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<iframe width="560" height="315" src="http://www.youtube.com/embed/9ua4x-wRvxY" frameborder="0" allowfullscreen></iframe>
+						<p>${article.content}<br>${article.authors.firstName}</p>
+					</section>
+				
+			#{/list}
+		#{/form}
+	</article>
 
-        <div class="content">
-			#{form @Articles.newArticle(), method:'GET'}
-					<h1>Blog</h1>
-					 <div class="span6 offset1">
-			    		<div class="page-header">
-						<table>
-						 	#{list items:listArticle, as:'article'}
-							<tr>
-								<th>${article.title} - ${article.creationDate}</th>
-							</tr>
-							<tr>    
-								<td>${article.content}</td>
-							<tr>  
-								<td>${article.authors.firstName}</td>
-							</tr>	
-							#{/list}	
-							<tr> 
-						</table>
-						</div>
-					</div>		
-			#{/form}
-		</div>
+	<section class="explore">
+		<ul>
+			<li>Web</li>
+			<li>Android</li>
+		</ul>
+	</section>
+</div>
