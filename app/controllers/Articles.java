@@ -18,6 +18,11 @@ public class Articles extends AppController {
 	
 	@Inject
 	private static ArticleService articleService;
+
+    @PublicAccess
+    public static void index() {
+
+    }
 	
 	@PublicAccess
 	public static void allArticles() {

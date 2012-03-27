@@ -3,6 +3,7 @@ package controllers;
 import controllers.abstracts.AppController;
 import controllers.security.Auth;
 import controllers.security.LoggedAccess;
+import controllers.security.PublicAccess;
 import models.events.Project;
 import models.users.Profile;
 import models.users.User;
@@ -20,6 +21,13 @@ public class Projects extends AppController {
 
     @Inject
     private static ProjectService projectService;
+
+    @PublicAccess
+    public static void index() {
+        pageHelper().addActionTitle();
+        setMenuAsController();
+        render();
+    }
 
     @LoggedAccess(Profile.CLM)
     public static void createProject() {

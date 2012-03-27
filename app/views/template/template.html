@@ -10,7 +10,7 @@
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="/public/stylesheets/design.less" type="text/less" media="screen" />
 	#{stylesheet 'special.css'/}
-	
+
 
 	<!-- Scripts -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
@@ -77,7 +77,7 @@
 	</div>
 
 	<div class="center">
-		
+
 		#{if auth.isLogged() && !currentUser.firstLogin}
 			<section id="information">
 				<div id="user_candidature_inprogress_dialog" title="Candidature en cours">
@@ -105,20 +105,32 @@
 			<nav>
 				<div id="navigation">
 					<ul>
-						<li><a href="/" class="nav-support-select">Accueil</a></li>
-						<li><a href="/projets" class="nav-support">Projets</a></li>
-						<li><a href="/blog" class="nav-support">Blog</a></li>
-						<li><a href="#" class="nav-support">Téléchargements</a></li>
+						<li>
+							#{a @Dashboard.index(), class:(menu_current.equals("Dashboard")).yesno('nav-support-select', 'nav-support')}Accueil#{/a}
+						</li>
+
+						<li>
+						#{a @Projects.index(), class:(menu_current.equals("Projects")).yesno('nav-support-select', 'nav-support')}Projets#{/a}
+						</li>
+
+						<li>
+						#{a @Articles.index(), class:(menu_current.equals("Articles")).yesno('nav-support-select', 'nav-support')}Blog#{/a}
+						</li>
+
+						<li>
+						#{a @Sponsors.index(), class:(menu_current.equals("Sponsors")).yesno('nav-support-select', 'nav-support')}Partenaires#{/a}
+						</li>
+
 					</ul>
 				</div>
 			</nav>
 		</header>
 
-		<!-- Main Body -->	
+		<!-- Main Body -->
 		<section id="main">
 			#{doLayout /}
 		</section>
-		
+
 		<!-- Footer -->
 		<footer id="bottom">
 			<section class="footer">

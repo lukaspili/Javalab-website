@@ -1,9 +1,13 @@
 package controllers.abstracts;
 
+import controllers.Dashboard;
 import controllers.helpers.controller.CollectionHelper;
 import controllers.helpers.controller.PageHelper;
+import play.Logger;
+import play.Play;
 import play.i18n.Messages;
 import play.mvc.Controller;
+import play.mvc.Http;
 import validation.EnhancedValidator;
 
 /**
@@ -11,6 +15,8 @@ import validation.EnhancedValidator;
  */
 
 public abstract class UtilController extends Controller {
+
+    public static final String TEMPLATE_MENU_CURRENT = "menu_current";
 
     protected static CollectionHelper collectionHelper = new CollectionHelper();
 
@@ -74,5 +80,13 @@ public abstract class UtilController extends Controller {
 
     protected static PageHelper pageHelper() {
         return new PageHelper();
+    }
+
+    protected static void setMenuAsController() {
+        renderArgs.put(TEMPLATE_MENU_CURRENT, Http.Request.current().controller);
+    }
+
+    protected static void setMenuDefault() {
+        renderArgs.put(TEMPLATE_MENU_CURRENT, Dashboard.class.getSimpleName());
     }
 }

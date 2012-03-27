@@ -6,6 +6,7 @@ import controllers.security.Auth;
 import controllers.security.PublicAccess;
 import helper.Logger;
 import models.users.User;
+import play.mvc.After;
 import play.mvc.Before;
 import play.mvc.Controller;
 
