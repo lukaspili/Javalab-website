@@ -3,7 +3,11 @@ package service;
 import models.events.Project;
 import models.events.ProjectState;
 import models.users.Campus;
+import models.users.User;
+
 import org.joda.time.LocalDate;
+
+import controllers.Projects;
 
 import javax.persistence.Query;
 import java.util.List;
@@ -37,6 +41,15 @@ public class ProjectService {
         query.setParameter("campus", campus);
 
         return query.getResultList();
+	}
+	
+	public List<Project> getProjectsByUser(User user) {
+		Query query = Project.em().createQuery("SELECT p FROM Project p " +
+				"WHERE :user MEMBER OF p.members");
+		
+		query.setParameter("user", user);
+		
+		return query.getResultList();
 	}
 
 }

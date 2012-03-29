@@ -6,6 +6,7 @@ import controllers.security.Auth;
 import controllers.security.LoggedAccess;
 import controllers.security.PublicAccess;
 import helper.Logger;
+import models.events.Project;
 import models.users.Campus;
 import models.users.Picture;
 import models.users.Profile;
@@ -20,6 +21,7 @@ import play.mvc.Router;
 import play.mvc.Util;
 import service.CampusService;
 import service.PictureService;
+import service.ProjectService;
 import service.UserService;
 import util.OpenIDUtils;
 
@@ -50,6 +52,9 @@ public class Users extends AppController {
     
     @Inject
     private static PictureService pictureService;
+    
+    @Inject
+    private static ProjectService projectService;
 
     @Util
     public static User getSafeUser(long userId) {
@@ -198,14 +203,16 @@ public class Users extends AppController {
 
 
     @LoggedAccess
-    public static void modify(String firstName, String lastName, File picture) {
+    public static void modify(String firstName, String lastName, String presentation, File picture) {
         User user = Auth.getCurrentUser();
-        
-        Picture pic = pictureService.createPicture(picture);
-        
+                       
         user.firstName = firstName;
         user.lastName = lastName;
-        user.picture = pic;
+        user.presentation = presentation;
+        if(picture != null) {
+        	Picture pic = pictureService.createPicture(picture);
+        	user.picture = pic;
+        }
         
         user.save();
         flash.success("Votre profile a été modifié !");
@@ -218,7 +225,9 @@ public class Users extends AppController {
         User user = User.findById(userId);
         notFoundIfNull(user);
 
-        render(user);
+        List<Project> projects = projectService.getProjectsByUser(user);
+        
+        render(user, projects);
     }
 
     @LoggedAccess
