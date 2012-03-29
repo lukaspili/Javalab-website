@@ -7,7 +7,7 @@ GET     /		                                Dashboard.index
 GET     /profile		                        Users.profile
 GET     /inscription	                        Users.newUser
 POST    /inscription		                    Users.create
-GET	    /modify				                    Users.modify
+POST	/modify				                    Users.modify
 
 # Blog page
 GET		/blog									Articles.allArticles

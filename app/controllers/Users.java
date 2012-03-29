@@ -198,11 +198,15 @@ public class Users extends AppController {
 
 
     @LoggedAccess
-    public static void modify(String firstName, String lastName, Campus campus) {
+    public static void modify(String firstName, String lastName, File picture) {
         User user = Auth.getCurrentUser();
+        
+        Picture pic = pictureService.createPicture(picture);
+        
         user.firstName = firstName;
         user.lastName = lastName;
-        user.campus = campus;
+        user.picture = pic;
+        
         user.save();
         flash.success("Votre profile a été modifié !");
         profile();
@@ -215,21 +219,6 @@ public class Users extends AppController {
         notFoundIfNull(user);
 
         render(user);
-    }
-
-    @LoggedAccess
-    public static void modify(User user, String idBooster, Promotion promotion,
-                              Campus campus) {
-
-        User userModify = User.find("byIdBooster", user.idBooster).first();
-        System.out.println(userModify);
-
-        userModify.promotion = promotion;
-        userModify.campus = campus;
-        userModify.save();
-        flash.success("Votre profile a été modifié !");
-
-        profile();
     }
 
     @LoggedAccess
