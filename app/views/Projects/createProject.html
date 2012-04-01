@@ -1,9 +1,6 @@
 #{extends 'template/template.html' /}
 
-<p style="color: #c00">${flash.error}</p>
-<p style="color: #c00">${flash.success}</p>
-
-#{form @Projects.previsualise(), method='POST'}
+#{form @Projects.addProject(), method:'POST', enctype:'multipart/form-data'}
 	
 	#{field 'project.name'}
 	<p>
@@ -12,7 +9,8 @@
 	</p>
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
-	<br /><br />
+	<br /><br />	
+	
 	#{field 'project.presentation'}
 	<p>
 		<label>&{field.name}</label>
@@ -21,6 +19,7 @@
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
 	<br /><br />
+	
 	#{field 'project.technologies'}
 	<p>
 		<label>&{field.name}</label>
@@ -29,6 +28,7 @@
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
 	<br /><br />
+	
 	#{field 'project.description'}
 	<p>
 		<label>&{field.name}</label>
@@ -37,6 +37,10 @@
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
 	
-	<input type="submit" value="Prévisualiser" />
+	<input type="file" value="photo" />
 	
-#{form}
+	<br /><br />
+	
+	<input type="submit" value="Ajouter un projet" />
+	
+#{/form}

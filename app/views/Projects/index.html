@@ -1,1 +1,30 @@
 #{extends 'template/template.html' /}
+
+#{if flash.success}
+    <p>${flash.success}</p>
+#{/if}
+<div class="content">
+	#{if user}
+		<table>
+			<tr>
+				<th>Nom</th>
+				<th>Description détaillée</th>
+				<th>S'inscrire au projet</th>
+			</tr>
+		    #{list items: projects, as: 'project'}
+			<tr>    
+				<td>${project.name}</td>
+				<td>#{a @Projects.details(project.id)}Description#{/a}</td>
+				<td>#{a @Projects.susbscribe(project.id)}Inscription#{/a}</td>
+			</tr>
+		    #{/list}
+		</table>
+		#{if user.isAdmin()}
+			<br /><br />
+			#{a @Projects.createProject()}Créer un nouveau projet#{/a}
+		#{/if}		
+	 #{/if}
+	 #{else}
+	    <p>Vous devez être membre du labo pour accéder à cette rubrique.</p>
+     #{/else}
+</div>

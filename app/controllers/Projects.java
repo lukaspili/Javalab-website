@@ -8,6 +8,7 @@ import models.events.Project;
 import models.users.Profile;
 import models.users.User;
 import service.ProjectService;
+import sun.net.httpserver.AuthFilter;
 import validation.EnhancedValidator;
 
 import javax.inject.Inject;
@@ -26,22 +27,20 @@ public class Projects extends AppController {
     public static void index() {
         pageHelper().addActionTitle();
         setMenuAsController();
-        render();
+        
+        User user = Auth.getCurrentUser();
+        if(user != null && user.isMember()) {
+        	List<Project> projects = projectService.getProjectsByCampus(
+                Auth.getCurrentUser().campus);
+        	render(projects, user);
+        }else {
+        	render();
+        }
     }
 
     @LoggedAccess(Profile.CLM)
     public static void createProject() {
         render();
-    }
-
-    @LoggedAccess(Profile.CLM)
-    public static void previsualise(Project project) {
-        Project clearProject = new Project();
-//        MarkdownProcessor processor = new MarkdownProcessor();
-//        clearProject.presentation = processor.markdown(project.presentation);
-//        clearProject.technologies = processor.markdown(project.technologies);
-//        clearProject.description = processor.markdown(project.description);
-        render(clearProject);
     }
 
     @LoggedAccess(Profile.CLM)
@@ -54,14 +53,7 @@ public class Projects extends AppController {
         project.campus = Auth.getCurrentUser().campus;
         Project createdProject = projectService.createProject(project);
         flash.success("Le projet " + createdProject.name + " a bien été crée.");
-        Projects.createProject();
-    }
-
-    @LoggedAccess(Profile.MEMBER)
-    public static void projects() {
-        List<Project> projects = projectService.getProjectsByCampus(
-                Auth.getCurrentUser().campus);
-        render(projects);
+        Projects.index();
     }
 
     @LoggedAccess(Profile.MEMBER)
@@ -70,7 +62,8 @@ public class Projects extends AppController {
         User currentUser = Auth.getCurrentUser();
         project.members.add(currentUser);
         project.save();
-        Projects.projects();
+        flash.success("Votre inscription au projet "+project.name+" a bien été prise en compte.");
+        Projects.index();
     }
 
     @LoggedAccess(Profile.MEMBER)

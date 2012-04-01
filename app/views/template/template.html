@@ -51,10 +51,6 @@
 								<a id="user_candidature_inprogress_dialog_link" href="#">Candidature en cours sur le laboratoire de ${currentUser.campus.name.label}</a>
 							#{/elseif}
 
-							#{elseif auth.isMember()}
-								#{a @Users.campus()}Laboratoire de ${currentUser.campus.name.label}#{/a}
-							#{/elseif}
-
 							#{elseif auth.isClm()}
 								#{a @CampusesAdmin.admin(currentUser.campus.id)}Administration du laboratoire de ${currentUser.campus.name.label}#{/a}
 							#{/elseif}

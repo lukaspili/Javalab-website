@@ -58,6 +58,22 @@ public class User extends Model {
     public String getFullName() {
         return firstName + " " + lastName;
     }
+    
+    public boolean isMember() {
+    	if(this.profile.equals(Profile.CANDIDATE)) {
+    		return false;
+    	}
+    	return true;
+    }
+    
+    public boolean isAdmin() {
+    	if(this.profile.
+    			equals(Profile.CANDIDATE) || this.profile.
+    			equals(Profile.MEMBER)) {
+    		return false;
+    	}
+    	return true;
+    }
 
     @Override
     public String toString() {
