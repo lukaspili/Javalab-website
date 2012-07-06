@@ -11,11 +11,13 @@
 			<tr>
 				<th>ID Booster</th>
 				<th>Nom</th>
+				<th>Promotion</th>
 			</tr>
 			#{list items: members, as: 'member'}
 				<tr>
 					<td class="idBooster">#{a @Users.details(member.id)}${member.idBooster}#{/a}</td>
 					<td>#{a @Users.details(member.id)}${member.fullName}#{/a}</td>
+					<td>#{a @Users.details(member.id)}${member.promotion}#{/a}</td>
 				</tr>
 			#{/list}
 		</table>

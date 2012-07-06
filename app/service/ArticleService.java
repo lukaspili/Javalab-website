@@ -9,7 +9,6 @@ public class ArticleService {
 
 	public Article create(Article article){
 		
-		
 		Article articleToCreate = new Article();
 		articleToCreate.authors = article.authors;
 		articleToCreate.content = article.content;
@@ -17,6 +16,7 @@ public class ArticleService {
 		articleToCreate.title = article.title;
 		
 		articleToCreate.save();
+		
 		return articleToCreate; 
 		
 	}

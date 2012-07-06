@@ -19,6 +19,7 @@ public class ProjectService {
 	
 	
 	public Project createProject(Project project) {
+		
 		Project projectToCreate = new Project();
 		projectToCreate.name = project.name;
 		projectToCreate.presentation = project.presentation;

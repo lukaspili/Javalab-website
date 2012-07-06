@@ -71,7 +71,7 @@ public class TestSeed {
         user4.idBooster = "123";
         user4.firstName = "Candidate 1";
         user4.lastName = "Foo";
-        user4.campus = montpellier;
+        user4.campus = paris;
         user4.promotion = Promotion.B2;
         user4.profile = Profile.CANDIDATE;
         user4.save();
@@ -80,7 +80,7 @@ public class TestSeed {
         user5.idBooster = "456";
         user5.firstName = "Candidate 2";
         user5.lastName = "Bar";
-        user5.campus = montpellier;
+        user5.campus = paris;
         user5.promotion = Promotion.B1;
         user5.profile = Profile.CANDIDATE;
         user5.save();
@@ -89,7 +89,7 @@ public class TestSeed {
         user51.idBooster = "456";
         user51.firstName = "Candidate 2";
         user51.lastName = "Bar";
-        user51.campus = montpellier;
+        user51.campus = paris;
         user51.promotion = Promotion.B1;
         user51.profile = Profile.CANDIDATE;
         user51.save();
@@ -189,7 +189,7 @@ public class TestSeed {
 
         Article article21 = new Article();
         article21.title = "Foo";
-        article21.content = "Bar";
+        article21.content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, ";
         article21.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article21.authors = users;
         article21.save();
