@@ -34,7 +34,7 @@
 				<h3>Projet en cours</h3>
 				#{if user.projects}
 					#{list items:projects, as:'project'}
-    					${project.name}
+    					<p>#{a @Projects.details(project.id)}${project.name}#{/a}</p>
 					#{/list}					
 				#{/if}
 				#{else}
