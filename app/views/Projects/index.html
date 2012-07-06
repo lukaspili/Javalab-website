@@ -3,9 +3,13 @@
 #{if flash.success}
     <p>${flash.success}</p>
 #{/if}
-<div class="content">
+<div id="projet">
+	<section class="projet-header">
+		<h1>Projet</h1>
+	</section>
 	#{if user}
-		<table>
+	<section class="projet">
+		<table cellspacing="25px">
 			<tr>
 				<th>Nom</th>
 				<th>Description détaillée</th>
@@ -19,12 +23,18 @@
 			</tr>
 		    #{/list}
 		</table>
+	</section>
 		#{if user.isAdmin()}
-			<br /><br />
-			#{a @Projects.createProject()}Créer un nouveau projet#{/a}
+		<section class="explore">
+			<ul>
+				<li>#{a @Projects.createProject()}Créer un nouveau projet#{/a}</li>
+			</ul>
+		</section>
+			
 		#{/if}		
 	 #{/if}
 	 #{else}
 	    <p>Vous devez être membre du labo pour accéder à cette rubrique.</p>
      #{/else}
+
 </div>

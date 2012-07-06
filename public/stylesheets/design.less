@@ -986,7 +986,79 @@ text-align: center;
 
 	cursor: pointer;
 }
+////////////////
+// Projet
+////////////////
 
+#projet{
+	background: white;
+
+	.rounded(3px);
+
+	float: left;
+
+	box-shadow:
+	0px 1px 1px -1px rgba(0,0,0,0.40),
+		0px 10px 0px -5px #F7F7F7,
+			0px 11px 1px -5px rgba(0,0,0,0.40),
+				0px 22px 0px -12px #F7F7F7,
+					0px 23px 1px -12px rgba(0,0,0,0.40);
+}
+.projet-header{
+	background: url('/public/images/background/footer-section.png') bottom center no-repeat;
+	padding:20px;
+}
+#projet .explore{
+	float:right;
+
+	width:280px;
+	margin-right:20px;
+}
+#projet .explore ul{
+	list-style: none;
+}
+#projet .explore ul li{
+	background-color: rgba(0,0,0,0.2);
+	margin-bottom:2px;
+	padding:3px;
+	text-decoration: none;
+	 
+	color: #3E3E3E;
+}	
+#projet .explore ul li a{
+	color: #333;
+	font-family:"Signika";
+	font-size:16px;
+
+	text-decoration: none;
+}
+#projet .explore ul li:hover{
+	background-color: rgba(0,0,0,0.1);
+	margin-bottom:2px;
+	padding:3px;
+	cursor: pointer;
+
+	color: #c51c00;
+}
+.projet{
+	width:900px;
+
+	padding:20px;
+	margin:0 auto;
+}
+.projet table th{
+	text-align:left;
+	margin:40px;
+
+	color: #444;
+}
+.projet td a{
+	color: #333;
+	font-family:"Signika";
+	font-size:16px;
+
+	text-decoration:none;
+}
 ////////////////
 // Blog
 ////////////////
@@ -1078,6 +1150,13 @@ text-align: center;
 	padding:3px;
 
 	color: #3E3E3E;
+}
+#blog .explore ul li a{
+	color: #333;
+	font-family:"Signika";
+	font-size:16px;
+
+	text-decoration: none;
 }
 #blog .explore ul li:hover{
 	background-color: rgba(0,0,0,0.1);
