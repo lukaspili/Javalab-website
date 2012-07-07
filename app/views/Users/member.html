@@ -1,0 +1,34 @@
+#{extends 'template/template.html' /}
+
+<div id="member">
+	<section class="member-header">
+		<h1>Membre</h1>
+	</section>
+	<section class="member">
+
+		<table cellspacing="25px">
+			<tr>
+				<th>ID Booster</th>
+				<th>Nom</th>
+				<th>Promotion</th>
+				<th>Campus</th>
+				<th>Avatar</th>
+			</tr>
+			#{list items:listUser, as:'user'}
+			<tr>
+				<td class="idBooster">#{a @Users.details(user.id)}${user.idBooster}#{/a}</td>
+				<td>#{a @Users.details(user.id)}${user.fullName}#{/a}</td>
+				<td>#{a @Users.details(user.id)}${user.promotion}#{/a}</td>
+				<td>#{a @Users.details(user.id)}${user.campus.name}#{/a}</td>
+				<div class="profile-image">	
+			<td>#{if user.picture}
+				<img src="@{Users.getPicture(user.id)}" width="40"/>
+			#{/if}
+			#{else}
+				<img src="http://placekitten.com/g/200/300"/>
+			#{/else}</td>	
+		</div>
+			</tr>
+			#{/list}
+		</table>
+</div>
