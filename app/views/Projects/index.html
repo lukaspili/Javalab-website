@@ -7,8 +7,8 @@
 	<section class="projet-header">
 		<h1>Projet</h1>
 	</section>
-	#{if user}
 	<section class="projet">
+	#{if user}
 		<table cellspacing="25px">
 			<tr>
 				<th>Nom</th>
@@ -23,7 +23,7 @@
 			</tr>
 		    #{/list}
 		</table>
-	</section>
+	
 		#{if user.isAdmin()}
 		<section class="explore">
 			<ul>
@@ -36,5 +36,6 @@
 	 #{else}
 	    <p>Vous devez être membre du labo pour accéder à cette rubrique.</p>
      #{/else}
+     </section>
 
 </div>

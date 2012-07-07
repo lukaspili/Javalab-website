@@ -1,10 +1,15 @@
 package service;
 
+import models.events.Article;
 import models.users.Campus;
 import models.users.Profile;
 import models.users.User;
 
 import javax.persistence.Query;
+
+import play.mvc.Scope.RenderArgs;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -75,8 +80,9 @@ public class UserService {
                 .setParameter("profile", profile)
                 .getResultList();
     }
-
-    public User login(String idBooster) {
+    
+    
+	public User login(String idBooster) {
         return User.find("byIdBooster", idBooster).first();
     }
 

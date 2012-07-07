@@ -104,17 +104,20 @@
 						<li>
 							#{a @Dashboard.index(), class:(menu_current.equals("Dashboard")).yesno('nav-support-select', 'nav-support')}Accueil#{/a}
 						</li>
-
 						<li>
-						#{a @Projects.index(), class:(menu_current.equals("Projects")).yesno('nav-support-select', 'nav-support')}Projets#{/a}
+							#{a @Users.member(), class:(menu_current.equals("Users")).yesno('nav-support-select', 'nav-support')}Membre#{/a}
 						</li>
 
 						<li>
-						#{a @Articles.allArticles(), class:(menu_current.equals("Articles")).yesno('nav-support-select', 'nav-support')}Blog#{/a}
+							#{a @Projects.index(), class:(menu_current.equals("Projects")).yesno('nav-support-select', 'nav-support')}Projets#{/a}
 						</li>
 
 						<li>
-						#{a @Sponsors.index(), class:(menu_current.equals("Sponsors")).yesno('nav-support-select', 'nav-support')}Partenaires#{/a}
+							#{a @Articles.allArticles(), class:(menu_current.equals("Articles")).yesno('nav-support-select', 'nav-support')}Blog#{/a}
+						</li>
+
+						<li>
+							#{a @Sponsors.index(), class:(menu_current.equals("Sponsors")).yesno('nav-support-select', 'nav-support')}Partenaires#{/a}
 						</li>
 
 					</ul>

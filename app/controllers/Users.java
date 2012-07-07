@@ -29,6 +29,7 @@ import javax.inject.Inject;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -236,6 +237,17 @@ public class Users extends AppController {
         List<Promotion> promotionList = Arrays.asList(Promotion.values());
         render(user, promotionList);
     }
+    
+    @PublicAccess
+	public static void member () {
+
+    	List<User> listUser = new ArrayList<User>();
+		
+    	listUser = User.findAll();
+
+		render(listUser);
+    }
+
     
     @LoggedAccess
     public static void getPicture(Long id) {
