@@ -74,7 +74,7 @@
 
 	<div class="center">
 
-		#{if auth.isLogged() && !currentUser.firstLogin}
+		#{if auth.isCandidate() && !currentUser.firstLogin}
 			<section id="information">
 				<div id="user_candidature_inprogress_dialog" title="Candidature en cours">
 					<div class="information-image">

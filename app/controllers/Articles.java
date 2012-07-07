@@ -4,6 +4,7 @@ import controllers.abstracts.AppController;
 import controllers.security.LoggedAccess;
 import controllers.security.PublicAccess;
 import models.events.Article;
+import models.users.Profile;
 import service.ArticleService;
 import validation.EnhancedValidator;
 
@@ -39,7 +40,7 @@ public class Articles extends AppController {
 		render();
 	}
 	
-	@LoggedAccess
+	@LoggedAccess(Profile.MEMBER)
 	public static void create(Article article) {
 		
 		EnhancedValidator validator = validator();

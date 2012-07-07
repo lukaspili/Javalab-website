@@ -18,6 +18,5 @@ public class ArticleService {
 		articleToCreate.save();
 		
 		return articleToCreate; 
-		
 	}
 }

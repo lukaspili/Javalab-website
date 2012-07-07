@@ -8,7 +8,8 @@ GET     /profile		                        Users.profile
 GET     /inscription	                        Users.newUser
 POST    /inscription		                    Users.create
 POST	/modify				                    Users.modify
-GET		/users/member									Users.member
+GET		/users/member							Users.member
+GET		/users/candidate						Users.candidate
 
 # Blog page
 GET		/blog									Articles.allArticles

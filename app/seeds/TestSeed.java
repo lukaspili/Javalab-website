@@ -195,8 +195,8 @@ public class TestSeed {
         article21.save();
 
         Article article211 = new Article();
-        article211.title = "Foo";
-        article211.content = "Bar";
+        article211.title = "Magnifique Video";
+        article211.content = "Une super video fait par un membre du labo!! ";
         article211.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article211.authors = users;
         article211.save();

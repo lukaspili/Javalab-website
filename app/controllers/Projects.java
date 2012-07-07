@@ -45,10 +45,12 @@ public class Projects extends AppController {
 
     @LoggedAccess(Profile.CLM)
     public static void addProject(Project project) {
+    	
         EnhancedValidator validator = validator();
         validator.validate(project).require("name", "description", "technologies", "presentation");
+        
         if (validator.hasErrors()) {
-            render("UsersAdmin/createProject", project);
+            render("Projetcs/createProject.html", project);
         }
         project.campus = Auth.getCurrentUser().campus;
         Project createdProject = projectService.createProject(project);

@@ -247,7 +247,11 @@ public class Users extends AppController {
 
 		render(listUser);
     }
+    @PublicAccess
+	public static void candidate () {
 
+    	render();
+    }
     
     @LoggedAccess
     public static void getPicture(Long id) {
