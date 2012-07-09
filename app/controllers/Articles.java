@@ -1,10 +1,12 @@
 package controllers;
 
 import controllers.abstracts.AppController;
+import controllers.security.Auth;
 import controllers.security.LoggedAccess;
 import controllers.security.PublicAccess;
 import models.events.Article;
 import models.users.Profile;
+import models.users.User;
 import service.ArticleService;
 import validation.EnhancedValidator;
 
@@ -20,13 +22,9 @@ public class Articles extends AppController {
 	@Inject
 	private static ArticleService articleService;
 
-    @PublicAccess
-    public static void index() {
-
-    }
 	
 	@PublicAccess
-	public static void allArticles() {
+	public static void index()  {
 		
 		List<Article> listArticle = new ArrayList<Article>();
 		
@@ -35,7 +33,7 @@ public class Articles extends AppController {
 		render(listArticle);
 	}
 	
-	@LoggedAccess
+	@LoggedAccess(Profile.MEMBER)
 	public static void newArticle() {
 		render();
 	}
@@ -43,17 +41,18 @@ public class Articles extends AppController {
 	@LoggedAccess(Profile.MEMBER)
 	public static void create(Article article) {
 		
+		User user = Auth.getCurrentUser();
 		EnhancedValidator validator = validator();
-		validator.validate(article).require("authors", "content", "creationDate", "title");
-		
+		validator.validate(article).require("content", "title");
+		article.author = user;
 		if(validator.hasErrors()) {
-			render("Articles/newArtilce.html", article);
+			render("Articles/newArticle.html", article);
 		}
 		
 		Article createdArticle = articleService.create(article);
 		
 		flash.success("Merci, l'article" + createdArticle.title + " à bien était enregistré");
-		Articles.allArticles();
+		Articles.index();
 	}
 	
 }

@@ -2,34 +2,49 @@
 
 #{include 'helpers/form_validation.html' /}
 
-#{form @Articles.create(), method:'GET'}
-	<p style="color: #c00">${flash.success}</p>
+#{form @Articles.create(), method:'POST', enctype:'multipart/form-data'}
+ <p style="color: #c00">${flash.success}</p>
 <div id="article">
-	<section class="article-header">
-		<h1>Nouvelle Article</h1>
-	</section>
-	<div class="new-article">
-	
-				<div class="publicationTitle">Titre :</div>
-				<input type="text" name="title" value="" id="publicationTitle" class="fullLength bigChars" maxlength="200"/>
-		
-				<div class="publicationTitle">Edition de l'article :</div>
-				<textarea type="text" name="content" id="publicationContent" class="fullLength bigChars" maxlength="200"></textarea>
-				
-		<table>
-			<th>
-				<td><div class="publicationTitle">Date de publication : </div></td>
-				<td><input type="text" name="creationDate" id="publicationDate" /></td>
-			</th>
-		</table>
-		<br />
-		<table>
-			<th>
-				<td><input type="submit" class="submit" value="Publier l'article"></td>
-				<td><input type="submit" class="submit" value="Retour" onClick="window.location = '@{Dashboard.index()}'"></td>
-			</th>
-		</table>
-	</div>	
+ <section class="article-header">
+  <h1>Nouvelle Article</h1>
+ </section>
+ <div class="new-article">
+ <center>
+ 
+ #{field 'article.title'}
+  <p>
+    <label>&{field.name}</label>
+    <input type="text" name="${field.name}" value="${field.value}" id="publicationTitle" class="fullLength bigChars" maxlength="200">
+    <span class="error">${field.error}</span>
+  </p>
+ #{/field}
+  
+ #{field 'article.content'}
+  <p>
+    <label>&{field.name}</label><br />
+    <textarea type="text" name="${field.name}" value="${field.value}" id="publicationContent" class="fullLength bigChars" maxlength="200"></textarea>
+    <span class="error">${field.error}</span>
+  </p>
+ #{/field}
+ 
+    
+ 
+    #{field 'article.creationDate'}
+    <p>
+ 	<label>&{field.name}</label>
+ 
+    <input type="text" name="${field.name}" value="${field.value}" class="${field.errorClass} id="publicationDate"">
+    <span class="error">${field.error}</span>
+ 	</p>
+ #{/field}
+  <table>
+   <tr>
+    <td><input type="submit" class="submit" value="Publier l'article"></td>
+    <td><input type="submit" class="submit" value="Retour" onClick="window.location = '@{Dashboard.index()}'"></td>
+   </tr>
+  </table>
+ </div> 
+ </center>
 </div>
-	
+ 
 #{/form}

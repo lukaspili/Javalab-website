@@ -2,9 +2,11 @@ package models.events;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -25,11 +27,12 @@ import play.db.jpa.Model;
 public class Project extends Model {
 
     public String name;
-
+    
+    @Lob
     public String presentation;
-    
+    @Lob
     public String technologies;
-    
+    @Lob
     public String description;
 
     @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")

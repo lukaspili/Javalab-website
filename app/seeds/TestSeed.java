@@ -179,34 +179,14 @@ public class TestSeed {
         talk1.date = new LocalDate(2011, 12, 23); // december 23, 2011
         talk1.speakers = users;
         talk1.save();
-
-        Article article2 = new Article();
-        article2.title = "Foo";
-        article2.content = "Article de test et de defence contre les animaux.";
-        article2.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
-        article2.authors = users;
-        article2.save();
-
-        Article article21 = new Article();
-        article21.title = "Foo";
-        article21.content = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, ";
-        article21.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
-        article21.authors = users;
-        article21.save();
-
-        Article article211 = new Article();
-        article211.title = "Magnifique Video";
-        article211.content = "Une super video fait par un membre du labo!! ";
-        article211.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
-        article211.authors = users;
-        article211.save();
-
-        Article article2111 = new Article();
-        article2111.title = "Foo";
-        article2111.content = "Bar";
-        article2111.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
-        article2111.authors = users;
-        article2111.save();
+        
+        Article article211111 = new Article();
+        article211111.title = "Foorgeazgrzrr";
+        article211111.content = "Baagaergaergaergaeg eraggggggg rgaeeeeeeeeeee geraaaaaaaaar";
+        article211111.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
+        article211111.author = user1;
+        article211111.save();
+       
 
         Project project1 = new Project();
         project1.name = "Java lab. website";

@@ -48,7 +48,7 @@ public class User extends Model {
     @ManyToMany(mappedBy = "members")
     public Set<Project> projects;
 
-    @ManyToMany(mappedBy = "authors")
+    @OneToMany(mappedBy = "author")
     public Set<Article> articles;
 
     public User() {

@@ -7,6 +7,8 @@ import play.db.jpa.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 import java.util.Set;
 
 /**
@@ -23,8 +25,8 @@ public class Article  extends Model {
 	    @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")
 	    public LocalDate creationDate;
 
-	    @ManyToMany
-	    public Set<User> authors;
+	    @ManyToOne
+	    public User author;
 
 	    public Article() {
 	        creationDate = new LocalDate();

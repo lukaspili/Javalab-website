@@ -12,7 +12,7 @@ GET		/users/member							Users.member
 GET		/users/candidate						Users.candidate
 
 # Blog page
-GET		/blog									Articles.allArticles
+GET		/blog									Articles.index
 GET     /blog/article/nouveau	                Articles.newArticle
 POST    /blog/article/nouveau	                Articles.create
 

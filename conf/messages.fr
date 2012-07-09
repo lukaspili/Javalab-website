@@ -13,6 +13,7 @@ campus.montpellier=Montpellier
 campus.grenoble=Grenoble
 
 article.title=Titre
+article.content=Édition de l'article
 article.authors=Auteur
 article.creationDate=Date
 
