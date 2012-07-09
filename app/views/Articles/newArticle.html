@@ -3,30 +3,33 @@
 #{include 'helpers/form_validation.html' /}
 
 #{form @Articles.create(), method:'GET'}
-	<p style="color: #c00">${flash.error}</p>
-	<center>
-	<h1>Nouvelle Article</h1>
-	<hr />
-	<div class="span6 offset1">
-   		<div class="page-header">
+	<p style="color: #c00">${flash.success}</p>
+<div id="article">
+	<section class="article-header">
+		<h1>Nouvelle Article</h1>
+	</section>
+	<div class="new-article">
+	
+				<div class="publicationTitle">Titre :</div>
+				<input type="text" name="title" value="" id="publicationTitle" class="fullLength bigChars" maxlength="200"/>
+		
+				<div class="publicationTitle">Edition de l'article :</div>
+				<textarea type="text" name="content" id="publicationContent" class="fullLength bigChars" maxlength="200"></textarea>
+				
 		<table>
-			<tr>
-				<td>Titre :</td>
-				<td><input type="text" name="title" /></td>
-			</tr>
-			<tr>
-				<td>Contenu :</td>
-				<td><textarea type="text" name="content"></textarea></td>
-			</tr>
-			<tr>
-				<td>Date : </td>
-				<td><input type="text" name="creationDate" /></td>
-			</tr>
-			<tr>
-				<td><input type="submit" class="btn primary large"><br /> <br /><a class="btn primary large" onClick="window.location = '@{Dashboard.index()}'">Retour &raquo;</a></td>
-			</tr>
+			<th>
+				<td><div class="publicationTitle">Date de publication : </div></td>
+				<td><input type="text" name="creationDate" id="publicationDate" /></td>
+			</th>
 		</table>
-		</div>
-	</div>
-	</center>		
+		<br />
+		<table>
+			<th>
+				<td><input type="submit" class="submit" value="Publier l'article"></td>
+				<td><input type="submit" class="submit" value="Retour" onClick="window.location = '@{Dashboard.index()}'"></td>
+			</th>
+		</table>
+	</div>	
+</div>
+	
 #{/form}

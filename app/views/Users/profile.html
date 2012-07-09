@@ -1,5 +1,8 @@
 #{extends 'template/template.html' /}
 <div id="content">
+#{if flash.success}
+    <p>${flash.success}</p>
+#{/if}
 	<section class="profile-header">
 		<h1>Votre Profile</h1>
 	</section>

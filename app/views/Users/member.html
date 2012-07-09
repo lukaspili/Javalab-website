@@ -12,6 +12,7 @@
 				<th>Nom</th>
 				<th>Promotion</th>
 				<th>Campus</th>
+				<th>Profile</th>
 				<th>Avatar</th>
 			</tr>
 			#{list items:listUser, as:'user'}
@@ -20,6 +21,7 @@
 				<td>#{a @Users.details(user.id)}${user.fullName}#{/a}</td>
 				<td>#{a @Users.details(user.id)}${user.promotion}#{/a}</td>
 				<td>#{a @Users.details(user.id)}${user.campus.name}#{/a}</td>
+				<td>#{a @Users.details(user.id)}${user.profile}#{/a}</td>
 				<div class="profile-image">	
 			<td>#{if user.picture}
 				<img src="@{Users.getPicture(user.id)}" width="40"/>
