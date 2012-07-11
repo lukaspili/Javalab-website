@@ -15,7 +15,12 @@
 						<h2>${article.title}</h2>
 					</section>
 					<section class="article-presentation">
-						<img class="auteur-image" src="http://www.placekitten.com/40/40">
+						#{if article.author.picture}
+				<img class="auteur-image" src="@{Users.getPicture(article.author.id)}" width="40"/>
+			#{/if}
+			#{else}
+				<img class="auteur-image" src="http://placekitten.com/g/200/300"/>
+			#{/else}
 						<p class="auteur-text"> Par <a>${article.author.firstName}</a><br />${article.creationDate}</p>
 					</section>
 					<section class="article-text">

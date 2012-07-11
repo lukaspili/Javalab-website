@@ -29,7 +29,12 @@
 			#{/else}
 			<div class="profile-feature">
 				<h3>Qualification</h3>
-				<p>Java,J2E,Android</p>
+				#{if user.qualification}
+					<p>${user.qualification}</p>
+				#{/if}
+				#{else}
+					<p>Ce membre n'a pas spécifié ses compétences</p>
+				#{/else}
 			</div>
 			<div class="profile-feature">
 				<h3>Projet en cours</h3>

@@ -25,8 +25,12 @@ public class User extends Model {
     public String firstName;
 
     public String lastName;
-
+    
+    @Lob
     public String presentation;
+    
+    @Lob
+    public String qualification;
 
     public boolean firstLogin;
 

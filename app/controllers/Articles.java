@@ -51,7 +51,7 @@ public class Articles extends AppController {
 		
 		Article createdArticle = articleService.create(article);
 		
-		flash.success("Merci, l'article" + createdArticle.title + " à bien était enregistré");
+		flash.success("Merci, l'article " + createdArticle.title + " à bien était enregistré");
 		Articles.index();
 	}
 	

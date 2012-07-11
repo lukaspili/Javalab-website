@@ -6,6 +6,7 @@ import org.joda.time.LocalDate;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -19,7 +20,8 @@ import java.util.Set;
 public class Article  extends Model {
 	
 	   public String title;
-
+	   
+	   @Lob
 	    public String content;
 
 	    @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")

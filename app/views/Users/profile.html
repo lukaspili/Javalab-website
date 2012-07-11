@@ -28,8 +28,6 @@
 						<tr>
 							<td style="text-align:right"><label for="firstName"><h5>Prénom</h5></label></td><td><input type=text name="firstName"  value="${user.firstName}" /></td>
 						</tr>
-						<tr><td></td><td></td></tr>
-						<tr><td></td><td></td></tr>
 						<tr>
 							<td style="text-align:right"><label for="promotion"><h5>Promotion</h5></label></td>
 							<td>
@@ -41,6 +39,10 @@
 						<tr>
 							<td style="text-align:right"><label for="campus"><h5>Campus</h5></label></td>
 							<td><input type="text" disabled="disabled" value="${user.campus.name}" name="campus" /></td>
+						</tr>
+						<tr>
+							<td style="text-align:right"><label for="campus"><h5>Qualification</h5></label></td>
+							<td><input type="text" value="${user.qualification}" name="campus" /></td>
 						</tr>
 					</table>
 			</div>

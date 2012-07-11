@@ -204,11 +204,12 @@ public class Users extends AppController {
 
 
     @LoggedAccess
-    public static void modify(String firstName, String lastName, String presentation, File picture) {
+    public static void modify(String firstName, String lastName, String qualification, String presentation, File picture) {
         User user = Auth.getCurrentUser();
                        
         user.firstName = firstName;
         user.lastName = lastName;
+        user.qualification = qualification;
         user.presentation = presentation;
         if(picture != null) {
         	Picture pic = pictureService.createPicture(picture);
