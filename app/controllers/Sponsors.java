@@ -11,5 +11,6 @@ public class Sponsors extends AppController {
     @PublicAccess
     public static void index() {
 
+    	render();
     }
 }

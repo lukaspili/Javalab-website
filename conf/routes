@@ -21,6 +21,9 @@ POST    /blog/article/nouveau	                Articles.create
 GET		/projets								Projects.projects
 GET		/projets/inscription					Projects.susbscribe	
 
+# Sponsor page
+GET		/partenaire								Sponsors.index
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
