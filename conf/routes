@@ -20,6 +20,9 @@ POST    /blog/article/nouveau	                Articles.create
 # Project page
 GET		/projets								Projects.projects
 GET		/projets/inscription					Projects.susbscribe	
+GET		/projets/campus							Projects.projetCampus
+GET		/projets/fini							Projects.projetFini
+GET		/projets/fini/dondusang					Projects.donDuSang
 
 # Sponsor page
 GET		/partenaire								Sponsors.index

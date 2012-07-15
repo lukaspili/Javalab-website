@@ -25,6 +25,12 @@ public class Projects extends AppController {
 
     @PublicAccess
     public static void index() {
+    	
+    	render();
+    }
+
+    @PublicAccess
+    public static void projetCampus() {
         pageHelper().addActionTitle();
         setMenuAsController();
         
@@ -37,7 +43,18 @@ public class Projects extends AppController {
         	render();
         }
     }
-
+    
+    @PublicAccess
+    public static void projetFini() {
+    	
+        render();
+    }
+    
+    @PublicAccess
+    public static void donDuSang() {
+    	
+        render();
+    }
     @LoggedAccess(Profile.CLM)
     public static void createProject() {
         render();
@@ -65,7 +82,7 @@ public class Projects extends AppController {
         project.members.add(currentUser);
         project.save();
         flash.success("Votre inscription au projet "+project.name+" a bien été prise en compte.");
-        Projects.index();
+        Projects.projetCampus();
     }
 
     @LoggedAccess(Profile.MEMBER)
@@ -73,4 +90,5 @@ public class Projects extends AppController {
         Project project = Project.findById(id);
         render(project);
     }
+   
 }

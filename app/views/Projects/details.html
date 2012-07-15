@@ -3,19 +3,22 @@
  <div class="content">	
  
 	#{if project}
-		<h1>Projet : ${project.name}</h1>
-		
-		<h3>Présentation :</h3>
-		<p>${project.presentation}</p>
-		
-		<h3>Technologies :</h3>
-		<p>${project.technologies}</p>
-		
-		<h3>Description :</h3>
-		<p>${project.description}</p>
-		
-		<h3>Membres inscrit sur le projet :</h3>
-		<p>${project.members}</p>
-	#{/if}
-	#{a @Projects.index()}Retour#{/a}
+	<div id="projet">
+		<section class="projet-header">
+			<h1>Projet : ${project.name}</h1>
+		</section>
+		<section class="projet">
+			<h3>Présentation :</h3>
+			<p>${project.presentation}</p>
+			
+			<h3>Technologies :</h3>
+			<p>${project.technologies}</p>
+			
+			<h3>Description :</h3>
+			<p>${project.description}</p>
+			
+			<h3>Membres inscrit sur le projet :</h3>
+			<p>${project.members}</p>
+		#{/if}
+		<td><input type="submit" class="submit" value="Retour" onClick="window.location = '/projets/campus'"></td>
 </div>

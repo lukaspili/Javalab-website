@@ -8,34 +8,25 @@
 		<h1>Projet</h1>
 	</section>
 	<section class="projet">
-	#{if user}
-		<table cellspacing="25px">
-			<tr>
-				<th>Nom</th>
-				<th>Description détaillée</th>
-				<th>S'inscrire au projet</th>
-			</tr>
-		    #{list items: projects, as: 'project'}
-			<tr>    
-				<td>${project.name}</td>
-				<td>#{a @Projects.details(project.id)}Description#{/a}</td>
-				<td>#{a @Projects.susbscribe(project.id)}Inscription#{/a}</td>
-			</tr>
-		    #{/list}
-		</table>
-	
-		#{if user.isAdmin()}
-		<section class="explore">
-			<ul>
-				<li>#{a @Projects.createProject()}Créer un nouveau projet#{/a}</li>
-			</ul>
-		</section>
-			
-		#{/if}		
-	 #{/if}
-	 #{else}
-	    <p>Vous devez être membre du labo pour accéder à cette rubrique.</p>
-     #{/else}
-     </section>
 
+	<center>
+			<table>
+				<tr>
+					<th>
+		            <a id="pastouche" href="/projets/campus"title="">
+		              <img alt="En Cours" src="/public/images/projets/en_cours_realisation.jpeg">
+		            </a>
+		            </th>
+		  			<th>
+		              <img alt="" src="/public/images/sponsor/Capture d’écran 2012-07-14 à 21.16.16.png">
+		            </th>
+		            <th>
+		            <a id="pastouche" href="/projets/fini" title="">
+		              <img alt="Termine" src="/public/images/projets/termine.png">
+		            </a>
+		            </th>
+	 			</tr>
+	       </table> 
+	       </center>
+		
 </div>
