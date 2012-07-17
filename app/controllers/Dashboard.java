@@ -15,4 +15,9 @@ public class Dashboard extends AppController {
 
         render();
     }
+    
+    public static void agenda() {
+
+        render();
+    }
 }

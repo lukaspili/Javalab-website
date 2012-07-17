@@ -4,6 +4,7 @@
 
 # Home page
 GET     /		                                Dashboard.index
+GET     /agenda		                            Dashboard.agenda
 GET     /profile		                        Users.profile
 GET     /inscription	                        Users.newUser
 POST    /inscription		                    Users.create

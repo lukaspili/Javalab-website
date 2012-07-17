@@ -5,6 +5,7 @@ import controllers.security.Auth;
 import controllers.security.LoggedAccess;
 import controllers.security.PublicAccess;
 import models.events.Article;
+import models.events.Project;
 import models.users.Profile;
 import models.users.User;
 import service.ArticleService;
@@ -54,5 +55,16 @@ public class Articles extends AppController {
 		flash.success("Merci, l'article " + createdArticle.title + " à bien était enregistré");
 		Articles.index();
 	}
+	
+	@LoggedAccess
+    public static void details(long articleId) {
+
+        Article article = Article.findById(articleId);
+        notFoundIfNull(article);
+
+        
+        render(article);
+    }
+
 	
 }
