@@ -50,12 +50,18 @@
 							#{elseif auth.isCandidate()}
 								<a id="user_candidature_inprogress_dialog_link" href="#">Candidature en cours sur le laboratoire de ${currentUser.campus.name.label}</a>
 							#{/elseif}
+							
+							#{elseif auth.isMember()}
+								#{a @Users.member()}Membre#{/a}
+							#{/elseif}
 
 							#{elseif auth.isClm()}
+								#{a @Users.member()}Membre#{/a}
 								#{a @CampusesAdmin.admin(currentUser.campus.id)}Administration du laboratoire de ${currentUser.campus.name.label}#{/a}
 							#{/elseif}
 
 							#{if auth.isGlm()}
+								#{a @Users.member()}Membre#{/a}
 								#{a @Glm.index()}Administration des laboratoires#{/a}
 							#{/if}
 
@@ -107,10 +113,6 @@
 						<li>
 							#{a @Dashboard.agenda(), class:(menu_current.equals("Agenda")).yesno('nav-support-select', 'nav-support')}Evénements#{/a}
 						</li>
-						<li>
-							#{a @Users.member(), class:(menu_current.equals("Users")).yesno('nav-support-select', 'nav-support')}Membre#{/a}
-						</li>
-						
 						<li>
 							#{a @Users.member(), class:(menu_current.equals("Users")).yesno('nav-support-select', 'nav-support')}MiniTalk#{/a}
 						</li>

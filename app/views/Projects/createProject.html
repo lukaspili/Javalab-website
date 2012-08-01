@@ -13,7 +13,7 @@
 	
 	#{field 'project.presentation'}
 	<p>
-		<label>{field.name}</label>
+		<label>&{field.name}</label>
 		<textarea id="${field.id}" name="${field.name}">${field.value}</textarea>
 	</p>
 	#{if field.error}<span>${field.error}</span>#{/}

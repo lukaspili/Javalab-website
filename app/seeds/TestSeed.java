@@ -177,7 +177,7 @@ public class TestSeed {
         talk1.title = "Google map with Android";
         talk1.description = "Introduction to google map foobar";
         talk1.date = new LocalDate(2011, 12, 23); // december 23, 2011
-        talk1.speakers = users;
+        talk1.speakers = user1;
         talk1.save();
         
         Article article211111 = new Article();

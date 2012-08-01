@@ -17,7 +17,12 @@ article.content=Édition de l'article
 article.authors=Auteur
 article.creationDate=Date
 
-
+project.name=Nom Du Projet
+project.technologies=Technologies
+project.desription=Descrition
+project.presentation=Présentation
+project.technologies=Technologies
+project.description=Descrition
 
 validation.required=Ce champs est requis
 validation.numeric=Ce champs ne doit comporter que des caractères numériques

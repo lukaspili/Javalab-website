@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
 import java.util.Set;
 
 /**
@@ -27,8 +29,8 @@ public class Talk extends Model {
     @Enumerated(EnumType.STRING)
     public TalkState state;
 
-    @ManyToMany
-    public Set<User> speakers;
+    @ManyToOne
+    public User speakers;
 
     public Talk() {
         state = TalkState.PLANNIFIED;
