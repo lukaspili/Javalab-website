@@ -56,13 +56,12 @@ public class Articles extends AppController {
 		Articles.index();
 	}
 	
-	@LoggedAccess
+	@PublicAccess
     public static void details(long articleId) {
 
         Article article = Article.findById(articleId);
         notFoundIfNull(article);
 
-        
         render(article);
     }
 	

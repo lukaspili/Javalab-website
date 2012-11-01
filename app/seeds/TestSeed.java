@@ -177,21 +177,21 @@ public class TestSeed {
         talk1.title = "Google map with Android";
         talk1.description = "Introduction to google map foobar";
         talk1.date = new LocalDate(2011, 12, 23); // december 23, 2011
-        talk1.speakers = user1;
+        talk1.speakers = user3;
         talk1.save();
         
         Article article211111 = new Article();
         article211111.title = "Foorgeazgrzrr";
         article211111.content = "Baagaergaergaergaeg eraggggggg rgaeeeeeeeeeee geraaaaaaaaar";
         article211111.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
-        article211111.author = user1;
+        article211111.author = user3;
         article211111.save();
         
         Article article2111111 = new Article();
         article2111111.title = "Foorgeazgrzrr";
         article2111111.content = "Baagaergaergaergaeg eraggggggg rgaeeeeeeeeeee geraaaaaaaaar";
         article2111111.creationDate = new LocalDate(2012, 07, 10); // december 23, 2011
-        article2111111.author = user1;
+        article2111111.author = user3;
         article2111111.save();
 
         Project project1 = new Project();
