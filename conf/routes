@@ -16,6 +16,7 @@ GET		/users/candidate						Users.candidate
 GET		/blog									Articles.index
 GET     /blog/article/nouveau	                Articles.newArticle
 POST    /blog/article/nouveau	                Articles.create
+POST    /blog/article/{id}                      Application.détails
 
 
 # Project page

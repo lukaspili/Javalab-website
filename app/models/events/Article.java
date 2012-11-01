@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import java.util.Set;
 
@@ -29,8 +30,9 @@ public class Article  extends Model {
 
 	    @ManyToOne
 	    public User author;
-
+	    
 	    public Article() {
 	        creationDate = new LocalDate();
 	    }
-	}
+	
+}

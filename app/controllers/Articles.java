@@ -65,6 +65,5 @@ public class Articles extends AppController {
         
         render(article);
     }
-
 	
 }

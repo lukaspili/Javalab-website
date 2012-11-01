@@ -1,0 +1,29 @@
+#{extends 'template/template.html' /}
+
+#{if flash.success}
+    <p>${flash.success}</p>
+#{/if}
+<div id="projet">
+	<section class="projet-header">
+		<h1>Projet Terminé</h1>
+	</section>
+	<section class="projet">
+			<table>
+				<tr>
+					<th>
+		            <a id="pastouche" href="/projets/fini/dondusang"title="">
+		              <img alt="En Cours" src="/public/images/projets/dondusang.png">
+		            </a>
+		            </th>
+		  			<th>
+		              <img alt="" src="/public/images/sponsor/Capture d’écran 2012-07-14 à 21.16.16.png">
+		            </th>
+		            <th>
+		            <a id="pastouche" href="" title="">
+		              <img alt="Termine" src="/public/images/projets/termine.png">
+		            </a>
+		            </th>
+	 			</tr>
+	       </table> 
+     </section>
+</div>

@@ -1,0 +1,43 @@
+#{extends 'template/template.html' /}
+
+#{script 'showMessage.js'/}
+
+<div id="blog">
+	<section class="blog-header">
+		<h1>${article.title}</h1>
+	</section>
+
+	<article class="article">
+	
+					<section class="article-presentation">
+						#{if article.author.picture}
+				<img class="auteur-image" src="@{Users.getPicture(article.author.id)}" width="40"/>
+			#{/if}
+			#{else}
+				<img class="auteur-image" src="http://placekitten.com/g/200/300"/>
+			#{/else}
+						<p class="auteur-text"> Par <a>${article.author.firstName}</a><br />${article.creationDate}</p>
+					</section>
+					<section class="article-text">
+						<p>${article.content}</p>
+					</section>
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style ">
+					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+					<a class="addthis_button_tweet"></a>
+					<a class="addthis_button_pinterest_pinit"></a>
+					<a class="addthis_counter addthis_pill_style"></a>
+					</div>
+					<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ffdf5fc47956785"></script>
+					<!-- AddThis Button END -->
+		
+	</article>
+	<section class="explore">
+		<ul>	
+			<li>#{a @Articles.newArticle()}Nouvelle Article#{/a}</li>
+			<li>Web</li>
+			<li>Android</li>
+		</ul>
+	</section>
+</div>
