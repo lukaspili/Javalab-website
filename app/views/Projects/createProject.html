@@ -1,29 +1,35 @@
 #{extends 'template/template.html' /}
 
 #{form @Projects.addProject(), method:'POST', enctype:'multipart/form-data'}
-	
+	 <p style="color: #c00">${flash.success}</p>
+<div id="project">
+ <section class="project-header">
+  <h1>Nouveau projet</h1>
+ </section>
+ <div class="new-project">
+ <center>
 	#{field 'project.name'}
 	<p>
 		<label>&{field.name}</label>
-		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" />
+		<input type="text" name="${field.name}" value="${field.value}" id="publicationTitle" class="fullLength bigChars"/>
 	</p>
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
 	<br /><br />	
 	
-	#{field 'project.presentation'}
+	#{field 'project.technologies'}
 	<p>
 		<label>&{field.name}</label>
-		<textarea id="${field.id}" name="${field.name}">${field.value}</textarea>
+		<input type="text" name="${field.name}" value="${field.value}" id="technologiesContent" class="fullLength bigChars"/>
 	</p>
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
 	<br /><br />
 	
-	#{field 'project.technologies'}
+	#{field 'project.presentation'}
 	<p>
 		<label>&{field.name}</label>
-		<textarea id="${field.id}" name="${field.name}">${field.value}</textarea>
+		<textarea name="${field.name}" id="presentationContent" class="fullLength bigChars">${field.value}</textarea>
 	</p>
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
@@ -32,7 +38,7 @@
 	#{field 'project.description'}
 	<p>
 		<label>&{field.name}</label>
-		<textarea id="${field.id}" name="${field.name}">${field.value}</textarea>
+		<textarea name="${field.name}" id="descriptionContent" class="fullLength bigChars">${field.value}</textarea>
 	</p>
 	#{if field.error}<span>${field.error}</span>#{/}
 	#{/}
@@ -41,6 +47,34 @@
 	
 	<br /><br />
 	
-	<input type="submit" value="Ajouter un projet" />
+	
+	<table>
+		<tr>
+	    	<td><input type="submit" class="submit" value="Ajouter un projet"/></td>
+	    	<td><input class="submit" value="Retour" onClick="window.location = '@{Dashboard.index()}'"></td>
+		</tr>
+	</table>
+	<script type="text/javascript" src="/public/javascripts/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/public/javascripts/ckeditor/adapters/jquery.js"></script>
+	<script type="text/javascript" src="/public/javascripts/jquery.ui.js"></script>  
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#presentationContent").ckeditor();
+		});
+	
+		</script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#technologiesContent").ckeditor();
+		});
+	
+		</script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#descriptionContent").ckeditor();
+		});
+	
+		</script>
 	
 #{/form}

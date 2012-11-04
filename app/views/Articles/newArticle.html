@@ -1,7 +1,6 @@
 #{extends 'template/template.html' /}
 
 #{include 'helpers/form_validation.html' /}
-<link rel="stylesheet" href="/public/Aristo.css">
 #{form @Articles.create(), method:'POST', enctype:'multipart/form-data'}
  <p style="color: #c00">${flash.success}</p>
 <div id="article">
@@ -14,7 +13,7 @@
  #{field 'article.title'}
   <p>
     <label>&{field.name}</label>
-    <input type="text" name="${field.name}" value="${field.value}" id="publicationTitle" class="fullLength bigChars" maxlength="200">
+    <input type="text" name="${field.name}" value="${field.value}" id="publicationTitle" class="fullLength bigChars">
     <span class="error">${field.error}</span>
   </p>
  #{/field}

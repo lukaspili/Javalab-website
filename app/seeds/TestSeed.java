@@ -14,7 +14,7 @@ import models.users.User;
 import org.joda.time.LocalDate;
 
 /**
- * @author Lukasz Piliszczuk <lukasz.piliszczuk AT zenika.com>
+ * @author Kevin Valfin
  */
 public class TestSeed {
 
@@ -63,10 +63,19 @@ public class TestSeed {
         user3.firstName = "Kevin";
         user3.lastName = "Valfin";
         user3.campus = paris;
-        user3.promotion = Promotion.B3;
-        user3.profile = Profile.CLM;
+        user3.promotion = Promotion.M1;
+        user3.profile = Profile.GLM;
         user3.save();
-
+        
+        User user6 = new User();
+        user6.idBooster = "78302";
+        user6.firstName = "Mathieu";
+        user6.lastName = "Gilet";
+        user6.campus = paris;
+        user6.promotion = Promotion.M2;
+        user6.profile = Profile.CLM;
+        user6.save();
+        
         User user4 = new User();
         user4.idBooster = "123";
         user4.firstName = "Candidate 1";
