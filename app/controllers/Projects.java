@@ -72,7 +72,7 @@ public class Projects extends AppController {
         project.campus = Auth.getCurrentUser().campus;
         Project createdProject = projectService.createProject(project);
         flash.success("Le projet " + createdProject.name + " a bien été crée.");
-        Projects.index();
+        Projects.projetCampus();
     }
 
     @LoggedAccess(Profile.MEMBER)
