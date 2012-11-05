@@ -7,7 +7,7 @@
 		<h1>${article.title}</h1>
 	</section>
 
-	<article class="article">
+	<section class="article">
 	
 					<section class="article-presentation">
 						#{if article.author.picture}
@@ -21,6 +21,13 @@
 					<section class="article-text">
 						<p>${article.content.raw()}</p>
 					</section>
+                    <section class="comments-text">
+                        #{list items:article.comments, as:'comment'}
+                            <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.date}</p>
+                            <p>${comment.content}</p>
+                        #{/list}
+                    </section>
+
 					<!-- AddThis Button BEGIN -->
 					<div class="addthis_toolbox addthis_default_style ">
 					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -31,8 +38,37 @@
 					<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ffdf5fc47956785"></script>
 					<!-- AddThis Button END -->
-		
-	</article>
+
+        <p style="color: #c00">${flash.error}</p>
+
+        #{form @Comments.create(), method:'POST'}
+            #{field 'comment.username'}
+                 <p>
+                   <label>&{field.name}</label>
+                   <input type="text" name="${field.name}" value="${field.value}" id="username" />
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
+            #{field 'comment.content'}
+                 <p>
+                   <label>&{field.name}</label><br />
+                   <textarea name="${field.name}" value="${field.value}" id="publicationContent"></textarea>
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
+            <label for="code">Veuillez renseigner le captcha :</label>
+            <img src="@{Comments.captcha(randomID)}" />
+            <input type="text" name="code" id="code" size="18" value="" />
+            <input type="hidden" name="randomID" value="${randomID}" />
+            <br />
+
+            <input type="hidden" name="articleId" value="${article.id}" />
+            <input type="submit" value="Ajouter un commentaire" />
+        #{/form}
+    </section>
+
 	<section class="explore">
 		<ul>	
 			<li>#{a @Articles.newArticle()}Nouvelle Article#{/a}</li>

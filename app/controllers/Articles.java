@@ -8,6 +8,7 @@ import models.events.Article;
 import models.events.Project;
 import models.users.Profile;
 import models.users.User;
+import play.libs.Codec;
 import service.ArticleService;
 import validation.EnhancedValidator;
 
@@ -58,11 +59,11 @@ public class Articles extends AppController {
 	
 	@PublicAccess
     public static void details(long articleId) {
-
         Article article = Article.findById(articleId);
         notFoundIfNull(article);
 
-        render(article);
+        String randomID = Codec.UUID();
+        render(article, randomID);
     }
 	
 }

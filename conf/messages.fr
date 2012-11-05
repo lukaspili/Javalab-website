@@ -17,6 +17,9 @@ article.content=Édition de l'article
 article.authors=Auteur
 article.creationDate=Date
 
+comment.username=Pseudo
+comment.content=Commentaire
+
 project.name=Nom Du Projet
 project.technologies=Technologies
 project.desription=Descrition

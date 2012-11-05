@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -22,7 +23,7 @@ public class Article  extends Model {
 	
 	   public String title;
 	   
-	   @Lob
+	    @Lob
 	    public String content;
 
 	    @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")
@@ -30,6 +31,9 @@ public class Article  extends Model {
 
 	    @ManyToOne
 	    public User author;
+
+        @OneToMany
+        public List<Comment> comments;
 	    
 	    public Article() {
 	        creationDate = new LocalDate();
