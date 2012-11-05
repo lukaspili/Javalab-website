@@ -184,9 +184,9 @@ public class TestSeed {
 
         Talk talk1 = new Talk();
         talk1.title = "Google map with Android";
-        talk1.description = "Introduction to google map foobar";
+        talk1.speaker = user6;
         talk1.date = new LocalDate(2011, 12, 23); // december 23, 2011
-        talk1.speakers = user3;
+        talk1.iframe = "<iframe width=\"560\" height=\"315\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
         talk1.save();
         
         Article article211111 = new Article();

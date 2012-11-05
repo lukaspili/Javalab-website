@@ -1,0 +1,18 @@
+#{extends 'template/template.html' /}
+
+<div id="talks">
+    <section class="talk-header">
+        <h1>Talks</h1>
+        #{if auth.isClm()}
+            #{a @Talks.create()}Ajouter un Mini-Talk#{/a}
+        #{/if}
+    </section>
+    <section class="talks">
+        #{list items:talks, as:'talk'}
+            <h2>${talk.title}</h2>
+            <p>Présentation réalisée par ${talk.speaker.fullName} le ${talk.date}</p>
+            ${talk.iframe.raw()}
+        #{/list}
+    </section>
+
+</div>

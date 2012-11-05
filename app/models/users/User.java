@@ -46,7 +46,7 @@ public class User extends Model {
     @ManyToOne
     public Campus campus;
 
-    @ManyToMany(mappedBy = "speakers")
+    @OneToMany(mappedBy = "speaker")
     public Set<Talk> talks;
 
     @ManyToMany(mappedBy = "members")

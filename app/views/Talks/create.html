@@ -1,0 +1,48 @@
+#{extends 'template/template.html' /}
+
+<div id="create-talk">
+    <section class="talk-header">
+        <h1>Créer un Mini-Talk</h1>
+    </section>
+    <section class="talk-form">
+
+        <p style="color: #c00">${flash.error}</p>
+
+        #{form @Talks.add(), method:'POST'}
+            #{field 'talk.title'}
+                 <p>
+                   <label>&{field.name}</label>
+                   <input type="text" name="${field.name}" value="${field.value}" id="title" />
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
+            #{field 'talk.date'}
+                 <p>
+                   <label>&{field.name}</label>
+                   <input type="text" name="${field.name}" value="${field.value}" id="date" />
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
+            #{field 'talk.speaker'}
+                 <p>
+                   <label>&{field.name}</label>
+                   #{select 'speakerId', items :users, valueProperty:'id', labelProperty:'fullName'}#{/select}
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
+            #{field 'talk.iframe'}
+                 <p>
+                   <label>&{field.name}</label>
+                   <input type="text" name="${field.name}" value="${field.value}" id="iframe" />
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
+            <input type="submit" value="Ajouter un Mini-Talk" />
+        #{/form}
+    </section>
+
+</div>
