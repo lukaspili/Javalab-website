@@ -31,7 +31,7 @@
     #{field 'article.creationDate'}
     <p>
  	<label>&{field.name}</label>
-    <input type="text" name="${field.name}" value="${field.value}" class="${field.errorClass}" id="publicationDate" />
+    <input type="text" name="${field.name}" value="${field.value}" class="${field.errorClass}" id="datepicker" />
     <span class="error">${field.error}</span>
  	</p>
  #{/field}
@@ -59,4 +59,10 @@
 		});
 	
 		</script>
+
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+    });
+</script>
 #{/form}

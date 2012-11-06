@@ -1,5 +1,6 @@
 #{extends 'template/template.html' /}
 
+
 <div id="create-talk">
     <section class="talk-header">
         <h1>Créer un Mini-Talk</h1>
@@ -20,7 +21,7 @@
             #{field 'talk.date'}
                  <p>
                    <label>&{field.name}</label>
-                   <input type="text" name="${field.name}" value="${field.value}" id="date" />
+                   <input type="text" name="${field.name}" value="${field.value}" id="datepicker" />
                    <span class="error">${field.error}</span>
                  </p>
             #{/field}
@@ -46,3 +47,9 @@
     </section>
 
 </div>
+
+<script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+    });
+</script>
