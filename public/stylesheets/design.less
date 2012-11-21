@@ -1228,13 +1228,77 @@ text-align: center;
 #article .article-presentation{
 	height:50px;
 }
-#publicationTitle{
-	olor: #333;
-	font-family: "Signika";
-	font-size: 16px;
-	font-weight: 100;
-	padding: 0;
-	margin: 0;
+.article .title{
+display: block;
+margin-top: 5px;
+font-size: 1.2em;
+color: #FFF;
+background-color: #000;
+width: 470px;
+font-family: "Signika";
+}
+.article #CommentUsername{
+float: left;
+position: relative;
+outline: none;
+width: 100%;
+padding-left: 10px;
+border: 1px #E5E5E5 solid;
+border-bottom-width: 2px;
+background-color: white;
+height: 25px;
+}
+.article #CommentContent{
+float: left;
+position: relative;
+outline: none;
+width: 100%;
+padding-left: 10px;
+border: 1px #E5E5E5 solid;
+border-bottom-width: 2px;
+background-color: white;
+height: 25px;
+}
+.article input.submit {
+position: relative;
+display: inline-block;
+height: 25px;
+line-height: 25px;
+padding: 0 15px;
+color: white;
+border: none;
+background-color: #33B8AE;
+border-style: none;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-bottom: 3px solid rgba(0, 0, 0, 0.2) !important;
+text-shadow: 0px 0px 1px #333;
+text-decoration: none;
+font-size: 14px;
+background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
+}
+.article input.submit:hover {
+position: relative;
+margin-top: 1px;
+height: 24px;
+line-height: 24px;
+color: white;
+background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0.2)));
+background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
+background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
+background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
+background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
 }
 .bigChars {
 	font-size: 2em;
@@ -1290,21 +1354,46 @@ text-align: center;
 	color: rgba(0,0,0,0.4);
 }
 .new-article input.submit{
-	font-family: "Signika";
-	font-size:13px;
-	font-weight:500;
-	text-align: center;
-	width:100px;
-
-	background: rgba(0,0,0,0.1);
-	color: #C2C2C2;
+font-family: "Signika";
+position: relative;
+display: inline-block;
+height: 25px;
+line-height: 25px;
+padding: 0 15px;
+color: white;
+border: none;
+background-color: #33B8AE;
+border-style: none;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-bottom: 3px solid rgba(0, 0, 0, 0.2) !important;
+text-shadow: 0px 0px 1px #333;
+text-decoration: none;
+font-size: 14px;
+background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.1),rgba(0, 0, 0, 0.1));
+-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+-ms-border-radius: 3px;
+-o-border-radius: 3px;
+border-radius: 3px;
 }
 .new-article input.submit:hover{
-	background: whitesmoke;
-	color: rgba(0,0,0,0.8);
-
-	cursor: pointer;
-	
+position: relative;
+margin-top: 1px;
+height: 24px;
+line-height: 24px;
+color: white;
+background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0.2)));
+background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
+background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
+background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));
+background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.2),rgba(255, 255, 255, 0.2));	
 }
 ////////////////
 // Projet
@@ -1743,31 +1832,24 @@ width: 470px;
 }
 .talk .auteur-text{
 	font-size:11px;
-
 	line-height:18px;
 	color: #969696;
-
 	padding-top:10px;
 }
 .talk .auteur-text a{
 	color: #333;
-
 	font-family: "Signika";
 	font-weight:bold;
 }
 .talk .auteur-text a:hover{
 	color: #c51c00;
-
 	cursor: pointer;
 }
 .talk .talk-text p{
 	font-family: "verdana", sans-serif;
 	font-size: 13px;
-
 	color: #3E3E3E;
-
 	line-height: 18px;
-
 	text-align: justify;
 }
 #talks .explore{
