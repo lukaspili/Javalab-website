@@ -12,8 +12,8 @@
             <span class="iframe">
             ${talk.iframe.raw()}
             </span>
-            <h2>${talk.title}</h2>
-            <p></p>
+            <h2>#{a @Talks.details(talk.id)}${talk.title}#{/a}</h2>
+            <p>${talk.content}</p>
             <span class="meta">
                 <span class="time">${talk.speaker.fullName}</span>
                 <span class="comment">Commentaires</span>

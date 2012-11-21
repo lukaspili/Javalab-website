@@ -48,6 +48,7 @@ public class Articles extends AppController {
 		validator.validate(article).require("content", "title");
 		article.author = user;
 		if(validator.hasErrors()) {
+			flash.error("Une erreur est survenue lors de la tentative d'ajout de votre Article.");
 			render("Articles/newArticle.html", article);
 		}
 		

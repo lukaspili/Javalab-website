@@ -32,8 +32,8 @@
 					<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ffdf5fc47956785"></script>
 					<!-- AddThis Button END -->
-
-					<section class="comments-text">
+					
+                    <section class="comments-text">
                         #{list items:article.comments, as:'comment'}
                             <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.date}</p>
                             <p>${comment.content}</p>
@@ -69,12 +69,4 @@
             <input type="submit" value="Ajouter un commentaire" />
         #{/form}
     </section>
-
-	<section class="explore">
-		<ul>	
-			<li>#{a @Articles.newArticle()}Nouvelle Article#{/a}</li>
-			<li>Web</li>
-			<li>Android</li>
-		</ul>
-	</section>
 </div>

@@ -45,13 +45,21 @@ public class Talks extends AppController {
         talk.speaker = User.findById(Long.valueOf(params.get("speakerId")));
 
         EnhancedValidator validator = validator();
-        validator.validate(talk).require("title", "speaker", "iframe");
+        validator.validate(talk).require("title", "speaker","content", "iframe");
         if(validator.hasErrors()) {
             flash.error("Une erreur est survenue lors de la tentative d'ajout de votre Mini-Talk.");
             render("Talks/create.html", talk, users);
         }
         talk.save();
         index();
+    }
+
+    @PublicAccess
+    public static void details(long talkId) {
+        Talk talk = Talk.findById(talkId);
+        notFoundIfNull(talk);
+
+        render(talk);
     }
 
 
