@@ -1,18 +1,33 @@
 #{extends 'template/template.html' /}
+<p>${flash.error}</p>
+<p>${flash.success}</p>
 
 <div id="talks">
     <section class="talk-header">
         <h1>Talks</h1>
-        #{if auth.isClm()}
-            #{a @Talks.create()}Ajouter un Mini-Talk#{/a}
-        #{/if}
     </section>
-    <section class="talks">
+    
         #{list items:talks, as:'talk'}
-            <h2>${talk.title}</h2>
-            <p>Présentation réalisée par ${talk.speaker.fullName} le ${talk.date}</p>
+    <section class="talks">
+            <span class="iframe">
             ${talk.iframe.raw()}
-        #{/list}
+            </span>
+            <h2>${talk.title}</h2>
+            <p></p>
+            <span class="meta">
+                <span class="time">${talk.speaker.fullName}</span>
+                <span class="comment">Commentaires</span>
+            </span>
     </section>
-
+        #{/list}
+    <section class="explore">
+        <ul>    
+        #{if auth.isClm()}
+            <li>#{a @Talks.create()}Add Mini-Talk#{/a} </li>
+        #{/if}
+        #{if auth.isGlm()}
+            <li>#{a @Talks.create()}Add Mini-Talk#{/a} </li>
+        #{/if}
+        </ul>
+    </section>
 </div>

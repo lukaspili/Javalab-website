@@ -1,3 +1,4 @@
+
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
@@ -24,6 +25,10 @@ GET		/projets/inscription					Projects.susbscribe
 GET		/projets/campus							Projects.projetCampus
 GET		/projets/fini							Projects.projetFini
 GET		/projets/fini/dondusang					Projects.donDuSang
+
+# Talk page
+GET		/talks/index							Talks.index
+GET		/talks/create							Talks.create
 
 # Sponsor page
 GET		/partenaire								Sponsors.index

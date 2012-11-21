@@ -190,15 +190,15 @@ public class TestSeed {
         talk1.save();
         
         Article article211111 = new Article();
-        article211111.title = "Foorgeazgrzrr";
-        article211111.content = "Baagaergaergaergaeg eraggggggg rgaeeeeeeeeeee geraaaaaaaaar";
+        article211111.title = "Windows 8";
+        article211111.content = "Windows 8 est sorti depuis une semaine environ et son accueil est plutôt mitigé. Avec cette nouvelle version Microsoft espère améliorer la synergie entre ses différents périphériques : Console de jeux, PC, Mobile et tablette. Pour cela les différentes versions du système partagent une interface commune : Modern UI (anciennement Metro).C'est justement cette nouvelle interface qui suscite pas mal de crainte de la part des utilisateurs PC. En effet, même si Modern UI est très réussie pour une utilisation tactile qu'en est-il pour une utilisation Clavier/Souris ? ";
         article211111.creationDate = new LocalDate(2011, 12, 23); // december 23, 2011
         article211111.author = user3;
         article211111.save();
         
         Article article2111111 = new Article();
-        article2111111.title = "Foorgeazgrzrr";
-        article2111111.content = "Baagaergaergaergaeg eraggggggg rgaeeeeeeeeeee geraaaaaaaaar";
+        article2111111.title = "Desktopography 2012";
+        article2111111.content = "Comme chaque année Desktopography propose une sélection de fonds d'écran autour du thème de la nature. Les designers et les développeurs passent près de 90% de leur temps devant un ordinateur donc les fonds d'écrans les plus attrayants sont ceux qui mélangent de magnifique design tout en donnant l'impression d'être à l'extérieur. Cette année le site fait peau neuve et propose des créations toujours aussi travaillées et originales. Avec près de 60 images vous aurez de quoi amener un brin de nature à votre bureau.";
         article2111111.creationDate = new LocalDate(2012, 07, 10); // december 23, 2011
         article2111111.author = user3;
         article2111111.save();
