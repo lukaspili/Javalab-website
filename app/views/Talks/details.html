@@ -4,22 +4,30 @@
 
 <div id="blog">
 	<section class="blog-header">
-		<h1>${article.title}</h1>
+		<h1>${talk.title}</h1>
 	</section>
 
-	<section class="article">
+	<section class="talk">
 	
-					<section class="article-presentation">
-						#{if article.author.picture}
-				<img class="auteur-image" src="@{Users.getPicture(article.author.id)}" width="40"/>
-			#{/if}
-			#{else}
-				<img class="auteur-image" src="http://placekitten.com/g/200/300"/>
-			#{/else}
-						<p class="auteur-text"> Par <a>${article.author.firstName}</a><br />${article.creationDate}</p>
-					</section>
-					<section class="article-text">
-						<p>${article.content.raw()}</p>
+				<section class="talk-presentation">
+					#{if talk.speaker.picture}
+						<img class="auteur-image" src="@{Users.getPicture(talk.author.id)}" width="40"/>
+					#{/if}
+					#{else}
+						<img class="auteur-image" src="http://placekitten.com/g/200/300"/>
+					#{/else}
+						<p class="auteur-text"> Par <a>${talk.speaker.fullName}</a></p>
+					</section><br /><br />
+ 					 <center>
+ 					 	<span class="iframeDetails">
+						${talk.iframe.raw()}
+						</span>
+ 					 </center>
+					<div class="title">
+						<h2>A propos</h2>
+					</div>
+					<section class="talk-text">
+						<p>${talk.content.raw()}</p>
 					</section>
 
 					<!-- AddThis Button BEGIN -->
@@ -32,41 +40,5 @@
 					<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
 					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ffdf5fc47956785"></script>
 					<!-- AddThis Button END -->
-					
-                    <section class="comments-text">
-                        #{list items:article.comments, as:'comment'}
-                            <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.date}</p>
-                            <p>${comment.content}</p>
-                        #{/list}
-                    </section>
-
-        <p style="color: #c00">${flash.error}</p>
-
-        #{form @Comments.create(), method:'POST'}
-            #{field 'comment.username'}
-                 <p>
-                   <label>&{field.name}</label>
-                   <input type="text" name="${field.name}" value="${field.value}" id="username" />
-                   <span class="error">${field.error}</span>
-                 </p>
-            #{/field}
-
-            #{field 'comment.content'}
-                 <p>
-                   <label>&{field.name}</label><br />
-                   <textarea name="${field.name}" value="${field.value}" id="publicationContent"></textarea>
-                   <span class="error">${field.error}</span>
-                 </p>
-            #{/field}
-
-            <label for="code">Veuillez renseigner le captcha :</label>
-            <img src="@{Comments.captcha(randomID)}" />
-            <input type="text" name="code" id="code" size="18" value="" />
-            <input type="hidden" name="randomID" value="${randomID}" />
-            <br />
-
-            <input type="hidden" name="articleId" value="${article.id}" />
-            <input type="submit" value="Ajouter un commentaire" />
-        #{/form}
     </section>
 </div>
