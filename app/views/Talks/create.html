@@ -18,6 +18,14 @@
                  </p>
             #{/field}
 
+            #{field 'talk.content'}
+                 <p>
+                   <label>&{field.name}</label>
+                   <textarea type="text" name="${field.name}" value="${field.value}" id="content"/></textarea>
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+
             #{field 'talk.date'}
                  <p>
                    <label>&{field.name}</label>

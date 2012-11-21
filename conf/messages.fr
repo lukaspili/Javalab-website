@@ -24,6 +24,7 @@ talk.title=Titre
 talk.speaker=Présentateur
 talk.date=Date
 talk.iframe=Code iFrame de la vidéo
+talk.content=Résumé
 
 project.name=Nom Du Projet
 project.desription=Descrition

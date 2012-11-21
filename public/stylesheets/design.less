@@ -1570,6 +1570,24 @@ margin: 0 auto;
 display: block;
 }
 
+#talks{
+	background: white;
+
+	.rounded(3px);
+
+	float: left;
+	width: 940px;
+	box-shadow:
+	0px 1px 1px -1px rgba(0,0,0,0.40),
+		0px 10px 0px -5px #F7F7F7,
+			0px 11px 1px -5px rgba(0,0,0,0.40),
+				0px 22px 0px -12px #F7F7F7,
+					0px 23px 1px -12px rgba(0,0,0,0.40);
+}
+.talk-header{
+	background: url('/public/images/background/footer-section.png') bottom center no-repeat;
+	padding:20px;
+}
 .talks {
 font-size: 14px;
 color: #909090;
@@ -1579,8 +1597,26 @@ position: relative;
 width: 238px;
 height: 330px;
 margin: 0px 10px 20px 10px;
+margin-top: 20px;
 overflow: hidden;
-background: white;
+background-color: white;
+border: solid 1px #CECECE;
+border-bottom-width: 2px;
+-moz-border-radius-bottomleft: 2px;
+-webkit-border-bottom-left-radius: 2px;
+border-bottom-left-radius: 2px;
+-moz-border-radius-bottomright: 2px;
+-webkit-border-bottom-right-radius: 2px;
+border-bottom-right-radius: 2px;
+opacity: 1;
+-webkit-transition-duration: 0.3s;
+-moz-transition-duration: 0.3s;
+-ms-transition-duration: 0.3s;
+-o-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-box-shadow: 0px 0px 0px #CECECE;
+-moz-box-shadow: 0px 0px 0px #cecece;
+box-shadow: 0px 0px 0px #CECECE;
 }
 .talks .meta{
 display: block;
@@ -1614,6 +1650,9 @@ color: #909090;
 .talks iframe{
 width: 236px;
 height: 144px;
+margin-left: 1px;
+margin-top: 1px;
+
 }
 .talks h2{
 display: block;
