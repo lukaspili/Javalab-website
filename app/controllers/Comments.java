@@ -11,6 +11,7 @@ import play.cache.*;
 import play.libs.*;
 import play.mvc.Controller;
 import validation.EnhancedValidator;
+import javax.persistence.Lob;
 
 /**
  * Created with IntelliJ IDEA.
