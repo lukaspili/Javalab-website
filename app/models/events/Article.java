@@ -21,22 +21,30 @@ import java.util.Set;
 @Entity
 public class Article  extends Model {
 	
-	   public String title;
-	   
-	    @Lob
-	    public String content;
+    public String title;
 
-	    @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")
-	    public LocalDate creationDate;
+    @Lob
+    public String content;
 
-	    @ManyToOne
-	    public User author;
+    @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")
+    public LocalDate creationDate;
 
-        @OneToMany
-        public List<Comment> comments;
-	    
-	    public Article() {
-	        creationDate = new LocalDate();
-	    }
+    @ManyToOne
+    public User author;
+
+    @OneToMany
+    public List<Comment> comments;
+
+    public Article() {
+        creationDate = new LocalDate();
+    }
+
+    public String getLimitedContent() {
+        int limit = 550;
+        if(content.length() > limit) {
+            return content.substring(0, limit)+"...";
+        }
+        return  content;
+    }
 	
 }

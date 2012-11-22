@@ -10,7 +10,7 @@
 
 	<article class="article">
 		#{form @Articles.newArticle(), method:'GET'}
-			#{list items:listArticle, as:'article'}
+			#{paginate.list items:listArticle, as:'article'}
 				
 					<section class="article-titre">
 						<h2>#{a @Articles.details(article.id)}${article.title}#{/a}</h2>
@@ -25,16 +25,16 @@
 						<p class="auteur-text"> Par <a>${article.author.firstName}</a><br />${article.creationDate}</p>
 					</section>
 					<section class="article-text">
-                        <p>${article.content.raw()}</p>
+                        <p>${article.getLimitedContent().raw()}</p>
 					</section>
-				
-			#{/list}
-		#{/form}
+			#{/paginate.list}
+            #{paginate.controls items:listArticle /}
+        #{/form}
 		
 	</article>
 	<section class="explore">
 		<ul>	
-			<li>#{a @Articles.newArticle()}Nouvelle Article#{/a}</li>
+			<li>#{a @Articles.newArticle()}Nouvel Article#{/a}</li>
 		</ul>
 	</section>
 </div>

@@ -9,6 +9,7 @@ import models.events.Project;
 import models.users.Profile;
 import models.users.User;
 import play.libs.Codec;
+import play.modules.paginate.ModelPaginator;
 import service.ArticleService;
 import validation.EnhancedValidator;
 
@@ -27,11 +28,9 @@ public class Articles extends AppController {
 	
 	@PublicAccess
 	public static void index()  {
-		
-		List<Article> listArticle = new ArrayList<Article>();
-		
-		listArticle = Article.findAll();
-
+        ModelPaginator listArticle = new ModelPaginator(Article.class);
+        listArticle.setPageSize(5); // Nombre d'éléments par page
+        listArticle.setBoundaryControlsEnabled(false); //  get/setBoundaryControlsEnabled: determines whether the First and Last buttons are displayed
 		render(listArticle);
 	}
 	
