@@ -1,4 +1,3 @@
-
 #{extends 'template/template.html' /}
 <p>${flash.error}</p>
 <p>${flash.success}</p>
@@ -28,7 +27,8 @@
                         <p>${article.getLimitedContent().raw()}</p>
 					</section>
 			#{/paginate.list}
-            #{paginate.controls items:listArticle /}
+           <div class="pagination-centered"> #{paginate.controls items:listArticle /}</div>
+            
         #{/form}
 		
 	</article>
