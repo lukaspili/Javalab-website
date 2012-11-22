@@ -28,7 +28,7 @@ public class Articles extends AppController {
 	
 	@PublicAccess
 	public static void index()  {
-        ModelPaginator listArticle = new ModelPaginator(Article.class);
+        ModelPaginator listArticle = new ModelPaginator(Article.class).orderBy("creationDate DESC");
         listArticle.setPageSize(5); // Nombre d'éléments par page
         listArticle.setBoundaryControlsEnabled(false); //  get/setBoundaryControlsEnabled: determines whether the First and Last buttons are displayed
 		render(listArticle);
