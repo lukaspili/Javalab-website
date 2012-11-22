@@ -7,6 +7,7 @@ import controllers.security.PublicAccess;
 import models.events.Talk;
 import models.users.Profile;
 import models.users.User;
+import play.modules.paginate.ModelPaginator;
 import service.UserService;
 import validation.EnhancedValidator;
 
@@ -27,7 +28,9 @@ public class Talks extends AppController {
 
     @PublicAccess
     public static void index() {
-        List<Talk> talks = Talk.findAll();
+        ModelPaginator talks = new ModelPaginator(Talk.class).orderBy("date DESC");
+        talks.setBoundaryControlsEnabled(false); //  get/setBoundaryControlsEnabled: determines whether the First and Last buttons are displayed
+        talks.setPageSize(9); // Nombre d'éléments par page
         render(talks);
     }
 
@@ -61,6 +64,4 @@ public class Talks extends AppController {
 
         render(talk);
     }
-
-
 }

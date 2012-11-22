@@ -33,7 +33,7 @@
 					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ffdf5fc47956785"></script>
 					<!-- AddThis Button END -->
 					<div class="title">
-						<span><strong>50</strong> Commentaires</span>
+						<span><strong>${article.comments.size()}</strong> Commentaires</span>
 					</div>
 					<section class="comments-text">
                         #{list items:article.comments, as:'comment'}
@@ -44,14 +44,16 @@
 
         <p style="color: #c00">${flash.error}</p>
 
-        #{form @Comments.create(), method:'POST'}
-            #{field 'comment.username'}
-                 <p>
-                   <label>&{field.name}</label>
-                   <input name="${field.name}" value="${field.value}" maxlength="60" type="text" id="CommentUsername"/>
-                   <span class="error">${field.error}</span>
-                 </p>
-            #{/field}
+        #{form @Comments.createForArticle(), method:'POST'}
+            #{if !auth.isLogged()}
+                #{field 'comment.username'}
+                     <p>
+                       <label>&{field.name}</label>
+                       <input name="${field.name}" value="${field.value}" maxlength="60" type="text" id="CommentUsername"/>
+                       <span class="error">${field.error}</span>
+                     </p>
+                #{/field}
+            #{/}
 
             #{field 'comment.content'}
                  <p>

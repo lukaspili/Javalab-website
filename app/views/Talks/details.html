@@ -41,4 +41,46 @@
 					<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ffdf5fc47956785"></script>
 					<!-- AddThis Button END -->
     </section>
+
+    <div class="title">
+        <span><strong>${talk.comments.size()}</strong> Commentaires</span>
+    </div>
+    <section class="comments-text">
+    #{list items:talk.comments, as:'comment'}
+        <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.date}</p>
+        <p>${comment.content}</p>
+    #{/list}
+    </section>
+
+    <p style="color: #c00">${flash.error}</p>
+
+    #{form @Comments.createForTalk(), method:'POST'}
+
+        #{if !auth.isLogged()}
+            #{field 'comment.username'}
+                 <p>
+                   <label>&{field.name}</label>
+                   <input name="${field.name}" value="${field.value}" maxlength="60" type="text" id="CommentUsername"/>
+                   <span class="error">${field.error}</span>
+                 </p>
+            #{/field}
+        #{/}
+
+        #{field 'comment.content'}
+             <p>
+               <label>&{field.name}</label>
+               <textarea name="${field.name}" value="${field.value}" maxlength="60" cols="30" rows="6" id="CommentContent" style="height: auto; overflow: hidden;"></textarea>
+               <span class="error">${field.error}</span>
+             </p>
+        #{/field}
+
+        <p><label for="code">Veuillez renseigner le captcha :</label></p>
+        <img src="@{Comments.captcha(randomID)}" />
+        <input type="text" name="code" id="code" size="18" value="" />
+        <input type="hidden" name="randomID" value="${randomID}" />
+        <br />
+
+        <input type="hidden" name="talkId" value="${talk.id}" />
+        <input class="submit" type="submit" value="Envoyer" />
+    #{/form}
 </div>
