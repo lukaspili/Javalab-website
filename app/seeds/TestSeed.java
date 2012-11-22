@@ -190,6 +190,46 @@ public class TestSeed {
         talk1.iframe = "<iframe width=\"920\" height=\"500\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
         talk1.save();
         
+        Talk talk2 = new Talk();
+        talk2.title = "Google map with Android";
+        talk2.speaker = user6;
+        talk2.date = new LocalDate(2011, 12, 23); // december 23, 2011
+        talk2.content = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.";
+        talk2.iframe = "<iframe width=\"920\" height=\"500\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
+        talk2.save();
+
+        Talk talk3 = new Talk();
+        talk3.title = "Google map with Android";
+        talk3.speaker = user6;
+        talk3.date = new LocalDate(2011, 12, 23); // december 23, 2011
+        talk3.content = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.";
+        talk3.iframe = "<iframe width=\"920\" height=\"500\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
+        talk3.save();
+
+        Talk talk4 = new Talk();
+        talk4.title = "Google map with Android";
+        talk4.speaker = user6;
+        talk4.date = new LocalDate(2011, 12, 23); // december 23, 2011
+        talk4.content = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.";
+        talk4.iframe = "<iframe width=\"920\" height=\"500\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
+        talk4.save();
+
+        Talk talk5 = new Talk();
+        talk5.title = "Google map with Android";
+        talk5.speaker = user6;
+        talk5.date = new LocalDate(2011, 12, 23); // december 23, 2011
+        talk5.content = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.";
+        talk5.iframe = "<iframe width=\"920\" height=\"500\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
+        talk5.save();
+
+        Talk talk6 = new Talk();
+        talk6.title = "Google map with Android";
+        talk6.speaker = user6;
+        talk6.date = new LocalDate(2011, 12, 23); // december 23, 2011
+        talk6.content = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.";
+        talk6.iframe = "<iframe width=\"920\" height=\"500\" src=\"http://www.youtube.com/embed/eTWfNdsrC9Q\" frameborder=\"0\" allowfullscreen></iframe>";
+        talk6.save();
+        
         Article article1 = new Article();
         article1.title = "Windows 8";
         article1.content = "Windows 8 est sorti depuis une semaine environ et son accueil est plutôt mitigé. Avec cette nouvelle version Microsoft espère améliorer la synergie entre ses différents périphériques : Console de jeux, PC, Mobile et tablette. Pour cela les différentes versions du système partagent une interface commune : Modern UI (anciennement Metro).C'est justement cette nouvelle interface qui suscite pas mal de crainte de la part des utilisateurs PC. En effet, même si Modern UI est très réussie pour une utilisation tactile qu'en est-il pour une utilisation Clavier/Souris ? ";

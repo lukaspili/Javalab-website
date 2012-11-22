@@ -29,8 +29,8 @@ public class Talks extends AppController {
     @PublicAccess
     public static void index() {
         ModelPaginator talks = new ModelPaginator(Talk.class).orderBy("date DESC");
-        talks.setBoundaryControlsEnabled(false); //  get/setBoundaryControlsEnabled: determines whether the First and Last buttons are displayed
         talks.setPageSize(9); // Nombre d'éléments par page
+        talks.setBoundaryControlsEnabled(false); //  get/setBoundaryControlsEnabled: determines whether the First and Last buttons are displayed
         render(talks);
     }
 
@@ -61,7 +61,6 @@ public class Talks extends AppController {
     public static void details(long talkId) {
         Talk talk = Talk.findById(talkId);
         notFoundIfNull(talk);
-
         render(talk);
     }
 }
