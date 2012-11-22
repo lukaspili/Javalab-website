@@ -3,9 +3,8 @@ package models.events;
 import org.hibernate.annotations.Type;
 import org.joda.time.LocalDate;
 import play.db.jpa.Model;
-
 import javax.persistence.Entity;
-
+import javax.persistence.Lob;
 /**
  * Created with IntelliJ IDEA.
  * User: AkeT
@@ -18,6 +17,7 @@ public class Comment extends Model {
 
     public String username;
 
+    @Lob
     public String content;
 
     @Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")
