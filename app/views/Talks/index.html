@@ -6,9 +6,8 @@
     <section class="talk-header">
         <h1>Talks</h1>
     </section>
-
+    #{paginate.list items:talks, as:'talk'}
     <section class="talks">
-        #{paginate.list items:talks, as:'talk'}
             <span class="iframe">
                 ${talk.iframe.raw()}
             </span>
@@ -18,9 +17,8 @@
                 <span class="time">${talk.speaker.fullName}</span>
                 <span class="comment">${talk.comments.size()} Commentaires</span>
             </span>
-        #{/paginate.list}
     </section>
-
+    #{/paginate.list}
     <section class="explore">
         <ul>
         #{if auth.isClm() || auth.isGlm()}
@@ -28,6 +26,5 @@
         #{/if}
         </ul>
     </section>
-
-      <div class="pagination-centered">#{paginate.controls items:talks /}</div>
+    <div class="pagination-centered">#{paginate.controls items:talks /}</div>
 </div>
