@@ -26,13 +26,10 @@
                  </p>
             #{/field}
 
-            #{field 'talk.date'}
                  <p>
-                   <label>&{field.name}</label>
-                   <input type="text" name="${field.name}" value="${field.value}" id="datepicker" />
-                   <span class="error">${field.error}</span>
+                   <label>Date</label>
+                   <input type="text" name="date" id="datepicker" />
                  </p>
-            #{/field}
 
             #{field 'talk.speaker'}
                  <p>
@@ -58,6 +55,6 @@
 
 <script>
     $(function() {
-        $( "#datepicker" ).datepicker();
+        $( "#datepicker" ).datepicker({dateFormat: 'dd/mm/yy'});
     });
 </script>

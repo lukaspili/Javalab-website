@@ -8,6 +8,8 @@ import models.events.Article;
 import models.events.Project;
 import models.users.Profile;
 import models.users.User;
+import org.joda.time.LocalDate;
+import play.Logger;
 import play.libs.Codec;
 import play.modules.paginate.ModelPaginator;
 import service.ArticleService;
@@ -40,11 +42,14 @@ public class Articles extends AppController {
 	}
 	
 	@LoggedAccess(Profile.MEMBER)
-	public static void create(Article article) {
-		
+	public static void create(Article article, String date) {
 		User user = Auth.getCurrentUser();
 		EnhancedValidator validator = validator();
-		validator.validate(article).require("content", "title");
+        if(date != null && !date.isEmpty()) {
+            String[] tab = date.split("/");
+            article.creationDate = new LocalDate(Integer.valueOf(tab[2]), Integer.valueOf(tab[1]), Integer.valueOf(tab[0]));
+        }
+		validator.validate(article).require("content", "title", "creationDate");
 		article.author = user;
 		if(validator.hasErrors()) {
 			flash.error("Une erreur est survenue lors de la tentative d'ajout de votre Article.");

@@ -25,16 +25,12 @@
     <span class="error">${field.error}</span>
   </p>
  #{/field}
- 
-    
- 
-    #{field 'article.creationDate'}
+
     <p>
- 	<label>&{field.name}</label>
-    <input type="text" name="${field.name}" value="${field.value}" class="${field.errorClass}" id="datepicker" />
-    <span class="error">${field.error}</span>
+ 	<label>Date</label>
+    <input type="text" name="date" id="datepicker" />
  	</p>
- #{/field}
+
   <table>
    <tr>
     <td><input type="submit" class="submit" value="Publier l'article"></td>
@@ -49,7 +45,7 @@
 <script type="text/javascript" src="/public/javascripts/jquery.ui.js"></script>  
         <script type="text/javascript">
         $(function() {
-            $( "#publicationDate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+            $("#datepicker").datepicker({dateFormat: 'dd/mm/yy'});
         });
 
         </script>
@@ -59,10 +55,4 @@
 		});
 	
 		</script>
-
-<script>
-    $(function() {
-        $( "#datepicker" ).datepicker();
-    });
-</script>
 #{/form}

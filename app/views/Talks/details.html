@@ -16,7 +16,7 @@
 					#{else}
 						<img class="auteur-image" src="http://placekitten.com/g/200/300"/>
 					#{/else}
-						<p class="auteur-text"> Par <a>${talk.speaker.fullName}</a></p>
+						<p class="auteur-text"> Par <a>${talk.speaker.fullName}</a><br />${talk.getFormattedCreationDate()}</p>
 					</section><br /><br />
  					 <center>
  					 	<span class="iframeDetails">
@@ -47,7 +47,7 @@
     </div>
     <section class="comments-text">
     #{list items:talk.comments, as:'comment'}
-        <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.date}</p>
+        <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.getFormattedCreationDate()}</p>
         <p>${comment.content}</p>
     #{/list}
     </section>

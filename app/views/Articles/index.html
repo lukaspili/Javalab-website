@@ -21,7 +21,7 @@
 			#{else}
 				<img class="auteur-image" src="http://placekitten.com/g/200/300"/>
 			#{/else}
-						<p class="auteur-text"> Par <a>${article.author.firstName}</a><br />${article.creationDate}</p>
+						<p class="auteur-text"> Par <a>${article.author.firstName}</a><br />${article.getFormattedCreationDate()}</p>
 					</section>
 					<section class="article-text">
                         <p>${article.getLimitedContent().raw()}</p>

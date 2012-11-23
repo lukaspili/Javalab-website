@@ -37,7 +37,7 @@
 					</div>
 					<section class="comments-text">
                         #{list items:article.comments, as:'comment'}
-                            <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.date}</p>
+                            <p>Commentaire écrit par <b>${comment.username}</b> le ${comment.getFormattedCreationDate()}</p>
                             <p>${comment.content}</p>
                         #{/list}
                     </section>

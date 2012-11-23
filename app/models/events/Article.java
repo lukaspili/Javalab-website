@@ -46,5 +46,9 @@ public class Article  extends Model {
         }
         return  content;
     }
+
+    public String getFormattedCreationDate() {
+        return creationDate.toString("dd/MM/yy");
+    }
 	
 }

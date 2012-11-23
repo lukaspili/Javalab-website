@@ -27,4 +27,8 @@ public class Comment extends Model {
         this.date = new LocalDate();
     }
 
+    public String getFormattedCreationDate() {
+        return date.toString("dd/MM/yy");
+    }
+
 }

@@ -31,4 +31,8 @@ public class Talk extends Model {
     public List<Comment> comments;
 
     public Talk() {}
+
+    public String getFormattedCreationDate() {
+        return date.toString("dd/MM/yy");
+    }
 }
