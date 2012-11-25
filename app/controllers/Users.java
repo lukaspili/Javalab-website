@@ -6,7 +6,9 @@ import controllers.security.Auth;
 import controllers.security.LoggedAccess;
 import controllers.security.PublicAccess;
 import helper.Logger;
+import models.events.Article;
 import models.events.Project;
+import models.events.Talk;
 import models.users.Campus;
 import models.users.Picture;
 import models.users.Profile;
@@ -19,10 +21,7 @@ import play.libs.OpenID;
 import play.mvc.Http;
 import play.mvc.Router;
 import play.mvc.Util;
-import service.CampusService;
-import service.PictureService;
-import service.ProjectService;
-import service.UserService;
+import service.*;
 import util.OpenIDUtils;
 
 import javax.inject.Inject;
@@ -56,6 +55,12 @@ public class Users extends AppController {
     
     @Inject
     private static ProjectService projectService;
+
+    @Inject
+    private static TalksService talksService;
+
+    @Inject
+    private static ArticleService articleService;
 
     @Util
     public static User getSafeUser(long userId) {
@@ -223,13 +228,14 @@ public class Users extends AppController {
 
     @LoggedAccess
     public static void details(long userId) {
-
         User user = User.findById(userId);
         notFoundIfNull(user);
 
         List<Project> projects = projectService.getProjectsByUser(user);
+        List<Talk> talks = talksService.getTalksByUser(user);
+        List<Article> articles = articleService.getArticlesByUser(user);
         
-        render(user, projects);
+        render(user, projects, talks, articles);
     }
 
     @LoggedAccess

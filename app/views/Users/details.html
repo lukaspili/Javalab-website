@@ -44,10 +44,33 @@
 					#{/list}					
 				#{/if}
 				#{else}
-					Cet utilisateur ne participe à aucun projet.
+					<p>Cet utilisateur ne participe à aucun projet.</p>
 				#{/else}
 			</div>
-
+            <div class="profile-feature">
+                <h3>Mini-talks</h3>
+                #{if user.talks}
+                    #{list items:talks, as:'talk'}
+                        <p>${talk.getFormattedCreationDate()} -
+                            #{a @Talks.details(talk.id)}${talk.title}#{/a}</p>
+                    #{/list}
+                #{/if}
+                #{else}
+                    <p>Cet utilisateur n'a participé à aucun mini-talk.</p>
+                #{/else}
+            </div>
+            <div class="profile-feature">
+                <h3>Articles</h3>
+                #{if user.articles}
+                    #{list items:articles, as:'article'}
+                        <p>${article.getFormattedCreationDate()} -
+                            #{a @Articles.details(article.id)}${article.title}#{/a}</p>
+                    #{/list}
+                #{/if}
+                #{else}
+                    <p>Cet utilisateur n'a rédigé aucun article.</p>
+                #{/else}
+            </div>
 		</div>
 	</article>	
 </div>

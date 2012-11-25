@@ -1,6 +1,9 @@
 package service;
 
 import models.events.Article;
+import models.users.User;
+
+import java.util.List;
 
 /**
  * @author Kevin Valfin
@@ -19,4 +22,8 @@ public class ArticleService {
 		
 		return articleToCreate; 
 	}
+    
+    public List<Article> getArticlesByUser(User user) {
+        return Article.find("author = ? order by creationDate desc", user).fetch();
+    }
 }
